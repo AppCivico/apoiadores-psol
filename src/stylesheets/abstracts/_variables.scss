@@ -91,9 +91,6 @@ $modularscale: (
 	base: 1rem,
 	ratio: 1.25
 );
-$_green--base: rgb(17, 135, 100);
-
-$_orange--light: tint(rgb(235, 92, 56), 50%);
 
 /// List all available colors and tones.
 ///
@@ -167,21 +164,27 @@ $palette: (
 	'tap-highlight': transparent,
 	'target-highlight': transparent,
 	'orange': (
-		'light': $_orange--light,
-
+		'base': rgb(255, 153, 51),
+		'dark': rgb(255, 153, 0),
+	),
+	'blue': (
 		'base': rgb(255, 102, 51),
-		'dark': rgb(208, 78, 42),
-		'highlight': rgb(255, 102, 51),
+		'dark': shade(rgb(255, 102, 51), 35%),
+	),
+	'purple': (
+		'base': rgb(102, 51, 204),
+		'light': rgb(197, 174, 255),
 	),
 	'green': (
 		'light': rgb(139, 255, 205),
-		'base': $_green--base,
-		'dark': shade($_green--base, 35%),
+		'base': rgb(255, 102, 51),
+		'dark': shade(rgb(255, 102, 51), 35%),
 		'menu': rgb(0, 255, 153),
 	),
 	'text': (
 		'dark': hsl(0, 0%, 13%),
 		'light': rgb(229, 231, 234),
+		'base': rgb(51, 51, 51),
 	),
 );
 
