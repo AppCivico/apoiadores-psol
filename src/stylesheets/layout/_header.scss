@@ -4,61 +4,16 @@
 	color: palette('white');
 
 	background-image:
-		url('../assets/images/backgrounds/bg-circles-destaque-gd.png'),
-		url('../assets/images/backgrounds/bg-circles-destaque-pq.png'),
-		url('../assets/images/backgrounds/img-destaque--1600.jpg');
+	url('../assets/images/backgrounds/img-destaque--1600.jpg');
 
 
-	background-position: right 90%, left bottom, 0 0;
-	background-size: auto, auto, cover;
+	background-position: auto;
+	background-size: cover;
 	background-color: palette('gray', 'dark');
-
-	@media screen and (min-width: 480px) {
-		background-image:
-		url('../assets/images/backgrounds/bg-circles-destaque-gd.png'),
-		url('../assets/images/backgrounds/bg-circles-destaque-pq.png'),
-	}
-
-	@media screen and (min-width: 600px) {
-		background-image:
-		url('../assets/images/backgrounds/bg-circles-destaque-gd.png'),
-		url('../assets/images/backgrounds/bg-circles-destaque-pq.png'),
-	}
-
-	@media screen and (min-width: 768px) {
-		background-image:
-		url('../assets/images/backgrounds/bg-circles-destaque-gd.png'),
-		url('../assets/images/backgrounds/bg-circles-destaque-pq.png'),
-	}
-
-	@media screen and (min-width: 800px) {
-		background-image:
-		url('../assets/images/backgrounds/bg-circles-destaque-gd.png'),
-		url('../assets/images/backgrounds/bg-circles-destaque-pq.png'),
-	}
-
-	@media screen and (min-width: 960px) {
-		background-image:
-		url('../assets/images/backgrounds/bg-circles-destaque-gd.png'),
-		url('../assets/images/backgrounds/bg-circles-destaque-pq.png'),
-	}
-
-	@media screen and (min-width: 1200px) {
-		background-image:
-		url('../assets/images/backgrounds/bg-circles-destaque-gd.png'),
-		url('../assets/images/backgrounds/bg-circles-destaque-pq.png'),
-	}
-
-	@media screen and (min-width: 1400px) {
-		background-image:
-			url('../assets/images/backgrounds/bg-circles-destaque-gd.png'),
-			url('../assets/images/backgrounds/bg-circles-destaque-pq.png'),
-	}
 
 	@media screen and (min-width: 1600px) {
 		background-image:
-			url('../assets/images/backgrounds/bg-circles-destaque-gd.png'),
-			url('../assets/images/backgrounds/bg-circles-destaque-pq.png'),
+		url('../assets/images/backgrounds/img-destaque--1600.jpg');
 	}
 }
 
