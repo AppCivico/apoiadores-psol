@@ -83,7 +83,7 @@ fieldset ul {
 	white-space: nowrap;
 	text-align: center;
 	font-weight: inherit;
-	background-color: palette('green');
+	background-color: palette('blue');
 	border-radius: $rounded-corner;
 	font-size: inherit;
 	position: static;
@@ -178,7 +178,7 @@ fieldset ul {
 	color: palette('disabled', 'foreground');
 }
 
-.checkbox-custom{
+.checkbox-custom {
 	@include clearfix;
 
 	color: palette('white');

@@ -58,11 +58,10 @@ $default-articles-padding: 12.5rem;
 }
 
 .home__donate {
-	$bg: palette('green', 'dark');
 
-	color: text-contrast($bg, palette('white'));
+	color: palette('white');
 
-	background-color: $bg;
+	background-color: palette('blue', 'dark');
 }
 
 .subtitle {
@@ -202,9 +201,9 @@ $default-articles-padding: 12.5rem;
 
 		padding-bottom: $default-articles-padding-small;
 
-		@media screen and (min-width: breakpoint('tablet')) {
-			padding-bottom: $default-articles-padding;
-	}
+			@media screen and (min-width: breakpoint('tablet')) {
+				padding-bottom: $default-articles-padding;
+			}
 		}
 	}
 }
@@ -213,4 +212,12 @@ $default-articles-padding: 12.5rem;
 	$bg: palette('gray', 'light');
 
 	background-color: $bg;
+}
+
+.italic-text {
+	font-style: italic;
+}
+.bigger-text {
+	font-size: ms(1);
+	font-weight: 800;
 }
