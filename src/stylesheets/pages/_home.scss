@@ -178,14 +178,9 @@ $default-articles-padding: 12.5rem;
 
 .home__knowMore {
 	background-position: center bottom;
-	background-image: url('../assets/images/backgrounds/img-saibamais--320.jpg');
 
-	&[class] {
-		padding-bottom: 200px;
-	}
 
 	@media screen and (min-width: 480px) {
-		background-image: url('../assets/images/backgrounds/img-saibamais--480.jpg');
 
 		&[class] {
 			padding-bottom: 320px;
@@ -193,7 +188,6 @@ $default-articles-padding: 12.5rem;
 	}
 
 	@media screen and (min-width: 640px) {
-		background-image: url('../assets/images/backgrounds/img-saibamais--640.jpg');
 
 		&[class] {
 			padding-bottom: 420px;
@@ -201,7 +195,6 @@ $default-articles-padding: 12.5rem;
 	}
 
 	@media screen and (min-width: 1024px) {
-		background-image: url('../assets/images/backgrounds/img-saibamais--1024.jpg');
 		min-height: 683px;
 
 		background-position: left bottom;
@@ -212,12 +205,7 @@ $default-articles-padding: 12.5rem;
 		@media screen and (min-width: breakpoint('tablet')) {
 			padding-bottom: $default-articles-padding;
 	}
-
 		}
-	}
-
-	@media screen and (min-width: 1280px) {
-		background-image: url('../assets/images/backgrounds/img-saibamais--1280.jpg');
 	}
 }
 
