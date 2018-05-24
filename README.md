@@ -1,4 +1,4 @@
-# Apoiadores for Marina Silva
+# Apoiadores for PSOL
 
 > Powered by Vue.js
 
