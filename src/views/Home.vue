@@ -3,11 +3,10 @@
 		<article class="home__intro">
 			<div class="container">
         <h2>
-          Expandir a Rede para unir o Brasil
+          Ajude o <span class="italic-text">PSOL</span> a mudar o brasil!
         </h2>
 
-        <p>A Rede Sustentabilidade nasce da união de pessoas que acreditam em novas formas de fazer política. Na contramão deste desejo, os grandes partidos dividem o país numa falsa polarização, mas se unem por trás dos panos para criar fundos bilionários com recursos públicos, sufocar qualquer possibilidade de renovação e se manter no poder. Com Marina como porta-voz e milhares de apoiadores em todo país, temos chances reais de fazer frente a essa farsa. Juntos, podemos equilibrar a disputa. Criamos essa campanha de financiamento coletivo para expandir a Rede e assim unir todas as pessoas que compartilham desse sonho. Uma nova forma de fazer política nasce de uma forma diferente de financiar a política. Faça sua contribuição, compartilhe a página e seja parte da mudança.</p>
-
+        <p><span class="bigger-text">Por que financiar o PSOL?</span> Em tempos de tantos escândalos, somos um dos poucos partidos sem envolvimento em nenhuma denúncia de corrupção. Nunca recebemos dinheiro das grandes empresas e lutamos pelo fim do financiamento privado de campanhas. <span class="bigger-text">O que o PSOL quer?</span> Um país de direitos, democracia e sem desigualdades. Nossa bancada no Congresso é reconhecidamente a melhor do país, sempre atuando com independência, ética e coerência. <span class="bigger-text">O dinheiro vai ser usado para quê?</span> Para a construção aberta das propostas que vamos apresentar nessas eleições, com Guilherme Boulos e Sonia Guajajara. Serão realizados debates abertos em todo o país, com participação de especialistas - e tudo consolidado em uma plataforma na internet. <span class="bigger-text">Eu posso participar?</span> Nossa construção é coletiva, de baixo para cima. Você pode participar dos eventos de construção do programa e também participar online, debatendo e fazendo novas propostas. O nosso programa é feito de forma aberta, e só é possível com a sua participação. <span class="bigger-text">Vamos?</span></p>
         <section id="campaign-progress" class="campaign-progress">
           <p>
             <span class="currency">R$</span>
@@ -34,14 +33,6 @@
             <a href="#home__donors" class="campaign-progress__link" v-scroll-to="'#home__donors'">Veja quem doou</a>
           </p>
 
-          <p class="contact-rede">
-			contato
-          </p>
-
-          <p class="contact-rede-email">
-			<a href="mailto:financiamento@redesustentabilidade.org.br">financiamento&#8203@redesustentabilidade.org.br</a>
-          </p>
-
         </section>
       </div>
     </article>
@@ -58,15 +49,23 @@
           Saiba mais
         </h2>
 
-        <p><strong>Os problemas da política nacional nascem no seu financiamento.</strong> No centro dos escândalos de corrupção recentes, as doações de empresa para a campanhas eleitorais foram proibidas pela Justiça em 2015. <strong>No palanque, os grandes e velhos partidos encenam uma  polarização que domina o debate público. Nos bastidores, porém, deixam de lado as rivalidades e fazem acordos para conseguir mais recursos e se manter no poder.</strong> Unidos, quase triplicaram o fundo partidário e criaram um fundo eleitoral bilionário. Foi assaltando os cofres públicos que eles resolveram o buraco deixado pela falta das doações das empresas. </p>
+        <p> <strong>Viabilizar a realização de eventos nas 5 regiões do país para a construção do programa.</strong>
+		Vamos construir junto aos movimentos sociais eventos abertos para que todas e todos possam debater e propor suas ideias para o Brasil, nas mais diversas temáticas. Para isso, é necessário viabilizar a estrutura necessária para os debates, bem como o deslocamento de debatedores e a cobertura de comunicação. É o maior custo dessa proposta.
+		</p>
+        <p><strong>Manutenção de plataforma online para participação e mobilização.</strong>
+		Nossa plataforma online será totalmente focada na participação: será possível cadastrar um grupo pequeno, em sua cidade ou bairro, para debater e construir nossa pré-campanha, realizar eventos e se articular com outros grupos e pessoas. Além disso, você poderá fazer propostas e debater as que outras pessoas estarão propondo.
+		</p>
 
-        <p>A Rede Sustentabilidade é a favor da participação do dinheiro público no financiamento da política. Quando as campanhas são financiados apenas pelo dinheiro privado, os políticos podem acabar ficando amarrados aos interesses dos financiadores. O resultado desse desequilíbrio vem sendo revelado pela Polícia Federal em operação como a Lava-Jato. Em 2016, a Organização para Cooperação e Desenvolvimento Econômico (OCDE) divulgou um <a href="https://read.oecd-ilibrary.org/governance/financing-democracy_9789264249455-en#page1" target="_blank">relatório</a> mostrando que o partidos políticos nos países pesquisados foram financiados, em média, 73% com dinheiro público e 27% com dinheiro privado. Já no Brasil, o mesmo relatório aponta que a campanha eleitoral de 2014 foi financiada com 95% de recursos privados e apenas 5% de fundos públicos. </p>
+        <p> <strong>Campanha de comunicação.</strong>
+		A construção de uma campanha online que fure o bloqueio da grande mídia é essencial para fazer com que essas propostas cheguem ao máximo possível de pessoas. Para isso, vamos contratar equipe qualificada em redes sociais e comprar os equipamentos necessários para transmissões ao vivo dos eventos, cobertura fotográfica e produção de conteúdos de divulgação.
+		</p>
+        <p><strong>Sistematização das propostas feitas.</strong>
+		Durante a realização dos eventos e dos debates em nossa plataforma online, será preciso consolidar todas as propostas realizadas em eixos concretos para apresentar o programa ao país. Assim, é necessário ter pessoas dedicadas à sistematização da ampla gama de propostas e ideias surgidas, bem como viabilizar a apresentação e divulgação delas para todas e todos que participaram do processo.
+		</p>
 
-        <p>O dinheiro público deve ajudar a financiar as campanhas justamente para reduzir a possibilidade de uma troca de favores depois das eleições. Mas não da maneira como foi aprovada pelo Congresso. O formato atual só serve para beneficiar os mesmos partidos e engessar a política. <strong>O fundo precisa ser menor e mais bem distribuído.</strong> Os grandes partidos criaram um ciclo vicioso que favorece imensamente quem já está no poder.</p>
 
-        <p><strong>Acreditamos que temos chances reais de romper com essa lógica em 2018.</strong> Queremos concentrar esforços em expandir a presença e o alcance da Rede pelo Brasil e assim articular todas e todos que compartilham desse objetivo comum. <strong>E pra isso, nada melhor do que Marina Silva levar nossas ideias pelos quatro cantos do país,</strong> conversando olhos nos olhos com brasileiras e brasileiros e mostrando não apenas que existem novas formas de se fazer política, mas também que é possível começarmos agora!</p>
 
-        <p><strong>Para reinventar o país é preciso reinventar a forma como financiamos a política.</strong> Mais uma vez acreditamos na colaboração como caminho. <strong>Contribua e faça parte da expansão da rede que vai unir o Brasil.</strong></p>
+
       </div>
     </article>
 
@@ -77,10 +76,8 @@
         </h2>
 
         <h3>R$ 100 mil</h3>
-        <p>Para que possamos realizar tudo que desejamos, precisamos financiar as viagens da Marina e outras lideranças da Rede pelo país. Com esse valor, conseguiremos realizar eventos em cinco capitais diferentes, levando ideias, propostas e uma visão diferente de país para diversas regiões</p>
+        <p>Quisque sed diam at velit venenatis venenatis. Aenean ligula ipsum, posuere ut tempor non, tempus et est. Nam at nisl in felis dapibus sollicitudin nec eget libero. Fusce nec tortor tristique, cursus sem sed, dapibus sapien. Proin porttitor odio quis sem mollis aliquam. Proin eget gravida metus, quis condimentum ante. Nulla vitae posuere felis, et auctor erat. Aenean pellentesque nibh sapien, non commodo nibh scelerisque suscipit. Duis luctus arcu nisi, id congue risus finibus in. Donec et rutrum dui, in ultrices lectus. Nullam volutpat accumsan ante eget mollis. Pellentesque blandit odio sed lorem accumsan vestibulum. Vivamus porttitor suscipit purus sit amet egestas. Morbi vitae hendrerit arcu. Morbi a ipsum tristique, tincidunt tortor in, fringilla velit. Sed bibendum mauris in tortor aliquam lobortis. Mauris luctus dui quis leo egestas laoreet. Integer finibus quam eget scelerisque iaculis. Maecenas non ante et massa mattis congue. Maecenas elementum felis vitae odio hendrerit fermentum. Integer ac vehicula dui.</p>
 
-        <h3>R$ 200 mil</h3>
-        <p>Sabemos que os adversários políticos usarão de todas as artimanhas para desestabilizar a Rede e a Marina. São os reis das mentiras, acusações levianas e notícias falsas. Precisamos combater isso tudo. Com essa arrecadação produziremos vídeos e materiais gráficos abordando essas fake news contra a Marina e a Rede e divulgando as verdadeiras propostas para unir o Brasil</p>
 
       </div>
     </article>
