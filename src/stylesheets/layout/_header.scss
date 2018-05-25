@@ -23,6 +23,52 @@
 	height: 100vh;
 }
 
+.site-header .logo-psol[class] {
+	@media screen and (min-width: breakpoint('wide')) {
+		font-size: inherit;
+		position: absolute;
+		float: left;
+		left: -1em;
+		top: 0;
+	}
+}
+
+.site-header .logo-psol a {
+	display: none;
+
+	@media screen and (min-width: breakpoint('wide')) {
+		@include image-replacement;
+		display: block;
+
+		height: $leading * 2rem;
+		min-width: 213px;
+		min-height: 39px;
+
+		background-image: url('../assets/images/icons/logo-psol.png');
+		background-position: 50% 50%;
+	}
+}
+
+.site-header .main-menu[class] {
+	width: 100%;
+
+	margin-right: auto;
+	margin-left: auto;
+
+	font-size: ms(-1);
+
+	@media screen and (min-width: breakpoint('phablet')) {
+		font-size: inherit;
+	}
+
+	@media screen and(min-width: breakpoint('wide')) {
+		width: auto;
+		margin-right: 0;
+		margin-left: auto;
+	}
+
+}
+
 .site-label {
 	display: table;
 	position: absolute;
@@ -64,7 +110,13 @@
 
 .site-header h1 span {
 	display: block;
-	text-align: right;
+	text-align: center;
+
+	@media screen and (min-width: breakpoint('desktop')) {
+		margin-top: 0.5em;
+		text-align: right;
+		font-size: ms(9);
+	}
 }
 
 
