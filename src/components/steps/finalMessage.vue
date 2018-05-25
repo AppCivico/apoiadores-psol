@@ -5,10 +5,10 @@
 
 	<ul id="wrap-share">
 		<li>
-			<a class="twitter-hashtag-button twitter" href="https://twitter.com/intent/tweet?button_hashtag=SomosRede">Compartilhar</a>
+			<a class="twitter-hashtag-button twitter" href="https://twitter.com/intent/tweet?button_hashtag=PSOL">Compartilhar</a>
 		</li>
 		<li>
-			<a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fsomosrede.com.br%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore facebook">Compartilhar</a>
+			<a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fpsol50.org.br%2Ffinancie&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore facebook">Compartilhar</a>
 		</li>
 	</ul>
   </section>
