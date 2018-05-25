@@ -56,6 +56,11 @@
 		Nossa plataforma online será totalmente focada na participação: será possível cadastrar um grupo pequeno, em sua cidade ou bairro, para debater e construir nossa pré-campanha, realizar eventos e se articular com outros grupos e pessoas. Além disso, você poderá fazer propostas e debater as que outras pessoas estarão propondo.
 		</p>
 
+		<figure>
+			<img src="../assets/images/photos/psol.jpg" alt="Boulos e Sônia do PSOL">
+			<figcaption>Boulos e Sônia do PSOL </figcaption>
+		</figure>
+
         <p> <strong>Campanha de comunicação.</strong>
 		A construção de uma campanha online que fure o bloqueio da grande mídia é essencial para fazer com que essas propostas cheguem ao máximo possível de pessoas. Para isso, vamos contratar equipe qualificada em redes sociais e comprar os equipamentos necessários para transmissões ao vivo dos eventos, cobertura fotográfica e produção de conteúdos de divulgação.
 		</p>
