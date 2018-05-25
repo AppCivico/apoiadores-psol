@@ -72,6 +72,10 @@ $default-articles-padding: 12.5rem;
 
 .subtitle a {
 	color: palette('white');
+
+	&:hover {
+		color: palette('orange');
+	}
 }
 
 .home__donate h2 strong {
@@ -175,37 +179,13 @@ $default-articles-padding: 12.5rem;
 
 }
 
-.home__knowMore {
-	background-position: center bottom;
+#home__knowMore img {
+	width: 100%;
 
+}
 
-	@media screen and (min-width: 480px) {
-
-		&[class] {
-			padding-bottom: 320px;
-		}
-	}
-
-	@media screen and (min-width: 640px) {
-
-		&[class] {
-			padding-bottom: 420px;
-		}
-	}
-
-	@media screen and (min-width: 1024px) {
-		min-height: 683px;
-
-		background-position: left bottom;
-		&[class] {
-
-		padding-bottom: $default-articles-padding-small;
-
-			@media screen and (min-width: breakpoint('tablet')) {
-				padding-bottom: $default-articles-padding;
-			}
-		}
-	}
+#home__knowMore figcaption {
+	display: none;
 }
 
 .home__goals {
