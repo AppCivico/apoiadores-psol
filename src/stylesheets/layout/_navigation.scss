@@ -8,10 +8,40 @@ nav {
 	margin-top: $gutter * 1;
 }
 
+.site-header .container {
+	@media screen and (min-width: breakpoint('wide')) {
+		font-size: inherit;
+		background-image: url('../assets/images/icons/logo-psol.png');
+		background-position: 2.5em 0.3em;
+		background-repeat: no-repeat;
+	}
+}
+
+.site-header .main-menu[class] {
+	width: 100%;
+
+	margin-right: auto;
+	margin-left: auto;
+
+	font-size: ms(-1);
+
+	@media screen and (min-width: breakpoint('phablet')) {
+		font-size: inherit;
+	}
+
+	@media screen and(min-width: breakpoint('wide')) {
+		width: auto;
+		margin-right: 0;
+		margin-left: auto;
+	}
+
+}
+
 menu ul,
 menu ol,
 nav ul,
 nav ol {
+
 	text-align: center;
 	display: table-row;
 
@@ -24,7 +54,6 @@ nav ol {
 menu li,
 nav li {
 	display: table-cell;
-
 	margin-left: $gutter * 0.5;
 	margin-right: $gutter * 0.5;
 	margin-top: $gutter * 0.2;
@@ -45,6 +74,7 @@ nav li {
 }
 li.donate-nav {
 	color: palette('purple', 'light');
+
 }
 
 
