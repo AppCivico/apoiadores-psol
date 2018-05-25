@@ -188,15 +188,15 @@ $default-articles-padding: 12.5rem;
 	display: none;
 }
 
-.home__goals {
+#home__donors {
 	$bg: palette('gray', 'light');
-
 	background-color: $bg;
 }
 
 .italic-text {
 	font-style: italic;
 }
+
 .bigger-text {
 	font-size: ms(1);
 	font-weight: 800;
