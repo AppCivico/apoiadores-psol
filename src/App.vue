@@ -24,7 +24,7 @@ export default {
   methods: {
     handleSession() {
       if(window.localStorage) {
-        const tokenName = window.location.host === 'somosrede.com.br'
+        const tokenName = window.location.host === 'psol50.org.br/financie'
 						? 'prod_apm_token'
 						: 'dev_apm_token';
         const token = localStorage.getItem(tokenName);

@@ -58,7 +58,7 @@
 
 		<figure>
 			<img src="../assets/images/photos/psol.jpg" alt="Boulos e Sônia do PSOL">
-			<figcaption>Boulos e Sônia do PSOL </figcaption>
+			<figcaption>Boulos e Sônia do PSOL</figcaption>
 		</figure>
 
         <p> <strong>Campanha de comunicação.</strong>
@@ -125,7 +125,7 @@ export default {
     Payment,
   },
   mounted() {
-    const candidateId = window.location.host === 'somosrede.com.br'
+    const candidateId = window.location.host === 'psol50.org.br/financie'
     ? 40
     : 130;
     this.$store.dispatch('GET_CANDIDATE_INFO', candidateId);
