@@ -74,19 +74,6 @@
       </div>
     </article>
 
-    <article id="home__goals" class="home__goals">
-      <div class="container" id="donation-wrap">
-        <h2>
-          Metas
-        </h2>
-
-        <h3>R$ 100 mil</h3>
-        <p>Quisque sed diam at velit venenatis venenatis. Aenean ligula ipsum, posuere ut tempor non, tempus et est. Nam at nisl in felis dapibus sollicitudin nec eget libero. Fusce nec tortor tristique, cursus sem sed, dapibus sapien. Proin porttitor odio quis sem mollis aliquam. Proin eget gravida metus, quis condimentum ante. Nulla vitae posuere felis, et auctor erat. Aenean pellentesque nibh sapien, non commodo nibh scelerisque suscipit. Duis luctus arcu nisi, id congue risus finibus in. Donec et rutrum dui, in ultrices lectus. Nullam volutpat accumsan ante eget mollis. Pellentesque blandit odio sed lorem accumsan vestibulum. Vivamus porttitor suscipit purus sit amet egestas. Morbi vitae hendrerit arcu. Morbi a ipsum tristique, tincidunt tortor in, fringilla velit. Sed bibendum mauris in tortor aliquam lobortis. Mauris luctus dui quis leo egestas laoreet. Integer finibus quam eget scelerisque iaculis. Maecenas non ante et massa mattis congue. Maecenas elementum felis vitae odio hendrerit fermentum. Integer ac vehicula dui.</p>
-
-
-      </div>
-    </article>
-
     <article id="home__donors" class="home__donors">
       <div class="container" id="donation-wrap">
         <h2>
