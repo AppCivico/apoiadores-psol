@@ -17,35 +17,25 @@
 	}
 }
 
-.site-header .container {
+.header-container {
 	position: relative;
 	min-height: 35em;
 	height: 100vh;
+	max-width: $max-width;
+
+	padding-right: $gutter;
+	padding-left: $gutter;
+	margin-right: auto;
+	margin-left: auto;
 }
 
-.site-header .logo-psol[class] {
+.logo-psol {
 	@media screen and (min-width: breakpoint('wide')) {
 		font-size: inherit;
 		position: absolute;
 		float: left;
 		left: -1em;
 		top: 0;
-	}
-}
-
-.site-header .logo-psol a {
-	display: none;
-
-	@media screen and (min-width: breakpoint('wide')) {
-		@include image-replacement;
-		display: block;
-
-		height: $leading * 2rem;
-		min-width: 213px;
-		min-height: 39px;
-
-		background-image: url('../assets/images/icons/logo-psol.png');
-		background-position: 50% 50%;
 	}
 }
 
@@ -68,68 +58,97 @@
 	}
 
 }
+.site-header .logo-psol a {
+	display: none;
+
+	@media screen and (min-width: breakpoint('wide')) {
+		@include image-replacement;
+		display: block;
+
+		height: $leading * 2rem;
+		min-width: 213px;
+		min-height: 39px;
+
+		background-image: url('../assets/images/icons/logo-psol.png');
+		background-position: 50% 50%;
+	}
+}
+
 
 .site-label {
-	display: table;
+	margin: auto;
 	position: absolute;
-	top: 45%;
-	transform: translateY(-50%);
-	right: $gutter * 1;
-	left: $gutter * 1;
+	text-align: right;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	-webkit-transform: translate(-50%, -50%);
+	width: 100%;
+	padding-right: $gutter;
+	padding-left: $gutter;
 
-	@media screen and (min-width: breakpoint('tablet')) {
-		right: $gutter * 1.5;
-		left: $gutter * 1.5;
+	@media screen and(min-width: breakpoint('phablet')) {
+		max-width: 20em;
 	}
 
-	.site-header &[class] {
-		max-width: 100%;
-		margin-right: auto;
-		margin-left: auto;
+	@media screen and(min-width: breakpoint('tablet')) {
+		max-width: 50%;
 	}
 
-	@media screen and (min-width: 750px) {
-		width: 900px;
+	@media screen and(min-width: breakpoint('wide')) {
+		max-width: 65em;
 	}
 }
 
 .site-label p {
 	color: palette('purple', 'light');
 	text-align: left;
-	font-size: ms(3);
+	font-size: ms(1);
 	text-transform: uppercase;
-	margin: 0;
+	line-height: 1;
+	margin-bottom: 0;
 
+	@media screen and(min-width: breakpoint('phablet')) {
+		font-size: ms(3);
+	}
+
+	@media screen and(min-width: breakpoint('wide')) {
+		font-size: ms(4);
+	}
 }
 
 .site-header h1 {
-	margin: 0;
+	margin: auto;
 	padding: 0;
-	line-height: $leading * 0.5em;
+	line-height: 1;
+
 }
 
 .site-header h1 span {
-	display: block;
-	text-align: center;
+	text-align: right;
+
+	@media screen and(min-width: breakpoint('phablet')) {
+		display: block;
+	}
 
 	@media screen and (min-width: breakpoint('desktop')) {
-		margin-top: 0.5em;
-		text-align: right;
+		margin-top: 0.1em;
 		font-size: ms(9);
 	}
 }
 
 
 .site-header .call-to-action {
-	float: right;
-	color: palette('white');
-	font-size: ms(1);
+	right: 0;
+	font-size: ms(2);
 	text-decoration: none;
 	font-weight: 800;
 	font-style: italic;
 	text-transform: uppercase;
+	color: palette('white');
+	font-weight: 800;
 
-	@media screen and (min-width: breakpoint('phablet')) {
-		font-size: ms(2);
+@media screen and (min-width: breakpoint('desktop')) {
+		font-size: ms(3);
 	}
 }
