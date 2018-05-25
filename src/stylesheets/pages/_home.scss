@@ -2,8 +2,6 @@ $default-articles-padding-small: 6rem;
 
 $default-articles-padding: 12.5rem;
 
-
-
 .home-page article {
 	padding-top: $default-articles-padding-small;
 	padding-bottom: $default-articles-padding-small;
@@ -18,7 +16,6 @@ $default-articles-padding: 12.5rem;
 .home__intro {
 	color: palette('white');
 
-	background-image: url('../assets/images/backgrounds/bg-circles-frase.png');
 	background-color: palette('orange');
 }
 
