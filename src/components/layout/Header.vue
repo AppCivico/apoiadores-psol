@@ -8,6 +8,9 @@
 	</nav>
 	<div class="container">
 		<nav class="main-menu">
+		<div class="logo-psol">
+			<a href="/" target="_blank">PSOL</a>
+		</div>
 		<ul>
 			<li>
 			<a href="#home__knowMore" v-scroll-to="'#home__knowMore'">
