@@ -6,7 +6,7 @@ import axios from 'axios';
 Vue.use(Vuex);
 
 const api =
-  window.location.host === 'somosrede.com.br'
+  window.location.host === 'psol50.org.br/financie'
     ? 'https://api.votolegal.com.br'
     : 'https://dapi.votolegal.com.br';
 

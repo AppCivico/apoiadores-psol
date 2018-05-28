@@ -12,6 +12,7 @@ menu ul,
 menu ol,
 nav ul,
 nav ol {
+
 	text-align: center;
 	display: table-row;
 
@@ -24,7 +25,6 @@ nav ol {
 menu li,
 nav li {
 	display: table-cell;
-
 	margin-left: $gutter * 0.5;
 	margin-right: $gutter * 0.5;
 	margin-top: $gutter * 0.2;
@@ -44,12 +44,13 @@ nav li {
 
 }
 li.donate-nav {
-	color: palette('green', 'menu');
+	color: palette('purple', 'light');
+
 }
 
 
 .donate-nav a {
-	border: 2px solid palette('green', 'menu');
+	border: 2px solid palette('purple', 'light');
 	padding-top: $gutter * 0.1;
 	padding-bottom: $gutter * 0.1;
 
@@ -72,7 +73,7 @@ li.donate-nav {
 	&:link:focus,
 	&:focus,
 	&:active {
-		background-color: palette('green', 'menu');
+		background-color: palette('purple', 'light');
 		color: palette('gray', 'x-dark');
 	}
 

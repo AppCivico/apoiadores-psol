@@ -1,8 +1,8 @@
 <template>
   <footer class="site-footer">
     <div class="container">
-      <div class="rede-sustentabilidade">
-        <a href="http://redesustentabilidade.org.br/" target="_blank">Rede sustentabilidade</a>
+      <div class="psol">
+        <a href="http://psol50.org.br/" target="_blank">PSOL</a>
       </div>
       <div class="site-footer__copyright">
         <div>Proporcionado por</div>

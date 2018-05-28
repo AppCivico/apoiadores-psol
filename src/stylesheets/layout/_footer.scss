@@ -11,7 +11,7 @@
 	@include link-undercover;
 }
 
-.site-footer .rede-sustentabilidade[class] {
+.site-footer .psol[class] {
 	max-width: 50rem;
 
 	margin-right: auto;
@@ -23,7 +23,7 @@
 	}
 }
 
-.site-footer .rede-sustentabilidade a {
+.site-footer .psol a {
 	@include image-replacement;
 
 	display: block;
@@ -32,7 +32,7 @@
 	min-width: 213px;
 	min-height: 39px;
 
-	background-image: url('../assets/images/icons/logo-rede-bottom.png');
+	background-image: url('../assets/images/icons/logo-psol.png');
 	background-position: 50% 50%;
 }
 

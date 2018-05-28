@@ -1,4 +1,4 @@
-# Apoiadores for Rede 
+# Apoiadores for PSOL
 
 > Powered by Vue.js
 

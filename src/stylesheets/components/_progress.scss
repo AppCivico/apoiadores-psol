@@ -33,7 +33,7 @@ progress {
 	}
 	@include progress-bar-bg {
 		// sass-lint:disable-line mixins-before-declarations
-		background-color: palette('orange', 'dark');
+		background-color: palette('progress', 'background');
 	}
 
 	display: block;
@@ -43,7 +43,7 @@ progress {
 
 	color: palette('progress');
 
-	background-color: palette('orange', 'dark');
+	background-color: palette('progress', 'background');
 	// Get rid of default border in Firefox.
 
 	border: 0;

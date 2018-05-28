@@ -3,76 +3,58 @@
 
 	color: palette('white');
 
-	background-image:
-		url('../assets/images/backgrounds/bg-circles-destaque-gd.png'),
-		url('../assets/images/backgrounds/bg-circles-destaque-pq.png'),
-		url('../assets/images/backgrounds/img-destaque--320.jpg');
-
-	background-position: right 90%, left bottom, 0 0;
-	background-size: auto, auto, cover;
 	background-color: palette('gray', 'dark');
+	background-image:
+	url('../assets/images/backgrounds/bg-textura-1200w.png'),
+	url('../assets/images/backgrounds/img-background.png');
+	background-position:
+		center 600px,
+		0 0;
 
-	@media screen and (min-width: 480px) {
-		background-image:
-		url('../assets/images/backgrounds/bg-circles-destaque-gd.png'),
-		url('../assets/images/backgrounds/bg-circles-destaque-pq.png'),
-		url('../assets/images/backgrounds/img-destaque--480.jpg');
+	background-size:
+		auto,
+		cover;
+
+	@media screen and (min-width: breakpoint('tablet')) {
+		background-position:
+		center 500px,
+		0 0;
 	}
 
-	@media screen and (min-width: 600px) {
-		background-image:
-		url('../assets/images/backgrounds/bg-circles-destaque-gd.png'),
-		url('../assets/images/backgrounds/bg-circles-destaque-pq.png'),
-		url('../assets/images/backgrounds/img-destaque--600.jpg');
+	@media screen and (min-width: breakpoint('desktop')) {
+		background-position:
+		right bottom,
+		0 0;
+
 	}
 
-	@media screen and (min-width: 768px) {
-		background-image:
-		url('../assets/images/backgrounds/bg-circles-destaque-gd.png'),
-		url('../assets/images/backgrounds/bg-circles-destaque-pq.png'),
-		url('../assets/images/backgrounds/img-destaque--768.jpg');
-	}
+}
 
-	@media screen and (min-width: 800px) {
-		background-image:
-		url('../assets/images/backgrounds/bg-circles-destaque-gd.png'),
-		url('../assets/images/backgrounds/bg-circles-destaque-pq.png'),
-		url('../assets/images/backgrounds/img-destaque--800.jpg');
-	}
+.header-container {
+	position: relative;
+	min-height: 22em;
+	height: 90vh;
+	max-width: $max-width;
 
-	@media screen and (min-width: 960px) {
-		background-image:
-		url('../assets/images/backgrounds/bg-circles-destaque-gd.png'),
-		url('../assets/images/backgrounds/bg-circles-destaque-pq.png'),
-		url('../assets/images/backgrounds/img-destaque--960.jpg');
-	}
+	padding-right: $gutter;
+	padding-left: $gutter;
+	margin-right: auto;
+	margin-left: auto;
 
-	@media screen and (min-width: 1200px) {
-		background-image:
-		url('../assets/images/backgrounds/bg-circles-destaque-gd.png'),
-		url('../assets/images/backgrounds/bg-circles-destaque-pq.png'),
-		url('../assets/images/backgrounds/img-destaque--1200.jpg');
-	}
-
-	@media screen and (min-width: 1400px) {
-		background-image:
-			url('../assets/images/backgrounds/bg-circles-destaque-gd.png'),
-			url('../assets/images/backgrounds/bg-circles-destaque-pq.png'),
-			url('../assets/images/backgrounds/img-destaque.jpg');
-	}
-
-	@media screen and (min-width: 1600px) {
-		background-image:
-			url('../assets/images/backgrounds/bg-circles-destaque-gd.png'),
-			url('../assets/images/backgrounds/bg-circles-destaque-pq.png'),
-			url('../assets/images/backgrounds/img-destaque--1600.jpg');
+	@media screen and (min-width: breakpoint('tablet')) {
+		height: 100vh;
+		min-height: 35em;
 	}
 }
 
-.site-header .container {
-	position: relative;
-	min-height: 35em;
-	height: 100vh;
+.logo-psol {
+	@media screen and (min-width: breakpoint('wide')) {
+		font-size: inherit;
+		position: absolute;
+		float: left;
+		left: -1em;
+		top: 0;
+	}
 }
 
 .site-header .main-menu[class] {
@@ -94,65 +76,104 @@
 	}
 
 }
+.logo-psol a {
+	display: none;
+
+	@media screen and (min-width: breakpoint('wide')) {
+		@include image-replacement;
+		display: block;
+
+		height: $leading * 2rem;
+		min-width: 213px;
+		min-height: 39px;
+
+		background-image: url('../assets/images/icons/logo-psol.png');
+		background-position: 50% 50%;
+	}
+}
+
 
 .site-label {
-	text-align: center;
+	margin: auto;
 	position: absolute;
-	top: 45%;
-	transform: translateY(-50%);
-	right: $gutter * 1;
-	left: $gutter * 1;
+	text-align: right;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	-webkit-transform: translate(-50%, -50%);
+	width: 100%;
+	max-width: 18em;
+	padding-right: $gutter;
+	padding-left: $gutter;
 
-	@media screen and (min-width: breakpoint('tablet')) {
-		text-align: right;
-		right: $gutter * 1.5;
-		left: $gutter * 1.5;
+	@media screen and(min-width: breakpoint('phablet')) {
+		max-width: 30em;
 	}
 
-	.site-header &[class] {
-		max-width: 100%;
-		margin-right: 0;
-		margin-left: auto;
+	@media screen and(min-width: breakpoint('tablet')) {
+		max-width: 41.1em;
 	}
 
-	@media screen and (min-width: 750px) {
-		width: 687px;
-		left: auto;
+	@media screen and(min-width: breakpoint('desktop')) {
+		max-width: 59em;
+	}
+}
+
+.site-label p {
+	color: palette('purple', 'light');
+	text-align: right;
+	font-size: ms(1);
+	text-transform: uppercase;
+	line-height: 1;
+	margin-bottom: 0;
+
+	@media screen and(min-width: breakpoint('phablet')) {
+		text-align: left;
+		font-size: ms(3);
+	}
+
+	@media screen and(min-width: breakpoint('wide')) {
+		font-size: ms(4);
 	}
 }
 
 .site-header h1 {
-	margin: 0;
+	margin: auto;
 	padding: 0;
-	line-height: $leading * 0.5em;
+	line-height: 1;
 
-//  @media (min-width: breakpoint('wide')) {
-// 		&::after {
-// 			background-image: url('../assets/images/icons/ic-play-video.png');
-// 			background-position: center center;
-// 			background-size: auto 50px;
-// 			float: right;
-// 			width: 90px;
-// 			height: 90px;
-// 			border-radius: 50%;
-// 			background-color: black;
-// 			opacity: 0.8;
-// 			content: '';
-// 		}
-// 	}
+	@media screen and(min-width: breakpoint('tablet')) {
+		line-height: 0.9;
+	}
+
+	@media screen and(min-width: breakpoint('tablet')) {
+		line-height: 0.8;
+	}
+
 }
 
-a.call-to-action {
-	color: palette('green', 'menu');
+.site-header h1 span {
+	text-align: right;
+
+	@media screen and (min-width: breakpoint('desktop')) {
+		display: block;
+		margin-top: 0.1em;
+		font-size: ms(9);
+	}
+}
+
+
+.site-header .call-to-action {
+	right: 0;
 	font-size: ms(2);
 	text-decoration: none;
 	font-weight: 800;
 	font-style: italic;
 	text-transform: uppercase;
+	color: palette('white');
+	font-weight: 800;
 
-	@media screen and (min-width: breakpoint('phablet')) {
-		font-size: ms(4);
+@media screen and (min-width: breakpoint('desktop')) {
+		font-size: ms(3);
 	}
-
-
 }

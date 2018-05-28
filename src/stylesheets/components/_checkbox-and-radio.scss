@@ -76,14 +76,14 @@ fieldset ul {
 .of-radios-and-checks label {
 	display: block;
 
-	padding-top: $leading * 0.4rem;
-	padding-bottom: $leading * 0.4rem;
+	padding-top: $leading * 0.6rem;
+	padding-bottom: $leading * 0.6rem;
 	padding-left: 0;
 	padding-right: 0;
 	white-space: nowrap;
 	text-align: center;
 	font-weight: inherit;
-	background-color: palette('green');
+	background-color: palette('purple');
 	border-radius: $rounded-corner;
 	font-size: inherit;
 	position: static;
@@ -178,7 +178,7 @@ fieldset ul {
 	color: palette('disabled', 'foreground');
 }
 
-.checkbox-custom{
+.checkbox-custom {
 	@include clearfix;
 
 	color: palette('white');

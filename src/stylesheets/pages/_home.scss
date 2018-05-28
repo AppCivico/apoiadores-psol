@@ -2,8 +2,6 @@ $default-articles-padding-small: 6rem;
 
 $default-articles-padding: 12.5rem;
 
-
-
 .home-page article {
 	padding-top: $default-articles-padding-small;
 	padding-bottom: $default-articles-padding-small;
@@ -17,11 +15,21 @@ $default-articles-padding: 12.5rem;
 
 .home__intro {
 	color: palette('white');
-
-	background-image: url('../assets/images/backgrounds/bg-circles-frase.png');
 	background-color: palette('orange');
-}
+	background-image: url('../assets/images/backgrounds/bg-textura-1200w.png');
+	background-position: center -320px;
 
+	background-size: auto;
+
+	@media screen and (min-width: breakpoint('tablet')) {
+		background-position: center -250px;
+	}
+
+	@media screen and (min-width: breakpoint('desktop')) {
+		background-position: right -250px;
+	}
+
+}
 .home-page .container > * {
 	max-width: 50rem;
 
@@ -58,11 +66,10 @@ $default-articles-padding: 12.5rem;
 }
 
 .home__donate {
-	$bg: palette('green', 'dark');
 
-	color: text-contrast($bg, palette('white'));
+	color: palette('white');
 
-	background-color: $bg;
+	background-color: palette('blue');
 }
 
 .subtitle {
@@ -73,6 +80,10 @@ $default-articles-padding: 12.5rem;
 
 .subtitle a {
 	color: palette('white');
+
+	&:hover {
+		color: palette('orange');
+	}
 }
 
 .home__donate h2 strong {
@@ -100,10 +111,10 @@ $default-articles-padding: 12.5rem;
 }
 
 .donation-nav[class] {
-	color: palette('green', 'light');
+	color: palette('purple', 'light');
 
 	@include link-undercover{
-		color: palette('green', 'light');
+		color: palette('purple', 'light');
 		text-decoration: underline;
 	}
 
@@ -127,7 +138,7 @@ $default-articles-padding: 12.5rem;
 
 .donation-nav--forward[class] {
 	text-decoration: underline;
-	color: palette('green', 'light');
+	color: palette('purple', 'light');
 	float: right;
 	font-size: ms(1);
 
@@ -176,53 +187,25 @@ $default-articles-padding: 12.5rem;
 
 }
 
-.home__knowMore {
-	background-position: center bottom;
-	background-image: url('../assets/images/backgrounds/img-saibamais--320.jpg');
+#home__knowMore img {
+	width: 100%;
 
-	&[class] {
-		padding-bottom: 200px;
-	}
-
-	@media screen and (min-width: 480px) {
-		background-image: url('../assets/images/backgrounds/img-saibamais--480.jpg');
-
-		&[class] {
-			padding-bottom: 320px;
-		}
-	}
-
-	@media screen and (min-width: 640px) {
-		background-image: url('../assets/images/backgrounds/img-saibamais--640.jpg');
-
-		&[class] {
-			padding-bottom: 420px;
-		}
-	}
-
-	@media screen and (min-width: 1024px) {
-		background-image: url('../assets/images/backgrounds/img-saibamais--1024.jpg');
-		min-height: 683px;
-
-		background-position: left bottom;
-		&[class] {
-
-		padding-bottom: $default-articles-padding-small;
-
-		@media screen and (min-width: breakpoint('tablet')) {
-			padding-bottom: $default-articles-padding;
-	}
-
-		}
-	}
-
-	@media screen and (min-width: 1280px) {
-		background-image: url('../assets/images/backgrounds/img-saibamais--1280.jpg');
-	}
 }
 
-.home__goals {
-	$bg: palette('gray', 'light');
+#home__knowMore figcaption {
+	display: none;
+}
 
+#home__donors {
+	$bg: palette('gray', 'light');
 	background-color: $bg;
+}
+
+.italic-text {
+	font-style: italic;
+}
+
+.bigger-text {
+	font-size: ms(1);
+	font-weight: 800;
 }
