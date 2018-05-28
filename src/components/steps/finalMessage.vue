@@ -1,14 +1,13 @@
 <template>
   <section>
-    <h2 v-for="(message, i) in messages" :key="i">{{ message.text }}</h2>
 
-
+	<div v-for="(message, i) in messages" :key="i" v-html="message.text"></div>
 	<ul id="wrap-share">
 		<li>
-			<a class="twitter-hashtag-button twitter" href="https://twitter.com/intent/tweet?button_hashtag=PSOL">Compartilhar</a>
+			<a class="twitter-hashtag-button twitter" href="https://twitter.com/intent/tweet?hashtags=FinanciePSOL&twitter&text=Ajude%20PSOL%20a%20mudar%20o%20Brasil!">Compartilhar</a>
 		</li>
 		<li>
-			<a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fpsol50.org.br%2Ffinancie&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore facebook">Compartilhar</a>
+			<a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fpsol50.org.br%2Ffinancie&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore facebook">Compartilhar</a>
 		</li>
 	</ul>
   </section>
