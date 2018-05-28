@@ -4,17 +4,14 @@
 	color: palette('white');
 
 	background-image:
-	url('../assets/images/backgrounds/img-destaque--1600.jpg');
+	url('../assets/images/backgrounds/bg-textura.png'),
+	url('../assets/images/backgrounds/img-background.png');
+	background-position: right bottom, center center;
 
 
 	background-position: auto;
-	background-size: cover;
+	background-size: 100px auto, cover;
 	background-color: palette('gray', 'dark');
-
-	@media screen and (min-width: 1600px) {
-		background-image:
-		url('../assets/images/backgrounds/img-destaque--1600.jpg');
-	}
 }
 
 .header-container {
@@ -84,31 +81,33 @@
 	transform: translate(-50%, -50%);
 	-webkit-transform: translate(-50%, -50%);
 	width: 100%;
+	max-width: 18em;
 	padding-right: $gutter;
 	padding-left: $gutter;
 
 	@media screen and(min-width: breakpoint('phablet')) {
-		max-width: 20em;
+		max-width: 30em;
 	}
 
 	@media screen and(min-width: breakpoint('tablet')) {
-		max-width: 50%;
+		max-width: 41.1em;
 	}
 
-	@media screen and(min-width: breakpoint('wide')) {
-		max-width: 65em;
+	@media screen and(min-width: breakpoint('desktop')) {
+		max-width: 59em;
 	}
 }
 
 .site-label p {
 	color: palette('purple', 'light');
-	text-align: left;
+	text-align: right;
 	font-size: ms(1);
 	text-transform: uppercase;
 	line-height: 1;
 	margin-bottom: 0;
 
 	@media screen and(min-width: breakpoint('phablet')) {
+		text-align: left;
 		font-size: ms(3);
 	}
 
@@ -122,16 +121,17 @@
 	padding: 0;
 	line-height: 1;
 
+	@media screen and(min-width: breakpoint('tablet')) {
+		line-height: 0.9;
+	}
+
 }
 
 .site-header h1 span {
 	text-align: right;
 
-	@media screen and(min-width: breakpoint('phablet')) {
-		display: block;
-	}
-
 	@media screen and (min-width: breakpoint('desktop')) {
+		display: block;
 		margin-top: 0.1em;
 		font-size: ms(9);
 	}
