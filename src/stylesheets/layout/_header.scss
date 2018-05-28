@@ -3,12 +3,31 @@
 
 	color: palette('white');
 
+	background-color: palette('gray', 'dark');
 	background-image:
 	url('../assets/images/backgrounds/bg-textura-1200w.png'),
 	url('../assets/images/backgrounds/img-background.png');
-	background-position: right bottom, 0 0;
-	background-size: auto, cover;
-	background-color: palette('gray', 'dark');
+	background-position:
+		center 600px,
+		0 0;
+
+	background-size:
+		auto,
+		cover;
+
+	@media screen and (min-width: breakpoint('tablet')) {
+		background-position:
+		center 500px,
+		0 0;
+	}
+
+	@media screen and (min-width: breakpoint('desktop')) {
+		background-position:
+		right bottom,
+		0 0;
+
+	}
+
 }
 
 .header-container {
@@ -57,7 +76,7 @@
 	}
 
 }
-.site-header .logo-psol a {
+.logo-psol a {
 	display: none;
 
 	@media screen and (min-width: breakpoint('wide')) {
