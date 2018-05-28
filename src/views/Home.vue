@@ -126,8 +126,8 @@ export default {
   },
   mounted() {
     const candidateId = window.location.host === 'psol50.org.br/financie'
-    ? 40
-    : 130;
+    ? 78
+    : 136;
     this.$store.dispatch('GET_CANDIDATE_INFO', candidateId);
     this.$store.dispatch('GET_DONATIONS', candidateId);
   },
