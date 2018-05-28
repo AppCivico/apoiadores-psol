@@ -16,12 +16,20 @@ $default-articles-padding: 12.5rem;
 .home__intro {
 	color: palette('white');
 	background-color: palette('orange');
-	background-image:
-	url('../assets/images/backgrounds/bg-textura-section1200w.png');
-	background-position: right top;
-	background-size: auto;
-}
+	background-image: url('../assets/images/backgrounds/bg-textura-1200w.png');
+	background-position: center -320px;
 
+	background-size: auto;
+
+	@media screen and (min-width: breakpoint('tablet')) {
+		background-position: center -250px;
+	}
+
+	@media screen and (min-width: breakpoint('desktop')) {
+		background-position: right -250px;
+	}
+
+}
 .home-page .container > * {
 	max-width: 50rem;
 
