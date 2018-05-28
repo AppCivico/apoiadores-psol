@@ -100,10 +100,10 @@ $default-articles-padding: 12.5rem;
 }
 
 .donation-nav[class] {
-	color: palette('green', 'light');
+	color: palette('purple', 'light');
 
 	@include link-undercover{
-		color: palette('green', 'light');
+		color: palette('purple', 'light');
 		text-decoration: underline;
 	}
 
@@ -127,7 +127,7 @@ $default-articles-padding: 12.5rem;
 
 .donation-nav--forward[class] {
 	text-decoration: underline;
-	color: palette('green', 'light');
+	color: palette('purple', 'light');
 	float: right;
 	font-size: ms(1);
 
