@@ -13,24 +13,19 @@
 		</div>
 		<ul>
 			<li>
-			<a href="#home__knowMore" v-scroll-to="'#home__knowMore'">
-				Saiba Mais
-			</a>
+				<a href="#home__knowMore" v-scroll-to="'#home__knowMore'">
+					Saiba Mais
+				</a>
 			</li>
 			<li>
-			<a href="#home__goals" v-scroll-to="'#home__goals'">
-				Metas
-			</a>
-			</li>
-			<li>
-			<a href="#home__donors" v-scroll-to="'#home__donors'">
-				Doadores
-			</a>
+				<a href="#home__donors" v-scroll-to="'#home__donors'">
+					Doadores
+				</a>
 			</li>
 			<li class="donate-nav">
-			<a href="#home__donate" v-scroll-to="'#home__donate'">
-				Doar
-			</a>
+				<a href="#home__donate" v-scroll-to="'#home__donate'">
+					Doar
+				</a>
 			</li>
 		</ul>
 		</nav>
