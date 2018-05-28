@@ -4,26 +4,28 @@
 	color: palette('white');
 
 	background-image:
-	url('../assets/images/backgrounds/bg-textura.png'),
+	url('../assets/images/backgrounds/bg-textura-1200w.png'),
 	url('../assets/images/backgrounds/img-background.png');
-	background-position: right bottom, center center;
-
-
-	background-position: auto;
-	background-size: 100px auto, cover;
+	background-position: right bottom, 0 0;
+	background-size: 850px 600px, cover;
 	background-color: palette('gray', 'dark');
 }
 
 .header-container {
 	position: relative;
-	min-height: 35em;
-	height: 100vh;
+	min-height: 22em;
+	height: 90vh;
 	max-width: $max-width;
 
 	padding-right: $gutter;
 	padding-left: $gutter;
 	margin-right: auto;
 	margin-left: auto;
+
+	@media screen and (min-width: breakpoint('tablet')) {
+		height: 100vh;
+		min-height: 35em;
+	}
 }
 
 .logo-psol {
@@ -123,6 +125,10 @@
 
 	@media screen and(min-width: breakpoint('tablet')) {
 		line-height: 0.9;
+	}
+
+	@media screen and(min-width: breakpoint('tablet')) {
+		line-height: 0.8;
 	}
 
 }

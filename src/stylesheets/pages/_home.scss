@@ -15,8 +15,11 @@ $default-articles-padding: 12.5rem;
 
 .home__intro {
 	color: palette('white');
-
 	background-color: palette('orange');
+	background-image:
+	url('../assets/images/backgrounds/bg-textura-1200w.png');
+	background-position: right top;
+	background-size: 850px 600px;
 }
 
 .home-page .container > * {
