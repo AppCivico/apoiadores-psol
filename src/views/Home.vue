@@ -94,7 +94,7 @@
         <p><strong>Essas são as pessoas que querem um país de direitos, democracia e sem desigualdades, que participaram com doações para nossa construção coletiva, de baixo para cima:</strong></p>
         <p>
           <span v-for="(person, i) in donations" :key="i">
-            {{ person }}{{ i < donations.length -1 ? ',' : '' }}
+            {{ person | titleCase }}{{ i < donations.length -1 ? ',' : '' }}
           </span>
         </p>
       </div>
