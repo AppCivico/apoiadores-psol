@@ -46,6 +46,14 @@ $default-articles-padding: 12.5rem;
 	margin-left: auto;
 }
 
+.home__intro .bigger-text {
+	display: block;
+}
+
+.home__intro p{
+	margin-bottom: $leading * 0.5rem;
+}
+
 .home__intro h2 {
 	max-width: 100%;
 
