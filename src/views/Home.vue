@@ -91,7 +91,7 @@
           Doadores
         </h2>
 
-        <p><strong>Essas são as pessoas que entenderam o valor de seu apoio e decidiram dar um passos na direção de uma política mais transparente, mais representativa e mais colaborativa:</strong></p>
+        <p><strong>Essas são as pessoas que querem um país de direitos, democracia e sem desigualdades, que participaram com doações para nossa construção coletiva, de baixo para cima:</strong></p>
         <p>
           <span v-for="(person, i) in donations" :key="i">
             {{ person }}{{ i < donations.length -1 ? ',' : '' }}
