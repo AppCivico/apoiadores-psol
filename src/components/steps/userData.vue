@@ -94,7 +94,8 @@ export default {
       surname: '',
       cpf: '',
       email: '',
-      donationFp: '',
+	  donationFp: '',
+	  payment_method: 'credit_card',
       validation: {
         errors: {},
       },
@@ -148,7 +149,7 @@ export default {
       this.getDonationFP()
         .then(() => {
           const payload = {
-            payment_method: 'credit_card',
+            payment_method: this.payment_method,
             device_authorization_token_id: this.token,
             email: data.email,
             cpf: data.cpf,
