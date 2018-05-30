@@ -34,6 +34,9 @@ export default new Vuex.Store({
     SET_PAYMENT_AMOUNT(state, { data }) {
       state.amount = data.amount;
     },
+    SET_USER_DATA(state, { userData }) {
+      state.userData = userData;
+    },
     SET_TOKEN(state, { token }) {
       state.token = token;
     },
@@ -62,7 +65,7 @@ export default new Vuex.Store({
       commit('SET_PAYMENT_AMOUNT', { data });
     },
     SAVE_USER_DATA({ commit }, payload) {
-      commit('SET_ADDRESS', { userData: payload });
+      commit('SET_USER_DATA', { userData: payload });
     },
     CHANGE_PAYMENT_STEP({ commit }, data) {
       commit('SET_PAYMENT_STEP', { data });
@@ -105,6 +108,7 @@ export default new Vuex.Store({
             const { donation, ui } = response.data;
             commit('SET_DONATION', { donation });
             commit('SET_IUGU', { iugu: ui.messages[1] });
+            commit('SET_MESSAGES', { messages: response.data.ui.messages });
             resolve();
           },
           (err) => {
