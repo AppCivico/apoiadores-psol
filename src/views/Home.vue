@@ -6,7 +6,18 @@
           Ajude o <span class="italic-text">PSOL</span> a mudar o brasil!
         </h2>
 
-        <p><span class="bigger-text">Por que financiar o PSOL?</span> Em tempos de tantos escândalos, somos um dos poucos partidos sem envolvimento em nenhuma denúncia de corrupção. Nunca recebemos dinheiro das grandes empresas e lutamos pelo fim do financiamento privado de campanhas. <span class="bigger-text">O que o PSOL quer?</span> Um país de direitos, democracia e sem desigualdades. Nossa bancada no Congresso é reconhecidamente a melhor do país, sempre atuando com independência, ética e coerência. <span class="bigger-text">O dinheiro vai ser usado para quê?</span> Para a construção aberta das propostas que vamos apresentar nessas eleições, com Guilherme Boulos e Sonia Guajajara. Serão realizados debates abertos em todo o país, com participação de especialistas - e tudo consolidado em uma plataforma na internet. <span class="bigger-text">Eu posso participar?</span> Nossa construção é coletiva, de baixo para cima. Você pode participar dos eventos de construção do programa e também participar online, debatendo e fazendo novas propostas. O nosso programa é feito de forma aberta, e só é possível com a sua participação. <span class="bigger-text">Vamos?</span></p>
+        <p>
+			<span class="bigger-text">Por que financiar o PSOL?</span> Em tempos de tantos escândalos, somos um dos poucos partidos sem envolvimento em nenhuma denúncia de corrupção. Nunca recebemos dinheiro das grandes empresas e lutamos pelo fim do financiamento privado de campanhas.
+		</p>
+        <p>
+			<span class="bigger-text">O que o PSOL quer?</span> Um país de direitos, democracia e sem desigualdades. Nossa bancada no Congresso é reconhecidamente a melhor do país, sempre atuando com independência, ética e coerência.
+		</p>
+        <p>
+			<span class="bigger-text">O dinheiro vai ser usado para quê?</span> Para a construção aberta das propostas que vamos apresentar nessas eleições, com Guilherme Boulos e Sonia Guajajara. Serão realizados debates abertos em todo o país, com participação de especialistas - e tudo consolidado em uma plataforma na internet.
+		</p>
+        <p>
+			<span class="bigger-text">Eu posso participar?</span> Nossa construção é coletiva, de baixo para cima. Você pode participar dos eventos de construção do programa e também participar online, debatendo e fazendo novas propostas. O nosso programa é feito de forma aberta, e só é possível com a sua participação. <span class="bigger-text">Vamos?</span>
+		</p>
         <section id="campaign-progress" class="campaign-progress">
           <p>
             <span class="currency">R$</span>
@@ -80,10 +91,10 @@
           Doadores
         </h2>
 
-        <p><strong>Essas são as pessoas que entenderam o valor de seu apoio e decidiram dar um pasos na direção de uma política mais transparente, mais representativa e mais colaborativa:</strong></p>
+        <p><strong>Essas são as pessoas que querem um país de direitos, democracia e sem desigualdades, que participaram com doações para nossa construção coletiva, de baixo para cima:</strong></p>
         <p>
           <span v-for="(person, i) in donations" :key="i">
-            {{ person }}{{ i < donations.length -1 ? ',' : '' }}
+            {{ person | titleCase }}{{ i < donations.length -1 ? ',' : '' }}
           </span>
         </p>
       </div>
@@ -125,7 +136,7 @@ export default {
     Payment,
   },
   mounted() {
-    const candidateId = window.location.host === 'psol50.org.br/financie'
+    const candidateId = window.location.host === 'ap-psol.appcivico.com'
     ? 78
     : 136;
     this.$store.dispatch('GET_CANDIDATE_INFO', candidateId);

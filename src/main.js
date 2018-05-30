@@ -16,6 +16,13 @@ Vue.filter('formatDate', formatDate);
 Vue.filter('formatCNPJ', formatCNPJ);
 Vue.filter('formatDateBasic', formatDateBasic);
 Vue.filter('upperCase', value => value.toUpperCase());
+Vue.filter('lowerCase', value => value.toLowerCase());
+
+Vue.filter('titleCase', str =>
+  str
+    .split(/\s+/)
+    .map(item => item.charAt(0).toUpperCase() + item.substring(1))
+    .join(' '));
 
 new Vue({
   router,

@@ -24,7 +24,7 @@ export default {
   methods: {
     handleSession() {
       if(window.localStorage) {
-        const tokenName = window.location.host === 'psol50.org.br/financie'
+        const tokenName = window.location.host === 'ap-psol.appcivico.com'
 						? 'prod_apm_token'
 						: 'dev_apm_token';
         const token = localStorage.getItem(tokenName);
