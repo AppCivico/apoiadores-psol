@@ -21,6 +21,7 @@ export default new Vuex.Store({
     username: {},
     candidate: {},
     donations: [],
+    userData: {},
   },
   mutations: {
     SET_PAYMENT_STEP(state, { data }) {
@@ -55,6 +56,9 @@ export default new Vuex.Store({
     CHANGE_PAYMENT_AMOUNT({ commit }, data) {
       commit('SET_PAYMENT_STEP', { data });
       commit('SET_PAYMENT_AMOUNT', { data });
+    },
+    SAVE_USER_DATA({ commit }, payload) {
+      commit('SET_ADDRESS', { userData: payload });
     },
     CHANGE_PAYMENT_STEP({ commit }, data) {
       commit('SET_PAYMENT_STEP', { data });
