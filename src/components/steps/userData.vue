@@ -1,6 +1,16 @@
 <template>
   <section>
     <form @submit.prevent="validateForm" :aria-busy="loading ? 'true' : 'false'">
+	<ul class="payment-choices">
+		<li class="payment-type">
+			<input name="payment_method" id="credit_card" value="credit_card" type="radio" v-model="payment_method">
+			<label for="credit_card">{{ 'creditCard' | translate }}</label>
+		</li>
+		<li class="payment-type">
+			<input name="payment_method" id="boleto" value="boleto" type="radio" v-model="payment_method">
+			<label for="boleto">{{ 'boleto' | translate  }}</label>
+		</li>
+	</ul>
       <fieldset>
         <div
           :class="`input-wrapper half

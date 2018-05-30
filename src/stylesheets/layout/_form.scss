@@ -493,3 +493,16 @@ form .has-error input {
 .form__disclaimer {
 	font-size: 0.9em;
 }
+
+.payment-choices .payment-type {
+	display: inline-block;
+	min-width: 8rem;
+	opacity: 1;
+}
+.payment-choices label{
+	display: inline-block;
+	color: #fff;
+}
+[type="radio"]:checked+label {
+	color: orange;
+}
