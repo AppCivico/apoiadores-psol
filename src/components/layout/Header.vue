@@ -2,8 +2,8 @@
 	<header class="site-header">
 		<nav class="skip-links">
 			<ul>
-			<li class="to-content"><a href="#conteudo">conteúdo</a></li>
-			<li class="to-menu"><a href="#menu">menu</a></li>
+				<li class="to-content"><a href="#conteudo">conteúdo</a></li>
+				<li class="to-menu"><a href="#menu">menu</a></li>
 			</ul>
 		</nav>
 		<nav class="main-menu">
@@ -44,7 +44,6 @@
 				</a>
 			</div>
 		</div>
-	</div>
 	</header>
 </template>
 
@@ -59,7 +58,7 @@ export default {
 			window.addEventListener('scroll', (e) => {
 				const newOffset = window.scrollY;
 				const currentRouteName = this.$route.name;
-					if (newOffset > 12 && window.matchMedia("").matches) {
+					if (newOffset > 13 && window.matchMedia("").matches) {
 						element.classList.add('animate');
 
 					} else {

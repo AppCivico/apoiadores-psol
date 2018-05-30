@@ -5,7 +5,7 @@
 	padding-top: 0.5rem;
 	padding-bottom: 0.5rem;
 	z-index: 2;
-	height: 50px;
+	height: $menu-height;
 	transition-property: background-color, height;
 	transition-duration: 0.3s, 1s;
 	padding-top: 1em;
@@ -22,7 +22,7 @@
 	padding-left: $gutter;
 	margin-right: auto;
 	margin-left: auto;
-	height: 50px;
+	height: $menu-height;
 }
 
 .main-menu.animate {
@@ -33,6 +33,7 @@
 	padding-top: 0;
 	position: fixed;
 	width: 100%;
+	height: $menu-height-animate;
 	background-color: palette('blue');
 }
 
@@ -86,11 +87,14 @@
 
 	border-radius: 10px;
 
+	&:hover,
 	&:link:focus,
 	&:focus,
 	&:active {
-		background-color: palette('purple', 'light');
-		color: palette('gray', 'x-dark');
+		color: palette('blue', 'base');
+		background-color: palette('white');
+		border: none;
+		text-decoration: none;
 	}
 
 }
@@ -114,7 +118,7 @@
 		transition-duration: 0.6s;
 
 		&.show {
-			top: 50px;
+			top: $menu-height;
 			margin: 0;
 			opacity: 9;
 			display: block;
