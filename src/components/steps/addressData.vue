@@ -74,139 +74,133 @@
 </template>
 
 <script>
-	import {
-		mask
-	} from 'vue-the-mask';
-	import {
-		validate,
-		removeAccented
-	} from '../../utilities';
+import { mask  } from 'vue-the-mask';
+import {
+  validate,
+  removeAccented,
+} from '../../utilities';
 
-	export default {
-		name: 'adressData',
-		directives: {
-			mask,
-		},
-		data() {
-			return {
-				loading: false,
-				errorMessage: '',
+export default {
+  name: 'adressData',
+  directives: {
+    mask,
+  },
+  data() {
+    return {
+      loading: false,
+      errorMessage: '',
 
-				zip_code: '',
-				state: '',
-				city: '',
-				street: '',
-				district: '',
-				number: '',
-				complement: '',
-				phone: '',
-				birthdate: '',
+      zip_code: '',
+      state: '',
+      city: '',
+      street: '',
+      district: '',
+      number: '',
+      complement: '',
+      phone: '',
+      birthdate: '',
 
-				validation: {
-					errors: {},
-				},
-			};
-		},
-		computed: {
-			username() {
-				return this.$store.state.username;
-			},
-			getUserData() {
-				return this.$store.state.userData;
-			}
-		},
-		methods: {
-			toggleLoading() {
-				this.loading = !this.loading;
-			},
-			validateForm() {
-				this.toggleLoading();
-				let birthdate = this.birthdate.split("/");
+      validation: {
+        errors: {},
+      },
+    };
+  },
+  computed: {
+    username() {
+      return this.$store.state.username;
+    },
+    getUserData() {
+      return this.$store.state.userData;
+    },
+  },
+  methods: {
+    toggleLoading() {
+      this.loading = !this.loading;
+    },
+    validateForm() {
+      this.toggleLoading();
+      let birthdate = this.birthdate.split('/');
 				 birthdate.reverse();
-				 birthdate = birthdate.join("-");
+				 birthdate = birthdate.join('-');
 
-				const address = {
-					zip_code: this.zip_code,
-					state: this.state,
-					city: this.city,
-					street: this.street,
-					district: this.district,
-					number: this.number,
-					phone: this.phone.replace(/[^\d]+/g, ""),
-					birthdate,
-				};
+      const address = {
+        zip_code: this.zip_code,
+        state: this.state,
+        city: this.city,
+        street: this.street,
+        district: this.district,
+        number: this.number,
+        phone: this.phone.replace(/[^\d]+/g, ''),
+        birthdate,
+      };
 
-				const validation = validate(address);
+      const validation = validate(address);
 
-				if (validation.valid) {
-					this.saveAddress()
+      if (validation.valid) {
+        this.saveAddress();
+      } else {
+        this.validation = validation;
+        this.toggleLoading();
+      }
+    },
+    saveAddress() {
+      let birthdate = this.birthdate.split('/');
+      birthdate.reverse();
+      birthdate = birthdate.join('-');
 
-				} else {
-					this.validation = validation;
-					this.toggleLoading();
-				}
-			},
-			saveAddress(){
+      const payload = {
+        billing_address_zipcode: this.zip_code,
+        billing_address_state: this.state,
+        billing_address_city: this.city,
+        billing_address_street: this.street,
+        billing_address_district: this.district,
+        billing_address_house_number: this.number,
+        phone: this.phone.replace(/[^\d]+/g, ''),
+        birthdate,
+        billing_address_complement: this.complement,
 
-				let birthdate = this.birthdate.split("/");
-				birthdate.reverse();
-				birthdate = birthdate.join("-");
+        payment_method: this.getUserData.payment_method,
+        device_authorization_token_id: this.getUserData.device_authorization_token_id,
+        email: this.getUserData.email,
+        cpf: this.getUserData.cpf,
+        name: this.getUserData.name,
+        amount: this.getUserData.amount,
+        candidate_id: this.getUserData.candidate_id,
+        donation_fp: this.getUserData.donation_fp,
+      };
 
-				const payload = {
-					billing_address_zipcode: this.zip_code,
-					billing_address_state: this.state,
-					billing_address_city: this.city,
-					billing_address_street: this.street,
-					billing_address_district: this.district,
-					billing_address_house_number: this.number,
-					phone: this.phone.replace(/[^\d]+/g, ""),
-					birthdate,
-					billing_address_complement: this.complement,
-
-					payment_method: this.getUserData.payment_method,
-					device_authorization_token_id: this.getUserData.device_authorization_token_id,
-					email: this.getUserData.email,
-					cpf: this.getUserData.cpf,
-					name: this.getUserData.name,
-					amount: this.getUserData.amount,
-					candidate_id: this.getUserData.candidate_id,
-					donation_fp: this.getUserData.donation_fp
-				}
-
-				 this.$store.dispatch("GET_DONATION", payload)
-					.then(res => {
-					 this.$store.dispatch("CHANGE_PAYMENT_STEP", { step: "certFaceVerify" });
-
-					})
-					.catch(err => {
-						this.toggleLoading();
-						this.handleErrorMessage(err);
-					});
-			},
-			searchAddress(event){
-				this.toggleLoading();
-				this.$store.dispatch('getAddress', event.target.value).then((response) => {
-					this.state = ( response.state  == '' ) ? this.disableField('state') : response.state;
-					this.city = ( response.city  == '' ) ? this.disableField('city') : response.city;
-					this.street = ( response.street == '' ) ? this.disableField('street') : response.street;
-					this.district = ( response.district == '' ) ? this.disableField('district') : response.district;
-					this.toggleLoading();
-				}).catch((erro)=>{
-					this.toggleLoading();
-					this.errorMessage = 'Cep não encontrado';
-				});
-			},
-			disableField(field) {
-				 this.$nextTick(function () {
-					var element  = document.getElementsByName(field);
-					element[0].disabled=false;
-					return '';
-					})
-
-			},
-			handleErrorMessage(err) {
-				this.errorMessage = err.data[0].message;
-			},
-		},
-	};
+      this.$store.dispatch('GET_DONATION', payload)
+        .then((res) => {
+			 this.$store.dispatch('CHANGE_PAYMENT_STEP', { step: 'certFaceVerify' });
+        })
+        .catch((err) => {
+          this.toggleLoading();
+          this.handleErrorMessage(err);
+        });
+    },
+    searchAddress(event) {
+      this.toggleLoading();
+      this.$store.dispatch('getAddress', event.target.value).then((response) => {
+        this.state = (response.state == '') ? this.disableField('state') : response.state;
+        this.city = (response.city == '') ? this.disableField('city') : response.city;
+        this.street = (response.street == '') ? this.disableField('street') : response.street;
+        this.district = (response.district == '') ? this.disableField('district') : response.district;
+        this.toggleLoading();
+      }).catch((erro) => {
+        this.toggleLoading();
+        this.errorMessage = 'Cep não encontrado';
+      });
+    },
+    disableField(field) {
+				 this.$nextTick(() => {
+        let element = document.getElementsByName(field);
+        element[0].disabled = false;
+        return '';
+      });
+    },
+    handleErrorMessage(err) {
+      this.errorMessage = err.data[0].message;
+    },
+  },
+};
 </script>

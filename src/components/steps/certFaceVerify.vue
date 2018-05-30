@@ -9,34 +9,34 @@
 
 <script>
 
-	export default {
-		name: 'certFaceVerify',
-		data() {
-			return {
-				loading: false,
-				errorMessage: '',
+export default {
+  name: 'certFaceVerify',
+  data() {
+    return {
+      loading: false,
+      errorMessage: '',
 
-				validation: {
-					errors: {},
-				},
-			};
-		},
-		computed: {
-			username() {
-				return this.$store.state.username;
-			},
-			messages() {
-				return this.$store.state.messages;
-			},
-		},
-		methods: {
-			toggleLoading() {
-				this.loading = !this.loading;
-			},
+      validation: {
+        errors: {},
+      },
+    };
+  },
+  computed: {
+    username() {
+      return this.$store.state.username;
+    },
+    messages() {
+      return this.$store.state.messages;
+    },
+  },
+  methods: {
+    toggleLoading() {
+      this.loading = !this.loading;
+    },
 
-			handleErrorMessage(err) {
-				this.errorMessage = err.data[0].message;
-			},
-		},
-	};
+    handleErrorMessage(err) {
+      this.errorMessage = err.data[0].message;
+    },
+  },
+};
 </script>
