@@ -2,6 +2,7 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
 import axios from 'axios';
+import address from './store/address';
 
 Vue.use(Vuex);
 
@@ -11,6 +12,9 @@ const api =
     : 'https://dapi.votolegal.com.br';
 
 export default new Vuex.Store({
+  modules: {
+    address,
+  },
   state: {
     paymentStep: 'selectValue',
     amount: 0,
