@@ -286,3 +286,6 @@ $base-url: '/static/' !default;
 @if variable-exists('im-media-support') and $im-media-support == false {
 	$breakpoints: _im-to-px($breakpoints);
 }
+
+$menu-height: 60px;
+$menu-height-animate: 55px;
