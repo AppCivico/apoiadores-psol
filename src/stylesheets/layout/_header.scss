@@ -47,52 +47,6 @@
 	}
 }
 
-.logo-psol {
-	@media screen and (min-width: breakpoint('wide')) {
-		font-size: inherit;
-		position: absolute;
-		float: left;
-		left: -1em;
-		top: 0;
-	}
-}
-
-.site-header .main-menu[class] {
-	width: 100%;
-
-	margin-right: auto;
-	margin-left: auto;
-
-	font-size: ms(-1);
-
-	@media screen and (min-width: breakpoint('phablet')) {
-		font-size: inherit;
-	}
-
-	@media screen and(min-width: breakpoint('wide')) {
-		width: auto;
-		margin-right: 0;
-		margin-left: auto;
-	}
-
-}
-.logo-psol a {
-	display: none;
-
-	@media screen and (min-width: breakpoint('wide')) {
-		@include image-replacement;
-		display: block;
-
-		height: $leading * 2rem;
-		min-width: 213px;
-		min-height: 39px;
-
-		background-image: url('../assets/images/icons/logo-psol.png');
-		background-position: 50% 50%;
-	}
-}
-
-
 .site-label {
 	margin: auto;
 	position: absolute;
@@ -177,3 +131,4 @@
 		font-size: ms(3);
 	}
 }
+
