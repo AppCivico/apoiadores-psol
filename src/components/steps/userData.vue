@@ -140,6 +140,23 @@ export default {
 
       if (validation.valid) {
         this.registerUser(fields);
+        const nameJoin = `${this.name} ${this.surname}`
+          .toUpperCase()
+          .trim()
+          .replace(/\s/g, '');
+        const cpf = this.cpf.replace(/[^\d]+/g, '');
+        sessionStorage.setItem(
+          'user-donation-data',
+          JSON.stringify({
+            nameJoin,
+            cpf,
+            email: this.email,
+            firstName: this.name,
+            surname: this.surname,
+            cpfDirty: this.cpf,
+            amount: this.amount,
+          }),
+        );
       } else {
         this.validation = validation;
         this.toggleLoading();
@@ -158,6 +175,7 @@ export default {
             candidate_id: this.candidate.id,
             donation_fp: this.donationFp,
 		  };
+
 		 this.$store.dispatch('SAVE_USER_DATA', payload);
           this.$store.dispatch('GET_DONATION', payload)
             .then((res) => {
@@ -187,7 +205,7 @@ export default {
       this.errorMessage = err.data[0].message;
     },
     controlSession() {
-      const dataSession = JSON.parse(sessionStorage.getItem('user-donation-data'));
+	  const dataSession = JSON.parse(sessionStorage.getItem('user-donation-data'));
       if (dataSession != null) {
         const data = {
           amount: dataSession.amount,
@@ -293,7 +311,7 @@ export default {
     },
   },
   mounted() {
-	this.controlSession();
+    this.controlSession();
   },
 };
 </script>
