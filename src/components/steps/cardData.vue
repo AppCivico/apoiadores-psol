@@ -159,11 +159,12 @@ export default {
             cc_hash,
             id: response.id,
           };
-          this.$store.dispatch('START_DONATION', payload)
-            .catch((err) => {
-              this.toggleLoading();
-              this.handleErrorMessage(err);
-            });
+          this.$store.dispatch('START_DONATION', payload).then(() => {
+            sessionStorage.clear();
+		  }).catch((err) => {
+            this.toggleLoading();
+            this.handleErrorMessage(err);
+          });
         }
       });
     },
