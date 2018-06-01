@@ -8,7 +8,7 @@
 	<finalMessage />
 	</template>
 	<template v-else>
-	<div class="donation-form-title">
+	<div class="donation-form-title" v-if="paymentStep !== 'printBoleto'">
 		<h2>Você escolheu doar:</h2>
 		<h2 v-if="amount">R$ {{ amount | formatBRL }}</h2>
 	</div>
