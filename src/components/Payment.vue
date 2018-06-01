@@ -13,14 +13,6 @@
 		<h2 v-if="amount">R$ {{ amount | formatBRL }}</h2>
 	</div>
 	<a class="donation-nav donation-nav--rewind" href="#" @click.prevent="goBack()">voltar</a>
-	<ul>
-		<li :class="paymentStep === 'userData' ? 'active' : ''">
-		passo 1
-		</li>
-		<li :class="paymentStep === 'cardData' ? 'active' : ''">
-		passo 2
-		</li>
-	</ul>
 
 	<userData v-if="paymentStep === 'userData'"/>
 	<cardData v-if="paymentStep === 'cardData'"/>
