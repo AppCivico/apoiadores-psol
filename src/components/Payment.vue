@@ -32,6 +32,7 @@ import finalMessage from '@/components/steps/finalMessage.vue';
 import addressData from '@/components/steps/addressData.vue';
 import certFaceVerify from '@/components/steps/certFaceVerify.vue';
 import printBoleto from '@/components/steps/printBoleto.vue';
+import headSteps from '@/components/steps/headSteps.vue';
 
 
 export default {
