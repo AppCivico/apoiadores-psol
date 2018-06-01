@@ -46,6 +46,11 @@ export default {
     printBoleto,
     headSteps,
   },
+  data() {
+	  return {
+		  loading: false,
+	  };
+  },
   computed: {
     paymentStep() {
       return this.$store.state.paymentStep;
