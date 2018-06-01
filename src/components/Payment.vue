@@ -44,6 +44,7 @@ export default {
     addressData,
     certFaceVerify,
     printBoleto,
+    headSteps,
   },
   computed: {
     paymentStep() {
