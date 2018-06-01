@@ -1,6 +1,16 @@
 <template>
   <section>
     <form @submit.prevent="validateForm" :aria-busy="loading ? 'true' : 'false'">
+	<ul class="payment-choices">
+		<li class="payment-type">
+			<input name="payment_method" id="credit_card" value="credit_card" type="radio" v-model="payment_method">
+			<label for="credit_card">{{ 'creditCard' | translate }}</label>
+		</li>
+		<li class="payment-type">
+			<input name="payment_method" id="boleto" value="boleto" type="radio" v-model="payment_method">
+			<label for="boleto">{{ 'boleto' | translate  }}</label>
+		</li>
+	</ul>
       <fieldset>
         <div
           :class="`input-wrapper half
@@ -84,7 +94,8 @@ export default {
       surname: '',
       cpf: '',
       email: '',
-      donationFp: '',
+	  donationFp: '',
+	  payment_method: 'credit_card',
       validation: {
         errors: {},
       },
@@ -129,6 +140,23 @@ export default {
 
       if (validation.valid) {
         this.registerUser(fields);
+        const nameJoin = `${this.name} ${this.surname}`
+          .toUpperCase()
+          .trim()
+          .replace(/\s/g, '');
+        const cpf = this.cpf.replace(/[^\d]+/g, '');
+        sessionStorage.setItem(
+          'user-donation-data',
+          JSON.stringify({
+            nameJoin,
+            cpf,
+            email: this.email,
+            firstName: this.name,
+            surname: this.surname,
+            cpfDirty: this.cpf,
+            amount: this.amount,
+          }),
+        );
       } else {
         this.validation = validation;
         this.toggleLoading();
@@ -138,7 +166,7 @@ export default {
       this.getDonationFP()
         .then(() => {
           const payload = {
-            payment_method: 'credit_card',
+            payment_method: this.payment_method,
             device_authorization_token_id: this.token,
             email: data.email,
             cpf: data.cpf,
@@ -146,17 +174,25 @@ export default {
             amount: this.amount,
             candidate_id: this.candidate.id,
             donation_fp: this.donationFp,
-          }
+		  };
+
+		 this.$store.dispatch('SAVE_USER_DATA', payload);
           this.$store.dispatch('GET_DONATION', payload)
             .then((res) => {
               const user = {
                 name: data.name,
                 surname: data.surname,
-              }
-              this.$store.dispatch('SAVE_USERNAME', user)
+              };
+              this.$store.dispatch('SAVE_USERNAME', user);
               this.handleIugu();
               this.$store.dispatch('CHANGE_PAYMENT_STEP', { step: 'cardData' });
             }).catch((err) => {
+              if (err.data[0].msg_id == 'need_billing_adddress') {
+                this.$store.dispatch('CHANGE_PAYMENT_STEP', {
+                  step: 'boleto',
+                });
+                return;
+              }
               this.toggleLoading();
               this.handleErrorMessage(err);
             });
@@ -168,24 +204,37 @@ export default {
     handleErrorMessage(err) {
       this.errorMessage = err.data[0].message;
     },
+    controlSession() {
+	  const dataSession = JSON.parse(sessionStorage.getItem('user-donation-data'));
+      if (dataSession != null) {
+        const data = {
+          amount: dataSession.amount,
+          step: 'userData',
+        };
+        this.$store.dispatch('CHANGE_PAYMENT_AMOUNT', data);
+        this.name = dataSession.firstName;
+        this.surname = dataSession.surname;
+        this.cpf = dataSession.cpf;
+        this.email = dataSession.email;
+      }
+    },
     getDonationFP() {
       return new Promise((resolve, reject) => {
         const d1 = new Date();
         const fp = new VotolegalFP({
           excludeUserAgent: true,
-          dontUseFakeFontInCanvas: true
+          dontUseFakeFontInCanvas: true,
         });
 
         fp.get((result, components) => {
-
           const d2 = new Date();
 
           const info = {
             ms: d2 - d1,
-            id: result
-          }
+            id: result,
+          };
 
-          for (let index in components) {
+          for (const index in components) {
             const obj = components[index];
 
             if (obj.key == 'canvas' || obj.key == 'webgl') {
@@ -196,10 +245,16 @@ export default {
           }
 
           const Base64 = {
-            _keyStr: "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=",
-            encode: function (e) {
-              let t = "";
-              let n, r, i, s, o, u, a;
+            _keyStr: 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=',
+            encode(e) {
+              let t = '';
+              let n,
+                r,
+                i,
+                s,
+                o,
+                u,
+                a;
               let f = 0;
               e = Base64._utf8_encode(e);
               while (f < e.length) {
@@ -211,37 +266,37 @@ export default {
                 u = (r & 15) << 2 | i >> 6;
                 a = i & 63;
                 if (isNaN(r)) {
-                    u = a = 64
+                  u = a = 64;
                 } else if (isNaN(i)) {
-                    a = 64
+                  a = 64;
                 }
-                t = t + this._keyStr.charAt(s) + this._keyStr.charAt(o) + this._keyStr.charAt(u) + this._keyStr.charAt(a)
+                t = t + this._keyStr.charAt(s) + this._keyStr.charAt(o) + this._keyStr.charAt(u) + this._keyStr.charAt(a);
               }
-              return t
+              return t;
             },
-            _utf8_encode: function (e) {
-              e = e.replace(/rn/g, "n");
-              let t = "";
+            _utf8_encode(e) {
+              e = e.replace(/rn/g, 'n');
+              let t = '';
               for (let n = 0; n < e.length; n++) {
                 const r = e.charCodeAt(n);
                 if (r < 128) {
-                  t += String.fromCharCode(r)
+                  t += String.fromCharCode(r);
                 } else if (r > 127 && r < 2048) {
                   t += String.fromCharCode(r >> 6 | 192);
-                  t += String.fromCharCode(r & 63 | 128)
+                  t += String.fromCharCode(r & 63 | 128);
                 } else {
                   t += String.fromCharCode(r >> 12 | 224);
                   t += String.fromCharCode(r >> 6 & 63 | 128);
-                  t += String.fromCharCode(r & 63 | 128)
+                  t += String.fromCharCode(r & 63 | 128);
                 }
               }
-              return t
-            }
-          }
+              return t;
+            },
+          };
 
           const donation_fp = Base64.encode(JSON.stringify(info));
 
-          if(donation_fp) {
+          if (donation_fp) {
             this.donationFp = donation_fp;
             resolve();
           } else {
@@ -252,8 +307,11 @@ export default {
     },
     handleIugu() {
       Iugu.setAccountID(this.iugu.account_id);
-      Iugu.setTestMode(this.iugu.is_testing === 1 ? true : false);
-    }
+      Iugu.setTestMode(this.iugu.is_testing === 1);
+    },
+  },
+  mounted() {
+    this.controlSession();
   },
 };
 </script>
