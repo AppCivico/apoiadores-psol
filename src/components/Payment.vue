@@ -1,5 +1,5 @@
 <template>
-<div class="donation-form">
+<div class="donation-form" id="donation-form">
 	<template v-if="paymentStep === 'selectValue'">
 	<h2>Escolha um valor para doar</h2>
 	<selectValue />
@@ -55,10 +55,38 @@ export default {
     },
   },
   methods: {
+    toggleLoading() {
+      this.loading = !this.loading;
+    },
     goBack() {
       const step = this.paymentStep === 'userData' ? 'selectValue' : 'userData';
       this.$store.dispatch('CHANGE_PAYMENT_STEP', { step });
     },
+    getCertiFaceQueryString() {
+      if (this.$route.query.donation_id) {
+        this.toggleLoading();
+
+        this.$store.dispatch('CHANGE_PAYMENT_STEP', { step: 'printBoleto' });
+        const payload = {
+          donationId: this.$route.query.donation_id,
+        };
+        this.$store.dispatch('START_DONATION_BOLETO', payload).then((response) => {
+		  this.toggleLoading();
+		    setTimeout(() => {
+            this.scroolFormDonation();
+          }, 1000);
+        }, (error) => {
+		  console.error(error);
+        });
+	  }
+    },
+    scroolFormDonation() {
+      const form = document.getElementById('donation-form');
+      form.scrollIntoView();
+    },
+  },
+  mounted() {
+    this.getCertiFaceQueryString();
   },
 };
 </script>
