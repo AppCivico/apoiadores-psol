@@ -1,0 +1,197 @@
+.main-menu {
+	background-color: palette('blue');
+	margin: 0;
+	width: 100%;
+	padding-top: 0.5rem;
+	padding-bottom: 0.5rem;
+	z-index: 2;
+	height: $menu-height;
+	transition-property: background-color, height;
+	transition-duration: 0.3s, 1s;
+	padding-top: 1em;
+
+	@media (min-width: breakpoint('tablet')) {
+		background-color: transparent;
+	}
+}
+
+.menu-container {
+	position: relative;
+	max-width: $max-width;
+	padding-right: $gutter;
+	padding-left: $gutter;
+	margin-right: auto;
+	margin-left: auto;
+	height: $menu-height;
+}
+
+.main-menu.animate {
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	padding-top: 0;
+	position: fixed;
+	width: 100%;
+	height: $menu-height-animate;
+	background-color: palette('blue');
+}
+
+
+.brand-wrap {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+
+	@media (min-width: breakpoint('tablet')) {
+		left: 0;
+		top: 0;
+		transform: translate(0, 0);
+	}
+}
+
+.logo-psol {
+	@include image-replacement;
+	display: block;
+	height: $leading * 2rem;
+	min-width: 213px;
+	min-height: 39px;
+	background-image: url('../assets/images/icons/logo-psol.png');
+	background-size: 186px 54px;
+	background-repeat: no-repeat;
+	background-position: 50% 50%;
+	transition-property: background-size;
+	transition-duration: 0.8s;
+
+	@media screen and (min-width: breakpoint('wide')) {
+		background-size: 186px 54px;
+	}
+}
+
+.animate .logo-psol {
+	background-size: 150px 44px;
+}
+
+.donate-nav {
+	color: palette('purple', 'light');
+}
+
+.donate-nav a {
+	margin-left: auto;
+	margin-right: auto;
+	border: 2px solid palette('purple', 'light');
+	padding-top: $gutter * 0.2;
+	padding-bottom: $gutter * 0.2;
+	width: 5em;
+
+	border-radius: 10px;
+
+	&:hover,
+	&:link:focus,
+	&:focus,
+	&:active {
+		color: palette('blue', 'base');
+		background-color: palette('white');
+		border-color: palette('white');
+		text-decoration: none;
+	}
+
+}
+
+.menu-wrap {
+	position: absolute;
+	margin-top: 0.25em;
+	text-align: center;
+	overflow: hidden;
+
+	@media screen and (min-width: breakpoint('tablet')) {
+		transform: translateY(-50%);
+		top: 50%;
+	}
+
+	@media (max-width: breakpoint('tablet')) {
+		opacity: 0;
+		max-height: 0;
+		overflow: hidden;
+		transition-property: max-height;
+		transition-duration: 0.6s;
+
+		&.show {
+			top: $menu-height;
+			margin: 0;
+			opacity: 9;
+			display: block;
+			margin-left: auto;
+			margin-right: auto;
+			width: 100%;
+			max-height: 1000px;
+			position: absolute;
+			padding-top: 1em;
+			padding-bottom: 1.5em;
+			max-height: auto;
+			right: 0;
+			left: 0;
+			background-color: palette('blue');
+		}
+	}
+
+	@media (min-width: breakpoint('tablet')) {
+		right: 0;
+	}
+}
+
+.main-menu button {
+	display: none;
+	outline: none;
+
+	@media (max-width: breakpoint('tablet')) {
+		display: block;
+	}
+}
+
+.main-menu li {
+	font-size: 1.09375rem;
+}
+
+.main-menu.animate li {
+	font-size: ms(0);
+}
+
+.menu-item {
+	margin: auto;
+	padding-top: 0.25em;
+	padding-bottom: 0.25em;
+
+	@media (min-width: breakpoint('tablet')) {
+		@include inline-block-item($align: 'top', $font-size:  1rem);
+		vertical-align: middle;
+		padding-right: 1em;
+		padding-left: 1em;
+	}
+}
+
+button.mobile-button {
+	position: absolute;
+	cursor: pointer;
+	transform: translateY(-50%);
+	top: 50%;
+
+	width: 40px;
+	height: 40px;
+	background-color: transparent;
+	float: left;
+	z-index: 2;
+}
+
+button.mobile-button span {
+	border-bottom: solid 2px palette('white');
+	display: block;
+	margin-top: 0.25rem;
+	margin-bottom: 0.25rem;
+	padding-top: 1px;
+	padding-bottom: 1px;
+}
+
+
+
