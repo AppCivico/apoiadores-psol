@@ -28,7 +28,7 @@
           </p>
 		  <p class="campaign-progress-amount">Doados por {{ candidate.people_donated }} pessoas</p>
 
-          <progress :value="candidate.total_donated" :max="expected">
+          <!-- <progress :value="candidate.total_donated" :max="expected">
             <div class="progress-bar">
               <span :style="{width: `${porcentage}%`}">
                 {{ porcentage }}
@@ -38,7 +38,7 @@
 
           <p class="campaign-progress-porcentage">
             {{ porcentage }}% da meta de R$ {{ expected | formatBRL }}
-          </p>
+          </p> -->
 
           <p>
             <a href="#home__donors" class="campaign-progress__link" v-scroll-to="'#home__donors'">Veja quem doou</a>
@@ -48,7 +48,7 @@
       </div>
     </article>
 
-    <article id="home__donate" class="home__donate">
+    <article id="doar" class="home__donate">
       <div class="container" id="donation-wrap">
         <Payment />
       </div>

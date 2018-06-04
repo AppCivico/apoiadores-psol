@@ -28,7 +28,7 @@
 						</a>
 					</li>
 					<li class="menu-item donate-nav">
-						<a href="#home__donate" v-scroll-to="'#home__donate'">
+						<a href="#doar" v-scroll-to="'#doar'">
 							Doar
 						</a>
 					</li>
@@ -39,7 +39,7 @@
 			<div class="site-label">
 				<p>Partido Necessário</p>
 				<h1>Quem financia o PSOL<span class="orange-highlight italic-text"> É você!</span></h1>
-				<a class="call-to-action" href="#home__donate" v-scroll-to="'#home__donate'">
+				<a class="call-to-action" href="#doar" v-scroll-to="'#doar'">
 					> quero doar
 				</a>
 			</div>
