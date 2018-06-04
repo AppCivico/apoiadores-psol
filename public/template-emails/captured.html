@@ -58,7 +58,17 @@
 
 
 										<p>
-											<strong>Endereço:</strong> [% donor_billing_address_street %], [% donor_billing_address_house_number %][% IF donor_billing_address_complement %] - [% donor_billing_address_complement %][% ELSE %][% END %] - [% donor_billing_address_district %], [% donor_billing_address_city %] - [% donor_billing_address_state %], [% donor_billing_address_zipcode %]
+										<strong>Endereço:</strong> [% donor_billing_address_street %]</br>
+										<strong>Número:</strong> [% donor_billing_address_house_number %]</br>
+										[% IF donor_billing_address_complement %]
+										<strong>Complemento:</strong> [% donor_billing_address_complement %]</br>
+										[% ELSE %]
+										[% END %]
+										<strong>Bairro:</strong> [% donor_billing_address_district %]</br>
+										<strong>Cidade:</strong> [% donor_billing_address_city %]</br>
+										<strong>Estado:</strong> [% donor_billing_address_state %]</br>
+										<strong>CEP:</strong> [% donor_billing_address_zipcode %]</br>
+										<strong><a href="https://www.psol50.org.br/">https://www.psol50.org.br/</a></strong></br>
 										</p>
 
 										<p>
