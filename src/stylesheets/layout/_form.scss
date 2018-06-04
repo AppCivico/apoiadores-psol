@@ -477,17 +477,23 @@ form .error {
 	margin-top: 20px;
 	padding: 10px;
 	font-size: 0.9em;
+	font-weight: bold;
+	text-transform: lowercase;
 }
 
 form .input-wrapper .error {
-	margin-top: -10px;
+	margin-top: -15px;
+	text-transform: lowercase;
+	font-size: ms(-1);
+	font-weight: bold;
 	border: 0;
 	padding: 0;
-	margin-bottom: 20px;
+	margin-bottom: $leading * 0.5em;
+	color: palette('purple', 'light');
 }
 
 form .has-error input {
-	border: 1px solid palette('orange');
+	border: 1px solid palette('purple');
 }
 
 .form__disclaimer {
