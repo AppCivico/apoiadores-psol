@@ -3,7 +3,7 @@
 	<div >
 		<ul class="head-steps">
 			<li :class="paymentStep === 'userData' ? 'active' : ''">
-				Preencha com eu dados pessoais
+				Preencha com seu dados pessoais
 			</li>
 			<li :class="paymentStep === 'cardData' ? 'active' : ''">
 				Dados de cartão de crédito
