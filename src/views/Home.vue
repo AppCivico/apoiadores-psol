@@ -48,7 +48,7 @@
       </div>
     </article>
 
-    <article id="home__donate" class="home__donate">
+    <article id="doar" class="home__donate">
       <div class="container" id="donation-wrap">
         <Payment />
       </div>
