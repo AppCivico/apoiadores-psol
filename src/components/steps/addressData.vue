@@ -74,7 +74,7 @@
 </template>
 
 <script>
-import { mask  } from 'vue-the-mask';
+import { mask } from 'vue-the-mask';
 import {
   validate,
   removeAccented,
@@ -171,7 +171,11 @@ export default {
 
       this.$store.dispatch('GET_DONATION', payload)
         .then((res) => {
+ 			if (this.getUserData.payment_method == 'credit_card') {
+				 this.$store.dispatch('CHANGE_PAYMENT_STEP', { step: 'cardData' });
+			  } else {
 			 this.$store.dispatch('CHANGE_PAYMENT_STEP', { step: 'certFaceVerify' });
+			  }
         })
         .catch((err) => {
           this.toggleLoading();
@@ -193,7 +197,7 @@ export default {
     },
     disableField(field) {
 				 this.$nextTick(() => {
-        let element = document.getElementsByName(field);
+        const element = document.getElementsByName(field);
         element[0].disabled = false;
         return '';
       });
