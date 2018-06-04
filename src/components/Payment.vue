@@ -20,6 +20,9 @@
 	<addressData v-if="paymentStep === 'boleto'"/>
    	<certFaceVerify v-if="paymentStep === 'certFaceVerify'"/>
 	<printBoleto v-if="paymentStep === 'printBoleto'" :aria-busy="loading ? 'true' : 'false'"/>
+		<p class="error" v-if="errorMessage != ''">
+				{{ errorMessage }}
+			</p>
 	</template>
 </div>
 </template>
@@ -51,6 +54,7 @@ export default {
   data() {
 	  return {
 		  loading: false,
+		   errorMessage: '',
 	  };
   },
   computed: {
@@ -83,7 +87,12 @@ export default {
             this.scroolFormDonation();
           }, 1000);
         }, (error) => {
-		  console.error(error);
+			 this.toggleLoading();
+			 this.errorMessage = error.data[0].message;
+		    setTimeout(() => {
+            this.scroolFormDonation();
+          }, 1000);
+		  console.error(error, 'aqui');
         });
 	  }
     },
