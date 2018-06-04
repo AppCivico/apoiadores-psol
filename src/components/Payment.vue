@@ -92,7 +92,7 @@ export default {
 		    setTimeout(() => {
             this.scroolFormDonation();
           }, 1000);
-		  console.error(error, 'aqui');
+		  console.error(error);
         });
 	  }
     },
