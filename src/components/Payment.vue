@@ -13,6 +13,7 @@
 		<h2 v-if="amount">R$ {{ amount | formatBRL }}</h2>
 	</div>
 	<a class="donation-nav donation-nav--rewind" href="#" @click.prevent="goBack()">voltar</a>
+ 	<headSteps></headSteps>
 
 	<userData v-if="paymentStep === 'userData'"/>
 	<cardData v-if="paymentStep === 'cardData'"/>
