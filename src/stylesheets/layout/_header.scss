@@ -2,31 +2,73 @@
 	position: relative;
 	color: palette('white');
 
-	min-height: 22em;
-	height: 90vh;
+	min-height: 550px;
+	height: 70vh;
 	background-color: palette('gray', 'dark');
 	background-image:
-	url('../assets/images/backgrounds/bg-textura-1200w.png'),
-	url('../assets/images/backgrounds/img-background.png');
+	url('../assets/images/backgrounds/capa-boulos_sonia.png'),
+	url('../assets/images/backgrounds/capa-texto-mobile.png'),
+	url('../assets/images/backgrounds/capa-fundo.png');
+	background-size:
+		auto 400px,
+		auto 300px,
+		cover;
 	background-position:
-		center 600px,
+		20% bottom,
+		35% 35%,
 		0 0;
 
-	background-size:
-		auto,
-		cover;
+	@media screen and (min-width: breakpoint('phablet')) {
+		min-height: 700px;
+		background-size:
+			auto 600px,
+			auto 450px,
+			cover;
+		background-position:
+			20% bottom,
+			30% 22%,
+			0 0;
+
+		height: 100vh;
+	}
 
 	@media screen and (min-width: breakpoint('tablet')) {
-		background-position:
-		center 500px,
-		0 0;
+		min-height: 900px;
+		background-size:
+			auto 650px,
+			auto 650px,
+			cover;
 		height: 100vh;
-		min-height: 35em;
+		background-position:
+		15% bottom,
+		25% 20%,
+		0 0;
 	}
 
 	@media screen and (min-width: breakpoint('desktop')) {
+		background-image:
+		url('../assets/images/backgrounds/capa-boulos_sonia.png'),
+		url('../assets/images/backgrounds/capa-texto.png'),
+		url('../assets/images/backgrounds/capa-fundo.png');
+
+		background-size:
+			auto 700px,
+			auto 600px,
+			cover;
 		background-position:
-		right bottom,
+		15% bottom,
+		50% 50%,
+		0 0;
+	}
+
+	@media screen and (min-width: breakpoint('wide')) {
+		background-size:
+			auto 800px,
+			auto 800px,
+			cover;
+		background-position:
+		15% bottom,
+		60% 65%,
 		0 0;
 
 	}
