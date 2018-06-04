@@ -14,7 +14,7 @@
 					<span></span>
 				</button>
 				<div class="brand-wrap">
-					<a href="/" class="logo-psol">PSOL</a>
+					<a href="#home__greetings" v-scroll-to="'#home__greetings'" class="logo-psol">PSOL</a>
 				</div>
 				<ul class="menu-wrap">
 					<li class="menu-item">
@@ -35,7 +35,7 @@
 				</ul>
 			</div>
 		</nav>
-		<div class="header-container">
+		<div class="header-container" id="home__greetings">
 			<div class="site-label">
 				<p>Partido Necessário</p>
 				<h1>Quem financia o PSOL<span class="orange-highlight italic-text"> É você!</span></h1>

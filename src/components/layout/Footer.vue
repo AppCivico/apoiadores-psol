@@ -2,7 +2,7 @@
   <footer class="site-footer">
     <div class="container">
       <div class="psol">
-        <a href="http://psol50.org.br/" target="_blank">PSOL</a>
+		  <a href="#home__greetings" v-scroll-to="'#home__greetings'">PSOL</a>
       </div>
       <div class="site-footer__copyright">
         <div>Proporcionado por</div>
