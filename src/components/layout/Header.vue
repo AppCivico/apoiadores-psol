@@ -36,13 +36,13 @@
 			</div>
 		</nav>
 		<div class="header-container" id="home__greetings">
-			<div class="site-label">
+			<!-- <div class="site-label">
 				<p>Partido Necessário</p>
 				<h1>Quem financia o PSOL<span class="orange-highlight italic-text"> É você!</span></h1>
 				<a class="call-to-action" href="#doar" v-scroll-to="'#doar'">
 					> quero doar
 				</a>
-			</div>
+			</div> -->
 		</div>
 	</header>
 </template>
