@@ -185,12 +185,12 @@ export default {
               };
               this.$store.dispatch('SAVE_USERNAME', user);
               this.handleIugu();
-              this.$store.dispatch('CHANGE_PAYMENT_STEP', { step: 'boleto' });
+              this.$store.dispatch('CHANGE_PAYMENT_STEP', { step: 'address' });
             //   this.$store.dispatch('CHANGE_PAYMENT_STEP', { step: 'cardData' });
             }).catch((err) => {
               if (err.data[0].msg_id == 'need_billing_adddress') {
                 this.$store.dispatch('CHANGE_PAYMENT_STEP', {
-                  step: 'boleto',
+                  step: 'address',
                 });
                 return;
               }

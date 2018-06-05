@@ -109,6 +109,9 @@ export default {
     username() {
       return this.$store.state.username;
     },
+    iugu() {
+      return this.$store.state.iugu;
+    },
     getUserData() {
       return this.$store.state.userData;
     },
@@ -167,11 +170,12 @@ export default {
         amount: this.getUserData.amount,
         candidate_id: this.getUserData.candidate_id,
         donation_fp: this.getUserData.donation_fp,
-      };
+	  };
 
       this.$store.dispatch('GET_DONATION', payload)
         .then((res) => {
  			if (this.getUserData.payment_method == 'credit_card') {
+				 this.handleIugu();
 				 this.$store.dispatch('CHANGE_PAYMENT_STEP', { step: 'cardData' });
 			  } else {
 			 this.$store.dispatch('CHANGE_PAYMENT_STEP', { step: 'certFaceVerify' });
@@ -201,6 +205,11 @@ export default {
         element[0].disabled = false;
         return '';
       });
+    },
+	  handleIugu() {
+		  console.log(this.iugu.account_id, this.iugu.is_testing);
+      Iugu.setAccountID(this.iugu.account_id);
+      Iugu.setTestMode(this.iugu.is_testing === 1);
     },
     handleErrorMessage(err) {
       this.errorMessage = err.data[0].message;

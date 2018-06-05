@@ -64,6 +64,10 @@ export default new Vuex.Store({
       commit('SET_PAYMENT_STEP', { data });
       commit('SET_PAYMENT_AMOUNT', { data });
     },
+	  SAVE_ADDRESS({ commit }, data) {
+		  commit('SET_PAYMENT_STEP', { data });
+		  commit('SET_PAYMENT_AMOUNT', { data });
+	  },
     SAVE_USER_DATA({ commit }, payload) {
       commit('SET_USER_DATA', { userData: payload });
     },
@@ -90,7 +94,6 @@ export default new Vuex.Store({
             resolve(response);
           })
           .catch((err) => {
-            console.log('eroooooo', error.response.data);
             console.error(err.response);
             reject(err.response);
           });
@@ -112,7 +115,7 @@ export default new Vuex.Store({
             resolve();
           },
           (err) => {
-            console.error(err.response);
+            console.error(err.response, 'error');
             reject(err.response);
           },
         );
