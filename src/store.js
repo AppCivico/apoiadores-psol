@@ -7,7 +7,7 @@ import address from './store/address/';
 Vue.use(Vuex);
 
 const api =
-  window.location.host === 'ap-psol.appcivico.com' || window.location.host === 'financie.psol.org.br'
+  window.location.host === 'ap-psol.appcivico.com' || window.location.host === 'financie.psol50.org.br'
     ? 'https://api.votolegal.com.br'
     : 'https://dapi.votolegal.com.br';
 
