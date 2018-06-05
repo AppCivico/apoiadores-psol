@@ -63,13 +63,23 @@
 	<iframe id="appcivico-wrapper" frameborder="0" style="overflow:hidden;height:100%;width:100%" height="100%" width="100%" src="https://ap-psol.appcivico.com/"></iframe>
 
 	<script>
-		if (window.location.search) {
+		if (window.location.search || window.location.hash) {
 			var queryString = window.location.search;
+			var hash = window.location.hash;
 			var iframe = document.getElementById('appcivico-wrapper');
 
 			if (iframe) {
 				var currentSrc = iframe.getAttribute('src');
-				var newSrc = currentSrc + queryString;
+				var newSrc = currentSrc;
+
+				if ( queryString ) {
+					newSrc += queryString;
+				}
+
+				if ( hash ) {
+					newSrc += hash;
+				}
+
 				iframe.setAttribute('src', newSrc);
 			}
 		}
