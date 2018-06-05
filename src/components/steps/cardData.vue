@@ -148,7 +148,7 @@ export default {
         card.validity_month,
         card.validity_year,
         dataSession.firstName,
-        dataSession.firstName,
+        dataSession.lastname,
         card.csc,
       );
 
