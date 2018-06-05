@@ -8,7 +8,7 @@ const state = {
 };
 const actions = {
   getAddress: ({ commit, rootState }, cep) => new Promise((resolve, reject) => {
-    axios.get(`https://api.votolegal.com.br/public-api/cep?cep=${cep}`).then((response) => {
+    axios.get(`https://api-apoiadores.appcivico.com/cep?cep=${cep}`).then((response) => {
       resolve(response.data);
       commit('getAddressMutation', response.data);
     }).catch((erro) => {
