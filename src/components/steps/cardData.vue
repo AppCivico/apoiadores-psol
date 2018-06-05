@@ -139,14 +139,15 @@ export default {
       return result[0].type.replace('-', '');
     },
     saveCard(card) {
-      const cc_hash = this.getCardHash(card.number);
+	  const cc_hash = this.getCardHash(card.number);
+	 const dataSession = JSON.parse(sessionStorage.getItem('user-donation-data'));
 
       const cc = Iugu.CreditCard(
         card.number,
         card.validity_month,
         card.validity_year,
-        this.username.name,
-        this.username.surname,
+        dataSession.firstName,
+        dataSession.firstName,
         card.csc,
       );
 
