@@ -120,49 +120,52 @@ export default {
 
 
         this.saveCard({
-            name: removeAccented(name),
-            csc,
-            number: number.replace(/\s+/g, ''),
-            validity_year,
-            validity_month,
-          });
+          name: removeAccented(name),
+          csc,
+          number: number.replace(/\s+/g, ''),
+          validity_year,
+          validity_month,
+        });
       } else {
         this.validation = validation;
         this.toggleLoading();
       }
     },
     getBrand(number) {
-			const result = creditCardType(number);
-			if (result.length < 1) {
-				return 'No brand found';
-			}
+      const result = creditCardType(number);
+      if (result.length < 1) {
+        return 'No brand found';
+      }
 
-			return result[0].type.replace('-', '');
-		},
+      return result[0].type.replace('-', '');
+    },
     saveCard(card) {
       const cc_hash = this.getCardHash(card.number);
 
+	 const dataSession = JSON.parse(sessionStorage.getItem('user-donation-data'));
       const cc = Iugu.CreditCard(
         card.number,
         card.validity_month,
         card.validity_year,
-        this.username.name,
-        this.username.surname,
-        card.csc);
+        dataSession.firstName,
+        dataSession.firstName,
+        card.csc,
+      );
 
       Iugu.createPaymentToken(cc, (response) => {
         if (response.errors) {
           this.toggleLoading();
-          this.errorMessage =  'Erro salvando cartão';
+          this.errorMessage = 'Erro salvando cartão';
         } else {
           const payload = {
             cc_hash,
             id: response.id,
-          }
+          };
           this.$store.dispatch('START_DONATION', payload)
             .catch((err) => {
               this.toggleLoading();
-              this.handleErrorMessage(err);
+			  this.handleErrorMessage(err);
+			  localStorage.clear();
             });
         }
       });
@@ -173,12 +176,12 @@ export default {
     getCardHash(number) {
       const fp = new VotolegalFP({
         excludeUserAgent: true,
-        dontUseFakeFontInCanvas: true
+        dontUseFakeFontInCanvas: true,
       });
 
       const hash = fp.x64hash128(number, 31);
       return hash;
-    }
+    },
   },
 };
 </script>

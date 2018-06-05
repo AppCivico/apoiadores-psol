@@ -129,6 +129,17 @@ export default {
 
       if (validation.valid) {
         this.registerUser(fields);
+        sessionStorage.setItem(
+          'user-donation-data',
+          JSON.stringify({
+            cpf,
+            email: this.email,
+            firstName: this.name,
+            surname: this.surname,
+            cpfDirty: this.cpf,
+            amount: this.amount,
+          }),
+        );
       } else {
         this.validation = validation;
         this.toggleLoading();
@@ -146,17 +157,22 @@ export default {
             amount: this.amount,
             candidate_id: this.candidate.id,
             donation_fp: this.donationFp,
-          }
+		  };
+		     this.$store.dispatch('SAVE_USER_DATA', payload);
           this.$store.dispatch('GET_DONATION', payload)
             .then((res) => {
               const user = {
                 name: data.name,
                 surname: data.surname,
-              }
-              this.$store.dispatch('SAVE_USERNAME', user)
-              this.handleIugu();
-              this.$store.dispatch('CHANGE_PAYMENT_STEP', { step: 'cardData' });
+              };
+              this.$store.dispatch('SAVE_USERNAME', user);
+			  this.handleIugu();
+
+
+              this.$store.dispatch('CHANGE_PAYMENT_STEP', { step: 'address' });
+            //   this.$store.dispatch('CHANGE_PAYMENT_STEP', { step: 'adressdata' });
             }).catch((err) => {
+              this.$store.dispatch('CHANGE_PAYMENT_STEP', { step: 'address' });
               this.toggleLoading();
               this.handleErrorMessage(err);
             });
@@ -173,19 +189,18 @@ export default {
         const d1 = new Date();
         const fp = new VotolegalFP({
           excludeUserAgent: true,
-          dontUseFakeFontInCanvas: true
+          dontUseFakeFontInCanvas: true,
         });
 
         fp.get((result, components) => {
-
           const d2 = new Date();
 
           const info = {
             ms: d2 - d1,
-            id: result
-          }
+            id: result,
+          };
 
-          for (let index in components) {
+          for (const index in components) {
             const obj = components[index];
 
             if (obj.key == 'canvas' || obj.key == 'webgl') {
@@ -196,10 +211,16 @@ export default {
           }
 
           const Base64 = {
-            _keyStr: "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=",
-            encode: function (e) {
-              let t = "";
-              let n, r, i, s, o, u, a;
+            _keyStr: 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=',
+            encode(e) {
+              let t = '';
+              let n,
+                r,
+                i,
+                s,
+                o,
+                u,
+                a;
               let f = 0;
               e = Base64._utf8_encode(e);
               while (f < e.length) {
@@ -211,37 +232,37 @@ export default {
                 u = (r & 15) << 2 | i >> 6;
                 a = i & 63;
                 if (isNaN(r)) {
-                    u = a = 64
+                  u = a = 64;
                 } else if (isNaN(i)) {
-                    a = 64
+                  a = 64;
                 }
-                t = t + this._keyStr.charAt(s) + this._keyStr.charAt(o) + this._keyStr.charAt(u) + this._keyStr.charAt(a)
+                t = t + this._keyStr.charAt(s) + this._keyStr.charAt(o) + this._keyStr.charAt(u) + this._keyStr.charAt(a);
               }
-              return t
+              return t;
             },
-            _utf8_encode: function (e) {
-              e = e.replace(/rn/g, "n");
-              let t = "";
+            _utf8_encode(e) {
+              e = e.replace(/rn/g, 'n');
+              let t = '';
               for (let n = 0; n < e.length; n++) {
                 const r = e.charCodeAt(n);
                 if (r < 128) {
-                  t += String.fromCharCode(r)
+                  t += String.fromCharCode(r);
                 } else if (r > 127 && r < 2048) {
                   t += String.fromCharCode(r >> 6 | 192);
-                  t += String.fromCharCode(r & 63 | 128)
+                  t += String.fromCharCode(r & 63 | 128);
                 } else {
                   t += String.fromCharCode(r >> 12 | 224);
                   t += String.fromCharCode(r >> 6 & 63 | 128);
-                  t += String.fromCharCode(r & 63 | 128)
+                  t += String.fromCharCode(r & 63 | 128);
                 }
               }
-              return t
-            }
-          }
+              return t;
+            },
+          };
 
           const donation_fp = Base64.encode(JSON.stringify(info));
 
-          if(donation_fp) {
+          if (donation_fp) {
             this.donationFp = donation_fp;
             resolve();
           } else {
@@ -252,8 +273,8 @@ export default {
     },
     handleIugu() {
       Iugu.setAccountID(this.iugu.account_id);
-      Iugu.setTestMode(this.iugu.is_testing === 1 ? true : false);
-    }
+      Iugu.setTestMode(this.iugu.is_testing === 1);
+    },
   },
 };
 </script>
