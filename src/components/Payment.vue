@@ -24,6 +24,7 @@
 
 	<userData v-if="paymentStep === 'userData'"/>
 	<cardData v-if="paymentStep === 'cardData'"/>
+	<addressData v-if="paymentStep === 'address'"/>
 	</template>
 </div>
 </template>
@@ -34,28 +35,30 @@ import selectValue from '@/components/steps/selectValue.vue';
 import userData from '@/components/steps/userData.vue';
 import cardData from '@/components/steps/cardData.vue';
 import finalMessage from '@/components/steps/finalMessage.vue';
+import addressData from '@/components/steps/addressData.vue';
 
 export default {
-name: 'Payment',
-components: {
-	selectValue,
-	userData,
-	cardData,
-	finalMessage,
-},
-computed: {
-	paymentStep() {
-	return this.$store.state.paymentStep;
-	},
-	amount() {
-	return this.$store.state.amount;
-	},
-},
-methods: {
-	goBack() {
-	const step = this.paymentStep === 'userData' ? 'selectValue' : 'userData';
-	this.$store.dispatch('CHANGE_PAYMENT_STEP', { step });
-	},
-},
+  name: 'Payment',
+  components: {
+    selectValue,
+    userData,
+    cardData,
+    finalMessage,
+    addressData,
+  },
+  computed: {
+    paymentStep() {
+      return this.$store.state.paymentStep;
+    },
+    amount() {
+      return this.$store.state.amount;
+    },
+  },
+  methods: {
+    goBack() {
+      const step = this.paymentStep === 'userData' ? 'selectValue' : 'userData';
+      this.$store.dispatch('CHANGE_PAYMENT_STEP', { step });
+    },
+  },
 };
 </script>
