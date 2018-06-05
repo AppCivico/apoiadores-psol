@@ -153,9 +153,7 @@ export default {
       );
 
       Iugu.createPaymentToken(cc, (response) => {
-		  console.log ('response', response);
         if (response.errors) {
-		  console.log ('response.errors', response.errors);
           this.toggleLoading();
           this.errorMessage = 'Erro tiririoaksjaksj cartão';
         } else {
