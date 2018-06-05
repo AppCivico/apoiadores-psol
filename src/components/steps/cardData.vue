@@ -155,7 +155,7 @@ export default {
       Iugu.createPaymentToken(cc, (response) => {
         if (response.errors) {
           this.toggleLoading();
-          this.errorMessage = 'Erro tiririoaksjaksj cartão';
+          this.errorMessage = 'Erro nos dados do cartão';
         } else {
           const payload = {
             cc_hash,
