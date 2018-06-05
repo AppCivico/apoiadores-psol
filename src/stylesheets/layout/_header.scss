@@ -1,78 +1,64 @@
 .site-header {
 	position: relative;
 	color: palette('white');
-
-	min-height: 550px;
-	height: 80vh;
+	min-height: 560px;
+	height: 70vh;
 	background-color: palette('gray', 'dark');
 	background-image:
 	url('../assets/images/backgrounds/capa-boulos_sonia-small.png'),
-	url('../assets/images/backgrounds/capa-texto-mobile.png'),
 	url('../assets/images/backgrounds/capa-fundo-small.jpg');
 	background-size:
 		450px auto,
-		340px auto,
 		cover;
 	background-position:
 		-5% bottom,
-		center 25%,
 		0 0;
 
 	@media screen and (min-width: breakpoint('phablet')) {
 	background-size:
 		500px auto,
-		400px auto,
 		cover;
 	background-position:
 		55% bottom,
-		center 20%,
 		0 0;
-		min-height: 580px;
+		min-height: 680px;
 	}
 
 	@media screen and (min-width: breakpoint('tablet')) {
-		min-height: 740px;
+		min-height: 760px;
+		height: 90vh;
 		background-size:
 		600px auto,
-		580px auto,
 		cover;
 		background-position:
-			55% bottom,
-			center 18%,
-			0 0;
+		55% bottom,
+		0 0;
 	}
 
 	@media screen and (min-width: breakpoint('desktop')) {
-		height: 100vh;
-		min-height: 800px;
+		min-height: 780px;
 		background-image:
 		url('../assets/images/backgrounds/capa-boulos_sonia.png'),
-		url('../assets/images/backgrounds/capa-texto.png'),
 		url('../assets/images/backgrounds/capa-fundo.jpg');
-
 		background-size:
-			750px auto,
-			1050px auto,
-			cover;
+		750px auto,
+		cover;
 		background-position:
 		center bottom,
-		center 20%,
 		0 0;
 	}
 
 	@media screen and (min-width: breakpoint('wide')) {
-		min-height: 900px;
+		height: 100vh;
+		min-height: 910px;
 		background-size:
 			870px auto,
-			1200px 369px,
 			cover;
 		background-position:
-		center bottom,
-		center 20%,
-		0 0;
+			center bottom,
+			0 0;
 
 	}
-
 }
 
 .header-container {
@@ -83,78 +69,76 @@
 	margin-left: auto;
 }
 
+#home__greetings {
+	padding-top: 5.5em;
+
+	@media screen and (min-width: breakpoint('tablet')) {
+		padding-top: 3em;
+	}
+}
+
 .site-label {
-	margin: auto;
-	position: absolute;
-	text-align: right;
-	left: 50%;
-	top: 50%;
-	transform: translate(-50%, -50%);
-	-webkit-transform: translate(-50%, -50%);
-	width: 100%;
-	max-width: 18em;
-	padding-right: $gutter;
-	padding-left: $gutter;
-
-	@media screen and(min-width: breakpoint('phablet')) {
-		max-width: 30em;
-	}
-
-	@media screen and(min-width: breakpoint('tablet')) {
-		max-width: 41.1em;
-	}
-
-	@media screen and(min-width: breakpoint('desktop')) {
-		max-width: 59em;
-	}
-}
-
-.site-label p {
-	color: palette('purple', 'light');
-	text-align: right;
-	font-size: ms(1);
-	text-transform: uppercase;
-	line-height: 1;
-	margin-bottom: 0;
-
-	@media screen and(min-width: breakpoint('phablet')) {
-		text-align: left;
-		font-size: ms(3);
-	}
-
-	@media screen and(min-width: breakpoint('wide')) {
-		font-size: ms(4);
-	}
-}
-
-.site-header h1 {
-	margin: auto;
 	padding: 0;
-	line-height: 1;
-
-	@media screen and(min-width: breakpoint('tablet')) {
-		line-height: 0.9;
-	}
-
-	@media screen and(min-width: breakpoint('tablet')) {
-		line-height: 0.8;
-	}
-
-}
-
-.site-header h1 span {
-	text-align: right;
+	margin: 0;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
 
 	@media screen and (min-width: breakpoint('desktop')) {
-		display: block;
-		margin-top: 0.1em;
-		font-size: ms(9);
+		text-align: right;
+		max-width: 1024px;
+	}
+	@media screen and (min-width: breakpoint('wide')) {
+		max-width: 1200px;
 	}
 }
 
+.site-label h1 {
+	position: relative;
+	@include image-replacement;
+	min-width: 320px;
+	min-height: 178px;
+	margin: 0;
+	margin-bottom: -0.1em;
+	display: block;
 
-.site-header .call-to-action {
-	right: 0;
+	background-image: url('../assets/images/backgrounds/text-image-phone.png');
+	background-position: center center;
+	background-size: 320px 178px;
+
+	@media screen and (min-width: breakpoint('phablet')) {
+		min-width: 480px;
+		min-height: 267px;
+		background-image: url('../assets/images/backgrounds/text-image-phablet.png');
+		background-position: center center;
+		background-size: 480px 267px;
+	}
+	@media screen and (min-width: breakpoint('tablet')) {
+		min-width: 600px;
+		min-height: 334px;
+		background-image: url('../assets/images/backgrounds/text-image-tablet.png');
+		background-position: center center;
+		background-size: 600px 334px;
+	}
+	@media screen and (min-width: breakpoint('desktop')) {
+		min-width: 1024px;
+		min-height: 315px;
+		background-image: url('../assets/images/backgrounds/text-image-desktop.png');
+		background-position: center center;
+		background-size: 1024px 315px;
+		margin-bottom: -0.7em;
+	}
+	@media screen and (min-width: breakpoint('wide')) {
+		min-width: 1200px;
+		min-height: 369px;
+		background-image: url('../assets/images/backgrounds/text-image-wide.png');
+		background-position: center center;
+		background-size: 1200px 369px;
+	}
+
+}
+
+.site-label .call-to-action {
 	font-size: ms(2);
 	text-decoration: none;
 	font-weight: 800;
@@ -163,8 +147,13 @@
 	color: palette('white');
 	font-weight: 800;
 
-@media screen and (min-width: breakpoint('desktop')) {
+	@media screen and (min-width: breakpoint('desktop')) {
 		font-size: ms(3);
+		margin-right: 55px;
+	}
+	@media screen and (min-width: breakpoint('wide')) {
+		font-size: ms(3);
+		margin-right: 58px;
 	}
 }
 
