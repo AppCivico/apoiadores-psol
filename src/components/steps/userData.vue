@@ -30,7 +30,7 @@
           :class="`input-wrapper half
           ${validation.errors.surname ? 'has-error' : ''}`"
         >
-          <label for="surname">Sobrenome</label>
+          <label for="surname">Sobrenome (completo)</label>
           <input
             type="text"
             name="surname"
