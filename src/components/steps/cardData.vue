@@ -148,14 +148,16 @@ export default {
         card.validity_month,
         card.validity_year,
         dataSession.firstName,
-        dataSession.lastname,
+        dataSession.surname,
         card.csc,
       );
 
       Iugu.createPaymentToken(cc, (response) => {
+		  console.log ('response', response);
         if (response.errors) {
+		  console.log ('response.errors', response.errors);
           this.toggleLoading();
-          this.errorMessage = 'Erro salvando cartão';
+          this.errorMessage = 'Erro tiririoaksjaksj cartão';
         } else {
           const payload = {
             cc_hash,
