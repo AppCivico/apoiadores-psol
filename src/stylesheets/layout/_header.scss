@@ -86,7 +86,7 @@
 
 	@media screen and (min-width: breakpoint('desktop')) {
 		text-align: right;
-		max-width: 1024px;
+		max-width: 1000px;
 	}
 	@media screen and (min-width: breakpoint('wide')) {
 		max-width: 1200px;
@@ -96,7 +96,7 @@
 .site-label h1 {
 	position: relative;
 	@include image-replacement;
-	min-width: 320px;
+	min-width: 315px;
 	min-height: 178px;
 	margin: 0;
 	margin-bottom: -0.1em;
@@ -107,7 +107,7 @@
 	background-size: 320px 178px;
 
 	@media screen and (min-width: breakpoint('phablet')) {
-		min-width: 480px;
+		min-width: 465px;
 		min-height: 267px;
 		background-image: url('../assets/images/backgrounds/text-image-phablet.png');
 		background-position: center center;
@@ -121,7 +121,7 @@
 		background-size: 600px 334px;
 	}
 	@media screen and (min-width: breakpoint('desktop')) {
-		min-width: 1024px;
+		min-width: 1000px;
 		min-height: 315px;
 		background-image: url('../assets/images/backgrounds/text-image-desktop.png');
 		background-position: center center;
