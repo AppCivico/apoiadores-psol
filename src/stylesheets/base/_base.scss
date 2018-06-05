@@ -61,20 +61,20 @@ textarea,
 	touch-action: manipulation; /* 1 */
 }
 
-:target {
-	animation: highlight 0.8s ease-out;
+// :target {
+// 	animation: highlight 0.8s ease-out;
 
-	@keyframes highlight {
-		// sass-lint:disable-block no-color-literals
-		0% {
-			background-color: rgba(palette('target-highlight'), 1);
-		}
+// 	@keyframes highlight {
+// 		// sass-lint:disable-block no-color-literals
+// 		0% {
+// 			background-color: rgba(palette('target-highlight'), 1);
+// 		}
 
-		100% {
-			background-color: rgba(palette('target-highlight'), 0);
-		}
-	}
-}
+// 		100% {
+// 			background-color: rgba(palette('target-highlight'), 0);
+// 		}
+// 	}
+// }
 
 /**
  * 1. Corrects text resizing oddly in IE6/7 when body font-size is set using em units
