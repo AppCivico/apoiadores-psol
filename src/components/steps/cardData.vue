@@ -141,13 +141,12 @@ export default {
     saveCard(card) {
 	  const cc_hash = this.getCardHash(card.number);
 	 const dataSession = JSON.parse(sessionStorage.getItem('user-donation-data'));
-
       const cc = Iugu.CreditCard(
         card.number,
         card.validity_month,
         card.validity_year,
         dataSession.firstName,
-        dataSession.firstName,
+        dataSession.lastname,
         card.csc,
       );
 

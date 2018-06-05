@@ -27,6 +27,7 @@ export default new Vuex.Store({
     donations: [],
     userData: {},
   },
+
   mutations: {
     SET_PAYMENT_STEP(state, { data }) {
       state.paymentStep = data.step;
@@ -40,6 +41,7 @@ export default new Vuex.Store({
     SET_TOKEN(state, { token }) {
       state.token = token;
     },
+
     SET_USERNAME(state, { user }) {
       state.username = user;
     },
@@ -58,6 +60,11 @@ export default new Vuex.Store({
     SET_DONATIONS(state, { res }) {
       state.donations = res.names;
     },
+    SET_USER_DATA(state, {
+	    	userData,
+	    }) {
+	    	state.userData = userData;
+	    },
   },
   actions: {
     CHANGE_PAYMENT_AMOUNT({ commit }, data) {
@@ -77,6 +84,13 @@ export default new Vuex.Store({
     SAVE_USERNAME({ commit }, user) {
       commit('SET_USERNAME', { user });
     },
+	 SAVE_USER_DATA({
+	 	commit,
+	 }, payload) {
+	 	commit('SET_USER_DATA', {
+	 		userData: payload,
+	 	});
+	 },
     ADD_TOKEN({ commit }, data) {
       commit('SET_TOKEN', { token: data });
     },

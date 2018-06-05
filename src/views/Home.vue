@@ -136,7 +136,7 @@ export default {
     Payment,
   },
   mounted() {
-    const candidateId = window.location.host === 'ap-psol.appcivico.com'
+    const candidateId = window.location.host === 'ap-psol.appcivico.com' || window.location.host === 'financie.psol.org.br'
     ? 78
     : 136;
     this.$store.dispatch('GET_CANDIDATE_INFO', candidateId);
