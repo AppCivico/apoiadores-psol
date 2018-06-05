@@ -65,6 +65,7 @@
 
 .site-footer__copyright li {
 	display: inline-block;
+	max-width: 100%;
 
 	padding-right: $gutter * 0.5;
 	padding-left: $gutter * 0.5;
