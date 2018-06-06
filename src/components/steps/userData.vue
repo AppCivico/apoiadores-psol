@@ -20,7 +20,7 @@
           <input
             type="text"
             name="name"
-            v-model="name">
+            v-model="name" v-focus>
           <div class="error" v-if="validation.errors.name">
             {{ validation.errors.name }}
           </div>

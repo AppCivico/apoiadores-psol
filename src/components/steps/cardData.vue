@@ -9,7 +9,7 @@
             type="text"
             v-model="number"
             name="number"
-            v-mask="'#### #### #### ####'">
+            v-mask="'#### #### #### ####'" v-focus>
           <div class="error" v-if="validation.errors.number">
             {{ validation.errors.number }}
           </div>
@@ -47,7 +47,7 @@
             type="text"
             v-model="csc"
             name="csc"
-            maxlength="3">
+            maxlength="4">
           <div class="error" v-if="validation.errors.csc">
             {{ validation.errors.csc }}
           </div>
