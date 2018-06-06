@@ -21,7 +21,7 @@ Vue.filter('lowerCase', value => value.toLowerCase());
 Vue.filter('titleCase', str =>
   str
     .split(/\s+/)
-    .map(item => item.charAt(0).toUpperCase() + item.substring(1))
+    .map(item => item.charAt(0).toUpperCase() + item.substring(1).toLowerCase())
     .join(' '));
 
 new Vue({
@@ -35,3 +35,4 @@ Vue.directive('focus', {
     el.focus()
   },
 });
+
