@@ -47,5 +47,18 @@
 
 }
 
+#final-message-payment {
+	text-align: center;
 
+	& .donation-nav--rewind {
+		float: none;
+
+		font-size: ms(0);
+
+		@media screen and (min-width: breakpoint('phablet')) {
+			margin-top: 0.5em;
+			font-size: ms(1);
+		}
+	}
+}
 

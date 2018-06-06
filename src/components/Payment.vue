@@ -1,11 +1,11 @@
 <template>
 <div class="donation-form" id="donation-form">
 	<template v-if="paymentStep === 'selectValue'">
-	<h2>Escolha um valor para doar</h2>
-	<selectValue />
+		<h2>Escolha um valor para doar</h2>
+		<selectValue />
 	</template>
 	<template v-else-if="paymentStep === 'finalMessage'">
-	<finalMessage />
+		<finalMessage />
 	</template>
 	<template v-else>
 	<div class="donation-form-title" v-if="paymentStep !== 'printBoleto'">

@@ -88,6 +88,7 @@ fieldset ul {
 	font-size: inherit;
 	position: static;
 	color: inherit;
+	cursor: pointer;
 
 	@media (max-width: 500px) {
 		font-size: ms(0);
