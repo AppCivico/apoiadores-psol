@@ -4,7 +4,7 @@
 				<div :class="`input-wrapper
 					${validation.errors.birthdate ? 'has-error' : ''}`">
 					<label for="birthdate">{{ 'Data de nascimento'  }}</label>
-					<input type="text" v-model="birthdate" name="birthdate" v-mask="'##/##/####'">
+					<input type="text" v-model="birthdate" name="birthdate" v-mask="'##/##/####'" v-focus>
 					<div class="error" v-if="validation.errors.birthdate">
 						{{ validation.errors.birthdate }}
 					</div>
