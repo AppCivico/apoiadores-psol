@@ -25,7 +25,7 @@
 	}
 
 	@media screen and (min-width: breakpoint('tablet')) {
-		min-height: 760px;
+		min-height: 800px;
 		height: 90vh;
 		background-size:
 		600px auto,
@@ -36,7 +36,7 @@
 	}
 
 	@media screen and (min-width: breakpoint('desktop')) {
-		min-height: 850px;
+		min-height: 810px;
 		background-image:
 		url('../assets/images/backgrounds/capa-boulos_sonia.png'),
 		url('../assets/images/backgrounds/capa-fundo.jpg');
@@ -70,10 +70,17 @@
 }
 
 #home__greetings {
-	padding-top: 5.5em;
+	padding-top: 5em;
+
+	@media screen and (min-width: breakpoint('phablet')) {
+		padding-top: 4.5em;
+	}
 
 	@media screen and (min-width: breakpoint('tablet')) {
-		padding-top: 3.2em;
+		padding-top: 2.5em;
+	}
+	@media screen and (min-width: breakpoint('desktop')) {
+		padding-top: 3.8em;
 	}
 }
 
@@ -86,32 +93,32 @@
 
 	@media screen and (min-width: breakpoint('desktop')) {
 		text-align: right;
-		max-width: 620px;
+		max-width: 947px;
 	}
 	@media screen and (min-width: breakpoint('wide')) {
-		max-width: 1200px;
+		max-width: 1000px;
 	}
 }
 
 .site-label h1 {
 	position: relative;
 	@include image-replacement;
-	min-width: 315px;
-	min-height: 178px;
-	margin: 0;
+	min-width: 280px;
+	min-height: 159px;
 	margin-bottom: -0.1em;
 	display: block;
 
 	background-image: url('../assets/images/backgrounds/text-image-phone.png');
 	background-position: center center;
-	background-size: 320px 178px;
+	background-size: 280px 159px;
 
 	@media screen and (min-width: breakpoint('phablet')) {
-		min-width: 465px;
-		min-height: 267px;
+		min-width: 430px;
+		min-height: 244px;
 		background-image: url('../assets/images/backgrounds/text-image-phablet.png');
 		background-position: center center;
-		background-size: 480px 267px;
+		background-size: 430px 244px;
+		margin-bottom: 2px;
 	}
 	@media screen and (min-width: breakpoint('tablet')) {
 		min-width: 580px;
@@ -121,19 +128,18 @@
 		background-size: 580px 329px;
 	}
 	@media screen and (min-width: breakpoint('desktop')) {
-		min-width: 590px;
-		min-height: 315px;
+		min-width: 947px;
+		min-height: 209px;
 		background-image: url('../assets/images/backgrounds/text-image-desktop.png');
 		background-position: center center;
-		background-size: 590px 315px;
-		margin-bottom: 0em;
+		background-size: 947px 209px;
 	}
 	@media screen and (min-width: breakpoint('wide')) {
-		min-width: 1200px;
-		min-height: 369px;
+		min-width: 1000px;
+		min-height: 222px;
 		background-image: url('../assets/images/backgrounds/text-image-wide.png');
 		background-position: center center;
-		background-size: 1200px 369px;
+		background-size: 1000px 222px;
 	}
 
 }
@@ -154,7 +160,6 @@
 	}
 	@media screen and (min-width: breakpoint('wide')) {
 		font-size: ms(3);
-		margin-right: 58px;
 	}
 }
 
