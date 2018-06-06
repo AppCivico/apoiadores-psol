@@ -3,7 +3,7 @@
 			<fieldset>
 				<div :class="`input-wrapper
 					${validation.errors.birthdate ? 'has-error' : ''}`">
-					<label for="birthdate">{{ 'birthdate' | translate }}</label>
+					<label for="birthdate">{{ 'Data de nascimento'  }}</label>
 					<input type="text" v-model="birthdate" name="birthdate" v-mask="'##/##/####'" v-focus>
 					<div class="error" v-if="validation.errors.birthdate">
 						{{ validation.errors.birthdate }}
@@ -11,7 +11,7 @@
 				</div>
 				<div :class="`input-wrapper
 					${validation.errors.phone ? 'has-error' : ''}`">
-					<label for="phone">{{ 'phone' | translate }}</label>
+					<label for="phone">{{ 'Telefone' }}</label>
 					<input type="text" v-model="phone" name="phone" v-mask="'(##)#####-####'">
 					<div class="error" v-if="validation.errors.phone">
 						{{ validation.errors.phone }}
@@ -19,7 +19,7 @@
 				</div>
 				<div :class="`input-wrapper
 					${validation.errors.zip_code ? 'has-error' : ''}`">
-					<label for="zip_code">{{ 'cep' | translate }}</label>
+					<label for="zip_code">{{ 'Cep'  }}</label>
 					<input type="text" v-model="zip_code" name="zipcode" v-mask="'#####-###'" @blur="searchAddress($event)" >
 					<div class="error" v-if="validation.errors.zip_code">
 						{{ validation.errors.zip_code }}
@@ -27,7 +27,7 @@
 				</div>
 				<div :class="`input-wrapper
 					${validation.errors.city ? 'has-error' : ''}`">
-					<label for="city">{{ 'city' | translate }}</label>
+					<label for="city">{{ 'Cidade'  }}</label>
 					<input type="text" v-model="city" name="city" :disabled="true">
 					<div class="error" v-if="validation.errors.city">
 						{{ validation.errors.city }}
@@ -35,7 +35,7 @@
 				</div>
 				<div :class="`input-wrapper
 					${validation.errors.street ? 'has-error' : ''}`">
-					<label for="street">{{ 'street' | translate }}</label>
+					<label for="street">{{ 'Rua'  }}</label>
 					<input type="text" v-model="street" name="street" :disabled="true">
 					<div class="error" v-if="validation.errors.street">
 						{{ validation.errors.street }}
@@ -43,7 +43,7 @@
 				</div>
 				<div :class="`input-wrapper
 					${validation.errors.district ? 'has-error' : ''}`">
-					<label for="district">{{ 'district' | translate }}</label>
+					<label for="district">{{ 'Bairro'  }}</label>
 					<input type="text" v-model="district" name="district" :disabled="true">
 					<div class="error" v-if="validation.errors.district">
 						{{ validation.errors.district }}
@@ -51,7 +51,7 @@
 				</div>
 				<div :class="`input-wrapper
 					${validation.errors.number ? 'has-error' : ''}`">
-					<label for="number">{{ 'number' | translate }}</label>
+					<label for="number">{{ 'Número'  }}</label>
 					<input type="text" v-model="number" name="number" >
 					<div class="error" v-if="validation.errors.number" >
 						{{ validation.errors.number }}
@@ -59,7 +59,7 @@
 				</div>
 					<div :class="`input-wrapper
 					${validation.errors.complement ? 'has-error' : ''}`">
-					<label for="complement">{{ 'complement' | translate }}</label>
+					<label for="complement">{{ 'Complemento'  }}</label>
 					<input type="text" v-model="complement" name="complement" >
 					<div class="error" v-if="validation.errors.complement">
 						{{ validation.errors.complement }}
@@ -172,14 +172,11 @@ export default {
         donation_fp: this.getUserData.donation_fp,
 	  };
 
+
       this.$store.dispatch('GET_DONATION', payload)
         .then((res) => {
- 			if (this.getUserData.payment_method == 'credit_card') {
 				 this.handleIugu();
 				 this.$store.dispatch('CHANGE_PAYMENT_STEP', { step: 'cardData' });
-			  } else {
-			 this.$store.dispatch('CHANGE_PAYMENT_STEP', { step: 'certFaceVerify' });
-			  }
         })
         .catch((err) => {
           this.toggleLoading();
@@ -200,14 +197,13 @@ export default {
       });
     },
     disableField(field) {
-				 this.$nextTick(() => {
+      this.$nextTick(() => {
         const element = document.getElementsByName(field);
         element[0].disabled = false;
         return '';
       });
     },
 	  handleIugu() {
-		  console.log(this.iugu.account_id, this.iugu.is_testing);
       Iugu.setAccountID(this.iugu.account_id);
       Iugu.setTestMode(this.iugu.is_testing === 1);
     },

@@ -477,42 +477,19 @@ form .error {
 	margin-top: 20px;
 	padding: 10px;
 	font-size: 0.9em;
-	font-weight: bold;
-	text-transform: lowercase;
 }
 
 form .input-wrapper .error {
-	margin-top: -15px;
-	text-transform: lowercase;
-	font-size: ms(-1);
-	font-weight: bold;
+	margin-top: -10px;
 	border: 0;
 	padding: 0;
-	margin-bottom: $leading * 0.5em;
-	color: palette('purple', 'light');
+	margin-bottom: 20px;
 }
 
 form .has-error input {
-	border: 1px solid palette('purple');
+	border: 1px solid palette('orange');
 }
 
 .form__disclaimer {
 	font-size: 0.9em;
-}
-
-.payment-choices .payment-type {
-	display: inline-block;
-	min-width: 8rem;
-	opacity: 1;
-}
-.payment-choices label{
-	display: inline-block;
-	color: #fff;
-}
-[type="radio"]:checked+label {
-	color: orange;
-}
-
-.certiface-verify{
-	text-align: center;
 }

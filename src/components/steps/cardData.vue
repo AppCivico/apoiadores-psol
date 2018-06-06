@@ -118,6 +118,7 @@ export default {
       if (validation.valid) {
         fields.brand = this.getBrand(number);
 
+
         this.saveCard({
           name: removeAccented(name),
           csc,
@@ -139,7 +140,8 @@ export default {
       return result[0].type.replace('-', '');
     },
     saveCard(card) {
-	  const cc_hash = this.getCardHash(card.number);
+      const cc_hash = this.getCardHash(card.number);
+
 	 const dataSession = JSON.parse(sessionStorage.getItem('user-donation-data'));
       const cc = Iugu.CreditCard(
         card.number,
@@ -159,12 +161,12 @@ export default {
             cc_hash,
             id: response.id,
           };
-          this.$store.dispatch('START_DONATION', payload).then(() => {
-            sessionStorage.clear();
-		  }).catch((err) => {
-            this.toggleLoading();
-            this.handleErrorMessage(err);
-          });
+          this.$store.dispatch('START_DONATION', payload)
+            .catch((err) => {
+              this.toggleLoading();
+			  this.handleErrorMessage(err);
+			  localStorage.clear();
+            });
         }
       });
     },

@@ -14,7 +14,7 @@
 					<span></span>
 				</button>
 				<div class="brand-wrap">
-					<a href="#home__greetings" v-scroll-to="'#home__greetings'" class="logo-psol">PSOL</a>
+					<a href="/" class="logo-psol">PSOL</a>
 				</div>
 				<ul class="menu-wrap">
 					<li class="menu-item">

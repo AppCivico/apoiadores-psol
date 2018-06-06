@@ -1,16 +1,6 @@
 <template>
   <section>
     <form @submit.prevent="validateForm" :aria-busy="loading ? 'true' : 'false'">
-	<ul class="payment-choices">
-		<li class="payment-type">
-			<input name="payment_method" id="credit_card" value="credit_card" type="radio" v-model="payment_method">
-			<label for="credit_card">{{ 'creditCard' | translate }}</label>
-		</li>
-		<li class="payment-type">
-			<input name="payment_method" id="boleto" value="boleto" type="radio" v-model="payment_method">
-			<label for="boleto">{{ 'boleto' | translate  }}</label>
-		</li>
-	</ul>
       <fieldset>
         <div
           :class="`input-wrapper half
@@ -94,8 +84,7 @@ export default {
       surname: '',
       cpf: '',
       email: '',
-	  donationFp: '',
-	  payment_method: 'credit_card',
+      donationFp: '',
       validation: {
         errors: {},
       },
@@ -140,15 +129,9 @@ export default {
 
       if (validation.valid) {
         this.registerUser(fields);
-        const nameJoin = `${this.name} ${this.surname}`
-          .toUpperCase()
-          .trim()
-          .replace(/\s/g, '');
-        const cpf = this.cpf.replace(/[^\d]+/g, '');
         sessionStorage.setItem(
           'user-donation-data',
           JSON.stringify({
-            nameJoin,
             cpf,
             email: this.email,
             firstName: this.name,
@@ -166,7 +149,7 @@ export default {
       this.getDonationFP()
         .then(() => {
           const payload = {
-            payment_method: this.payment_method,
+            payment_method: 'credit_card',
             device_authorization_token_id: this.token,
             email: data.email,
             cpf: data.cpf,
@@ -175,8 +158,7 @@ export default {
             candidate_id: this.candidate.id,
             donation_fp: this.donationFp,
 		  };
-
-		 this.$store.dispatch('SAVE_USER_DATA', payload);
+		     this.$store.dispatch('SAVE_USER_DATA', payload);
           this.$store.dispatch('GET_DONATION', payload)
             .then((res) => {
               const user = {
@@ -184,16 +166,13 @@ export default {
                 surname: data.surname,
               };
               this.$store.dispatch('SAVE_USERNAME', user);
-              this.handleIugu();
+			  this.handleIugu();
+
+
               this.$store.dispatch('CHANGE_PAYMENT_STEP', { step: 'address' });
-            //   this.$store.dispatch('CHANGE_PAYMENT_STEP', { step: 'cardData' });
+            //   this.$store.dispatch('CHANGE_PAYMENT_STEP', { step: 'adressdata' });
             }).catch((err) => {
-              if (err.data[0].msg_id == 'need_billing_adddress') {
-                this.$store.dispatch('CHANGE_PAYMENT_STEP', {
-                  step: 'address',
-                });
-                return;
-              }
+              this.$store.dispatch('CHANGE_PAYMENT_STEP', { step: 'address' });
               this.toggleLoading();
               this.handleErrorMessage(err);
             });
@@ -204,20 +183,6 @@ export default {
     },
     handleErrorMessage(err) {
       this.errorMessage = err.data[0].message;
-    },
-    controlSession() {
-	  const dataSession = JSON.parse(sessionStorage.getItem('user-donation-data'));
-      if (dataSession != null) {
-        const data = {
-          amount: dataSession.amount,
-          step: 'userData',
-        };
-        this.$store.dispatch('CHANGE_PAYMENT_AMOUNT', data);
-        this.name = dataSession.firstName;
-        this.surname = dataSession.surname;
-        this.cpf = dataSession.cpf;
-        this.email = dataSession.email;
-      }
     },
     getDonationFP() {
       return new Promise((resolve, reject) => {
@@ -310,9 +275,6 @@ export default {
       Iugu.setAccountID(this.iugu.account_id);
       Iugu.setTestMode(this.iugu.is_testing === 1);
     },
-  },
-  mounted() {
-    this.controlSession();
   },
 };
 </script>
