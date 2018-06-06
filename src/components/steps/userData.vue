@@ -1,5 +1,5 @@
 <template>
-  <section>
+  <section id="user-data-payment">
     <form @submit.prevent="validateForm" :aria-busy="loading ? 'true' : 'false'">
 	<ul class="payment-choices">
 		<li class="payment-type">

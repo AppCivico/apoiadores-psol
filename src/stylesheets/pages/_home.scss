@@ -185,6 +185,7 @@ $default-articles-padding: 12.5rem;
 
 .home__donate li.active {
 	display: block;
+	font-size: ms(0);
 
 	&::before {
 		// content: '\2022';

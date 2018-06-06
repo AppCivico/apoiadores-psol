@@ -189,12 +189,55 @@ fieldset ul {
 	display: inline-block;
 }
 
-.checkbox-custom label {
-	position: relative;
-	color: palette('white');
-	line-height: 0;
+#user-data-payment ul {
+	width: 100%;
+
+	@media screen and (min-width: breakpoint('tablet')) {
+		@include inline-block-wrapper;
+		margin-right: $gutter / -4;
+		margin-left: $gutter / -4;
+	}
 }
 
-.checkbox-custom label a {
+
+#user-data-payment ul label:hover {
+	background-color: palette('orange');
+}
+
+#user-data-payment ul :checked+label {
+	background-color: palette('orange');
+}
+
+#user-data-payment li {
+	font-size: ms(0);
+	display: block;
+	margin: 0;
+	padding-top: $gutter / 4;
+	padding-bottom: $gutter / 4;
+
+	@media screen and (min-width: breakpoint('tablet')) {
+		@include inline-block-item;
+		width: 50%;
+		padding-right: $gutter / 4;
+		padding-left: $gutter / 4;
+	}
+
+	&::before {
+		content: none;
+	}
+}
+
+#user-data-payment .payment-type label {
+	display: block;
+	padding-top: $leading * 0.4rem;
+	padding-bottom: $leading * 0.4rem;
+	white-space: nowrap;
+	text-align: center;
+	font-weight: inherit;
+	background-color: palette('purple');
+	border-radius: $rounded-corner;
+	font-size: inherit;
+	position: static;
 	color: inherit;
+
 }
