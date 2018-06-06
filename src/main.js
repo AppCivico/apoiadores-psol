@@ -23,10 +23,9 @@ Vue.filter('titleCase', str =>
     .split(/\s+/)
     .map((item) => {
       if (item.length > 3) {
-        return item.charAt(0).toUpperCase() + item.substring(1).toLowerCase()
+        return item.charAt(0).toUpperCase() + item.substring(1).toLowerCase();
       }
-
-      return item;
+      return item.toLowerCase();
     })
     .join(' '));
 
