@@ -21,7 +21,12 @@ Vue.filter('lowerCase', value => value.toLowerCase());
 Vue.filter('titleCase', str =>
   str
     .split(/\s+/)
-    .map(item => item.charAt(0).toUpperCase() + item.substring(1).toLowerCase())
+    .map((item) => {
+      if (item.length > 3) {
+        return item.charAt(0).toUpperCase() + item.substring(1).toLowerCase();
+      }
+      return item.toLowerCase();
+    })
     .join(' '));
 
 new Vue({
