@@ -3,6 +3,7 @@ import VueScrollTo from 'vue-scrollto';
 import App from './App.vue';
 import router from './router';
 import store from './store';
+import translations from './translations';
 
 import { formatBRL, formatBRLDec, formatDate, formatCNPJ, formatDateBasic } from './utilities';
 
@@ -21,18 +22,25 @@ Vue.filter('lowerCase', value => value.toLowerCase());
 Vue.filter('titleCase', str =>
   str
     .split(/\s+/)
-    .map(item => item.charAt(0).toUpperCase() + item.substring(1).toLowerCase())
+    .map((item) => {
+      if (item.length > 3) {
+        return item.charAt(0).toUpperCase() + item.substring(1).toLowerCase()
+      }
+
+      return item;
+    })
     .join(' '));
 
 new Vue({
   router,
   store,
+  translations,
   render: h => h(App),
 }).$mount('#app');
 
 Vue.directive('focus', {
-  inserted: function (el) {
-    el.focus()
+  inserted: (el) => {
+    el.focus();
   },
 });
 
