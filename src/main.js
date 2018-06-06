@@ -23,7 +23,10 @@ Vue.filter('titleCase', str =>
   str
     .split(/\s+/)
     .map((item) => {
-      if (item.length > 3) {
+      if (item.length > 2) {
+        if (item.toLowerCase() === 'dos') {
+          return item.toLowerCase();
+        }
         return item.charAt(0).toUpperCase() + item.substring(1).toLowerCase();
       }
       return item.toLowerCase();
