@@ -1,29 +1,29 @@
 <template>
 <div class="donation-form" id="donation-form">
-	<template v-if="paymentStep === 'selectValue'">
-		<h2>Escolha um valor para doar</h2>
-		<selectValue />
-	</template>
-	<template v-else-if="paymentStep === 'finalMessage'">
-		<finalMessage />
-	</template>
-	<template v-else>
-	<div class="donation-form-title" v-if="paymentStep !== 'printBoleto'">
-		<h2>Você escolheu doar:</h2>
-		<h2 v-if="amount">R$ {{ amount | formatBRL }}</h2>
-	</div>
-	<a class="donation-nav donation-nav--rewind" href="#" @click.prevent="goBack()">voltar</a>
- 	<headSteps></headSteps>
+    <template v-if="paymentStep === 'selectValue'">
+        <h2>Escolha um valor para doar</h2>
+        <selectValue />
+    </template>
+    <template v-else-if="paymentStep === 'finalMessage'">
+        <finalMessage />
+    </template>
+    <template v-else>
+    <div class="donation-form-title" v-if="paymentStep !== 'printBoleto'">
+        <h2>Você escolheu doar:</h2>
+        <h2 v-if="amount">R$ {{ amount | formatBRL }}</h2>
+    </div>
+    <a class="donation-nav donation-nav--rewind" href="#" @click.prevent="goBack()">voltar</a>
+     <headSteps></headSteps>
 
-	<userData v-if="paymentStep === 'userData'"/>
-	<cardData v-if="paymentStep === 'cardData'"/>
-	<addressData v-if="paymentStep === 'address'"/>
-   	<certFaceVerify v-if="paymentStep === 'certFaceVerify'"/>
-	<printBoleto v-if="paymentStep === 'printBoleto'" :aria-busy="loading ? 'true' : 'false'"/>
-		<p class="error" v-if="errorMessage != ''">
-				{{ errorMessage }}
-			</p>
-	</template>
+    <userData v-if="paymentStep === 'userData'"/>
+    <cardData v-if="paymentStep === 'cardData'"/>
+    <addressData v-if="paymentStep === 'address'"/>
+       <certFaceVerify v-if="paymentStep === 'certFaceVerify'"/>
+    <printBoleto v-if="paymentStep === 'printBoleto'" :aria-busy="loading ? 'true' : 'false'"/>
+        <p class="error" v-if="errorMessage != ''">
+                {{ errorMessage }}
+            </p>
+    </template>
 </div>
 </template>
 
@@ -52,10 +52,10 @@ export default {
     headSteps,
   },
   data() {
-	  return {
-		  loading: false,
-		   errorMessage: '',
-	  };
+      return {
+          loading: false,
+           errorMessage: '',
+      };
   },
   computed: {
     paymentStep() {
@@ -82,19 +82,19 @@ export default {
           donationId: this.$route.query.donation_id,
         };
         this.$store.dispatch('START_DONATION_BOLETO', payload).then((response) => {
-		  this.toggleLoading();
-		    setTimeout(() => {
+          this.toggleLoading();
+            setTimeout(() => {
             this.scroolFormDonation();
           }, 1000);
         }, (error) => {
-			 this.toggleLoading();
-			 this.errorMessage = error.data[0].message;
-		    setTimeout(() => {
+             this.toggleLoading();
+             this.errorMessage = error.data[0].message;
+            setTimeout(() => {
             this.scroolFormDonation();
           }, 1000);
-		  console.error(error);
+          console.error(error);
         });
-	  }
+      }
     },
     scroolFormDonation() {
       const form = document.getElementById('donation-form');

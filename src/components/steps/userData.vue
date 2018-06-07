@@ -69,11 +69,11 @@
             {{ validation.errors.email }}
           </div>
         </div>
-      </fieldset>
       <p class="error" v-if="errorMessage != ''">
         {{ errorMessage }}
       </p>
       <button type="submit" :disabled="loading" class="donation-nav donation-nav--forward">Continuar</button>
+      </fieldset>
     </form>
   </section>
 </template>
@@ -119,6 +119,10 @@ export default {
   methods: {
     toggleLoading() {
       this.loading = !this.loading;
+    },
+    scroolToform() {
+        const form = document.getElementById('doar');
+        form.scrollIntoView({ block: 'end', behavior: 'smooth' });
     },
     validateForm() {
       this.toggleLoading();
@@ -314,6 +318,7 @@ export default {
   },
   mounted() {
     this.controlSession();
+    this.scroolToform();
   },
 };
 </script>

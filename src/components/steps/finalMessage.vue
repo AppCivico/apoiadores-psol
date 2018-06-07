@@ -24,7 +24,14 @@ export default {
   methods: {
 	goBack() {
 		this.$store.dispatch('CHANGE_PAYMENT_STEP', { step: 'selectValue' });
-	}
-  }
+	},
+    scroolToform() {
+        const form = document.getElementById('doar');
+        form.scrollIntoView({ block: 'end', behavior: 'smooth' });
+    },
+  },
+  mounted() {
+    this.scroolToform();
+  },
 }
 </script>

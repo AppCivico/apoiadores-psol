@@ -32,6 +32,15 @@ export default {
       return this.$store.state.amount;
     },
   },
+  methods: {
+    scroolToform() {
+        const form = document.getElementById('doar');
+        form.scrollIntoView({ block: 'end', behavior: 'smooth' });
+    },
+  },
+  mounted() {
+    this.scroolToform();
+  },
 };
 </script>
 
