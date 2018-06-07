@@ -127,8 +127,8 @@ export default {
       this.loading = !this.loading;
     },
     scrollToForm() {
-        const form = document.getElementById('doar');
-        form.scrollIntoView({ block: 'end', behavior: 'smooth' });
+      const form = document.getElementById('doar');
+      form.scrollIntoView({ block: 'end', behavior: 'smooth' });
     },
     validateForm() {
     //   alert();
@@ -221,7 +221,7 @@ export default {
 		  error: this.errorSteps,
         };
         if (this.errorSteps) {
-          this.errorMessage = [{ message: this.errorSteps.message }];
+          this.errorMessage = this.errorSteps.message;
         }
         this.$store.dispatch('CHANGE_PAYMENT_AMOUNT', data);
         this.name = dataSession.firstName;
