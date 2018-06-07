@@ -214,6 +214,9 @@ export default {
                 name: data.name,
                 surname: data.surname,
               };
+                name: this.getUserData.name.split(' ')[0],
+                surname: this.getUserData.name.split(' ')[1],
+			  };
               this.$store.dispatch('SAVE_USERNAME', user);
 			  if (this.getUserData.payment_method == 'boleto') {
                 this.$store.dispatch('CHANGE_PAYMENT_STEP', {
