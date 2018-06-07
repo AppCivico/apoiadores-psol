@@ -17,7 +17,7 @@ export default new Vuex.Store({
   },
   state: {
     paymentStep: 'selectValue',
-    paymentStepError: '',
+    stepError: {},
     amount: 0,
     token: '',
     donation: {},
@@ -73,12 +73,9 @@ export default new Vuex.Store({
       commit('SET_PAYMENT_STEP', { data });
       commit('SET_PAYMENT_AMOUNT', { data });
     },
-	  SAVE_ADDRESS({ commit }, data) {
-		  commit('SET_PAYMENT_STEP', { data });
-		  commit('SET_PAYMENT_AMOUNT', { data });
-	  },
-    SAVE_USER_DATA({ commit }, payload) {
-      commit('SET_USER_DATA', { userData: payload });
+    SAVE_ADDRESS({ commit }, data) {
+      commit('SET_PAYMENT_STEP', { data });
+      commit('SET_PAYMENT_AMOUNT', { data });
     },
     CHANGE_PAYMENT_STEP({ commit }, data) {
       commit('SET_PAYMENT_STEP', { data });
@@ -86,13 +83,13 @@ export default new Vuex.Store({
     SAVE_USERNAME({ commit }, user) {
       commit('SET_USERNAME', { user });
     },
-	 SAVE_USER_DATA({
-	 	commit,
-	 }, payload) {
-	 	commit('SET_USER_DATA', {
-	 		userData: payload,
-	 	});
-	 },
+    SAVE_USER_DATA({
+      commit,
+    }, payload) {
+      commit('SET_USER_DATA', {
+        userData: payload,
+      });
+    },
     ADD_TOKEN({ commit }, data) {
       commit('SET_TOKEN', { token: data });
     },
@@ -126,9 +123,10 @@ export default new Vuex.Store({
           const { donation, ui } = response.data;
           commit('SET_DONATION', { donation });
           commit('SET_IUGU', { iugu: ui.messages[1] });
-          commit('SET_MESSAGES', { messages: response.data.ui.messages });
+		  commit('SET_MESSAGES', { messages: response.data.ui.messages });
           resolve(response);
         }).catch((err) => {
+			  console.error(err.response);
 			   reject(err.response);
         });
       });
