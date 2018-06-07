@@ -179,12 +179,6 @@ export default {
     },
 
     registerUser() {
-      const error = [{
-			 msg_id: 'cpf_invalid',
-			 msg_id: 'email_invalid',
-			 msg_id: 'name_invalid',
-
-      }];
       this.getDonationFP()
         .then((response) => {
           let birthdate = this.birthdate.split('/');
