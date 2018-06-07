@@ -69,7 +69,6 @@
           </div>
         </div>
       </fieldset>
- {{errorMessage}}
       <p class="error"  v-for="err in errorMessage">
         {{ err.message }}
       </p>
@@ -116,7 +115,7 @@ export default {
       return this.$store.state.candidate;
     },
     errorSteps() {
-      return this.$store.state.paymentStepError;
+      return this.$store.state.stepError;
     },
   },
   methods: {
@@ -197,26 +196,6 @@ export default {
 		  };
 
 		 this.$store.dispatch('SAVE_USER_DATA', payload);
-        //   this.$store.dispatch('GET_DONATION', payload)
-        //     .then((res) => {
-        //       const user = {
-        //         name: data.name,
-        //         surname: data.surname,
-        //       };
-        //       this.$store.dispatch('SAVE_USERNAME', user);
-        //       this.handleIugu();
-        //       this.$store.dispatch('CHANGE_PAYMENT_STEP', { step: 'address' });
-        //     //   this.$store.dispatch('CHANGE_PAYMENT_STEP', { step: 'cardData' });
-        //     }).catch((err) => {
-        //       if (err.data[0].msg_id == 'need_billing_adddress') {
-        //         this.$store.dispatch('CHANGE_PAYMENT_STEP', {
-        //           step: 'address',
-        //         });
-        //         return;
-        //       }
-        //       this.toggleLoading();
-        //       this.handleErrorMessage(err);
-        //     });
         }).catch(() => {
           this.toggleLoading();
           this.errorMessage = 'Ocorreu um erro inesperado, tente novamente!';
@@ -230,8 +209,12 @@ export default {
       if (dataSession != null) {
         const data = {
           amount: dataSession.amount,
-          step: 'userData',
+		  step: 'userData',
+		  error: this.errorSteps,
         };
+        if (this.errorSteps) {
+          this.errorMessage = [{ message: this.errorSteps.message }];
+        }
         this.$store.dispatch('CHANGE_PAYMENT_AMOUNT', data);
         this.name = dataSession.firstName;
         this.surname = dataSession.surname;
