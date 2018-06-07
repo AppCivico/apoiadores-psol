@@ -237,20 +237,20 @@ fieldset ul {
 	border-radius: $rounded-corner;
 	font-size: inherit;
 	position: static;
-	color: palette('purple');
+	color: palette('orange');
 }
 
 #user-data-payment ul label:hover {
-	background-color: palette('purple');
+	background-color: palette('orange');
 	color: palette('white');
 }
 
 #user-data-payment ul :checked+label {
-	background-color: palette('purple');
+	background-color: palette('orange');
 	color: palette('white');
 }
 
 #user-data-payment .payment-type label:hover {
-	background-color: palette('purple', 'medium');
+	background-color: palette('orange', 'light');
 	color: palette('white');
 }
