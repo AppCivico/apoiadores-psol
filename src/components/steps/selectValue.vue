@@ -12,7 +12,7 @@
           <label for="amount_other">OUTROS</label>
         </div>
 
-        <div class="input-wrapper half has-real-value" v-if="amount === 'other'">
+        <div class="input-wrapper has-real-value" v-if="amount === 'other'">
           <label for="other">R$</label>
           <input
             type="text"
