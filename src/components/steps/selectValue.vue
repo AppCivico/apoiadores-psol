@@ -25,7 +25,7 @@
           <button type="button" href="#" @click.prevent="validateForm">OK</button>
         </div>
       </fieldset>
-        <p class="subtitle">Ao doar, você concorda com os <a href="./termos.pdf" target="_blank">termos de uso e política de privacidade</a></p>
+        <p class="subtitle">Ao doar, você concorda com os <a href="./termos-psol.pdf" target="_blank">termos de uso e política de privacidade</a></p>
 
       <p class="error" v-if="errorMessage != ''">
         {{ errorMessage }}
