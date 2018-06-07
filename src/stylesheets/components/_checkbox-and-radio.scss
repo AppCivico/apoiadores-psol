@@ -240,5 +240,8 @@ fieldset ul {
 	font-size: inherit;
 	position: static;
 	color: inherit;
+}
 
+#user-data-payment .payment-type label:hover {
+	background-color: palette('orange', 'light');
 }
