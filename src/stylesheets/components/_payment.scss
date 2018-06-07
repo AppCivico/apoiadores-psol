@@ -88,3 +88,45 @@
 }
 
 
+.form-wrapper {
+	@include inline-block-wrapper;
+	margin-right: $gutter / -4;
+	margin-left: $gutter / -4;
+
+}
+
+.form-wrapper-right {
+	text-align: right;
+
+	@include inline-block-wrapper;
+	margin-right: $gutter / -4;
+	margin-left: $gutter / -4;
+}
+
+.input-wrapper.half {
+	font-size: 1em;
+	display: block;
+	margin: 0;
+	padding: 0;
+
+	@media screen and (min-width: breakpoint('tablet')) {
+		@include inline-block-item;
+		width: 50%;
+		padding-right: $gutter / 4;
+		padding-left: $gutter / 4;
+	}
+}
+
+.input-wrapper.triple {
+	font-size: 1em;
+	display: block;
+	margin: 0;
+	padding: 0;
+
+	@media screen and (min-width: breakpoint('tablet')) {
+		@include inline-block-item;
+		width: 33%;
+		padding-right: $gutter / 4;
+		padding-left: $gutter / 4;
+	}
+}
