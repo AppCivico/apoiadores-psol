@@ -19,6 +19,7 @@
             name="other"
             v-model="other"
             :disabled="amount === 'other' ? false : true"
+            autocomplete="nope"
             @keyup="formatOther">
           <span class="real-value">{{ formatedOther }}</span>
           <button type="button" href="#" @click.prevent="validateForm">OK</button>

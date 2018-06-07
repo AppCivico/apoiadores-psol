@@ -133,6 +133,11 @@ fieldset ul {
 	background: transparent;
 	margin: 0;
 	padding: 0;
+
+	&::selection {
+		background: transparent;
+		color: transparent;
+	}
 }
 
 .has-real-value [type='button'] {
