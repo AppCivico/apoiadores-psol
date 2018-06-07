@@ -276,6 +276,7 @@ export default {
               //     return;
               //   }
               this.toggleLoading();
+ 			  this.validateStep(err);
               this.handleErrorMessage(err);
             });
         }).catch((data) => {
@@ -289,6 +290,11 @@ export default {
           //   const err = err.data[0].message;
           console.log('erro', er.msg_id, 'server', err.data[0].msg_id);
           this.$store.dispatch('CHANGE_PAYMENT_STEP', { step: 'userData', error: { message: err.data[0].message } });
+    validateStep(error) {
+      const errorUserData = ['cpf_invalid', 'email_invalid', 'name_invalid', 'email_domain_invalid'];
+      errorUserData.map((er) => {
+        if (er == error.data[0].msg_id) {
+          this.$store.dispatch('CHANGE_PAYMENT_STEP', { step: 'userData', error: { message: error.data[0].message } });
         }
       });
     },
