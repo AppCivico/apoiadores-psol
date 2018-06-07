@@ -1,6 +1,7 @@
 <template>
 		<form @submit.prevent="validateForm" :aria-busy="loading ? 'true' : 'false'">
 			<fieldset>
+				<p class="instructions">Por favor, informe os seguintes dados:</p>
 				<div :class="`input-wrapper
 					${validation.errors.birthdate ? 'has-error' : ''}`">
 					<label for="birthdate">{{ 'birthdate' | translate }}</label>

@@ -1,17 +1,18 @@
 <template>
   <section id="user-data-payment">
     <form @submit.prevent="validateForm" :aria-busy="loading ? 'true' : 'false'">
-	<ul class="payment-choices">
-		<li class="payment-type">
-			<input name="payment_method" id="credit_card" value="credit_card" type="radio" v-model="payment_method">
-			<label for="credit_card">{{ 'creditCard' | translate }}</label>
-		</li>
-		<li class="payment-type">
-			<input name="payment_method" id="boleto" value="boleto" type="radio" v-model="payment_method">
-			<label for="boleto">{{ 'boleto' | translate  }}</label>
-		</li>
-	</ul>
+    <ul class="payment-choices">
+        <li class="payment-type">
+            <input name="payment_method" id="credit_card" value="credit_card" type="radio" v-model="payment_method">
+            <label for="credit_card">{{ 'creditCard' | translate }}</label>
+        </li>
+        <li class="payment-type">
+            <input name="payment_method" id="boleto" value="boleto" type="radio" v-model="payment_method">
+            <label for="boleto">{{ 'boleto' | translate  }}</label>
+        </li>
+    </ul>
       <fieldset>
+        <p class="instructions">Por favor, informe os seguintes dados:</p>
         <div
           :class="`input-wrapper half
           ${validation.errors.name ? 'has-error' : ''}`"
@@ -94,8 +95,8 @@ export default {
       surname: '',
       cpf: '',
       email: '',
-	  donationFp: '',
-	  payment_method: 'credit_card',
+      donationFp: '',
+      payment_method: 'credit_card',
       validation: {
         errors: {},
       },
@@ -174,9 +175,9 @@ export default {
             amount: this.amount,
             candidate_id: this.candidate.id,
             donation_fp: this.donationFp,
-		  };
+          };
 
-		 this.$store.dispatch('SAVE_USER_DATA', payload);
+         this.$store.dispatch('SAVE_USER_DATA', payload);
           this.$store.dispatch('GET_DONATION', payload)
             .then((res) => {
               const user = {
@@ -206,7 +207,7 @@ export default {
       this.errorMessage = err.data[0].message;
     },
     controlSession() {
-	  const dataSession = JSON.parse(sessionStorage.getItem('user-donation-data'));
+      const dataSession = JSON.parse(sessionStorage.getItem('user-donation-data'));
       if (dataSession != null) {
         const data = {
           amount: dataSession.amount,
