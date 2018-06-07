@@ -206,13 +206,6 @@ fieldset ul {
 }
 
 
-#user-data-payment ul label:hover {
-	background-color: palette('orange');
-}
-
-#user-data-payment ul :checked+label {
-	background-color: palette('orange');
-}
 
 #user-data-payment li {
 	font-size: ms(0);
@@ -240,13 +233,24 @@ fieldset ul {
 	white-space: nowrap;
 	text-align: center;
 	font-weight: inherit;
-	background-color: palette('purple');
+	background-color: palette('white');
 	border-radius: $rounded-corner;
 	font-size: inherit;
 	position: static;
-	color: inherit;
+	color: palette('purple');
+}
+
+#user-data-payment ul label:hover {
+	background-color: palette('purple');
+	color: palette('white');
+}
+
+#user-data-payment ul :checked+label {
+	background-color: palette('purple');
+	color: palette('white');
 }
 
 #user-data-payment .payment-type label:hover {
-	background-color: palette('orange', 'light');
+	background-color: palette('purple', 'medium');
+	color: palette('white');
 }
