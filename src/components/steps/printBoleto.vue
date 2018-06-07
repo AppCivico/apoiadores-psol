@@ -47,13 +47,13 @@ export default {
         window.open(ui.href);
       }
 	},
-    scroolToform() {
+    scrollToForm() {
         const form = document.getElementById('doar');
         form.scrollIntoView({ block: 'end', behavior: 'smooth' });
     },
   },
   mounted() {
-    this.scroolToform();
+    this.scrollToForm();
   },
 };
 </script>

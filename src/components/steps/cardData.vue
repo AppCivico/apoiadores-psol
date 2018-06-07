@@ -180,13 +180,13 @@ export default {
       const hash = fp.x64hash128(number, 31);
       return hash;
 	},
-    scroolToform() {
+    scrollToForm() {
         const form = document.getElementById('doar');
         form.scrollIntoView({ block: 'end', behavior: 'smooth' });
     },
   },
   mounted() {
-    this.scroolToform();
+    this.scrollToForm();
   },
 };
 </script>

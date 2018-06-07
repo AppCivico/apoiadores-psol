@@ -120,7 +120,7 @@ export default {
     toggleLoading() {
       this.loading = !this.loading;
     },
-    scroolToform() {
+    scrollToForm() {
         const form = document.getElementById('doar');
         form.scrollIntoView({ block: 'end', behavior: 'smooth' });
     },
@@ -318,7 +318,7 @@ export default {
   },
   mounted() {
     this.controlSession();
-    this.scroolToform();
+    this.scrollToForm();
   },
 };
 </script>

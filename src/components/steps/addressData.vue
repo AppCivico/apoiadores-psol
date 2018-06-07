@@ -215,13 +215,13 @@ export default {
     handleErrorMessage(err) {
       this.errorMessage = err.data[0].message;
     },
-    scroolToform() {
+    scrollToForm() {
         const form = document.getElementById('doar');
         form.scrollIntoView({ block: 'end', behavior: 'smooth' });
     },
   },
   mounted() {
-    this.scroolToform();
+    this.scrollToForm();
   },
 };
 </script>
