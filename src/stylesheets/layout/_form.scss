@@ -54,7 +54,6 @@ label {
 	font-size: ms(-1);
 	line-height: inherit;
 
-	cursor: pointer;
 	position: absolute;
 	color: palette('gray', 'dark');
 	padding-left: 1ex;
@@ -463,7 +462,6 @@ form .error {
 	padding: 10px;
 	font-size: 0.9em;
 	font-weight: bold;
-	text-transform: lowercase;
 }
 
 form .input-wrapper .error {
