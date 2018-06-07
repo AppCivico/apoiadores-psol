@@ -120,7 +120,7 @@ fieldset ul {
 	}
 }
 
-.has-real-value [type='text'] {
+.has-real-value [type='number'] {
 	color: inherit;
 	position: absolute;
 	top: 0;
@@ -139,6 +139,15 @@ fieldset ul {
 		color: transparent;
 	}
 }
+
+.has-real-value [type='number']::-webkit-inner-spin-button,
+.has-real-value [type='number']::-webkit-outer-spin-button {
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	margin: 0;
+}
+
 
 .has-real-value [type='button'] {
 	border: 0;
@@ -237,20 +246,20 @@ fieldset ul {
 	border-radius: $rounded-corner;
 	font-size: inherit;
 	position: static;
-	color: palette('purple');
+	color: palette('orange');
 }
 
 #user-data-payment ul label:hover {
-	background-color: palette('purple');
+	background-color: palette('orange');
 	color: palette('white');
 }
 
 #user-data-payment ul :checked+label {
-	background-color: palette('purple');
+	background-color: palette('orange');
 	color: palette('white');
 }
 
 #user-data-payment .payment-type label:hover {
-	background-color: palette('purple', 'medium');
+	background-color: palette('orange', 'light');
 	color: palette('white');
 }

@@ -49,7 +49,7 @@ export default {
 	},
     scrollToForm() {
         const form = document.getElementById('doar');
-        form.scrollIntoView({ block: 'end', behavior: 'smooth' });
+        form.scrollIntoView({ block: 'start', behavior: 'smooth' });
     },
   },
   mounted() {

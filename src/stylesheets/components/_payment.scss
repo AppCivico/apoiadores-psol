@@ -89,9 +89,11 @@
 
 
 .form-wrapper {
-	@include inline-block-wrapper;
-	margin-right: $gutter / -4;
-	margin-left: $gutter / -4;
+	@media screen and (min-width: breakpoint('tablet')) {
+		@include inline-block-wrapper;
+		margin-right: $gutter / -4;
+		margin-left: $gutter / -4;
+	}
 
 }
 

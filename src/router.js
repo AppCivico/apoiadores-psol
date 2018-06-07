@@ -12,10 +12,5 @@ export default new VueRouter({
       name: 'home',
       component: Home,
     },
-    {
-      path: '/financie',
-      name: 'financie',
-      component: Home,
-    },
   ],
 });
