@@ -128,7 +128,6 @@ export default {
     },
     validateForm() {
 	  this.toggleLoading();
-
       let birthdate = this.birthdate.split('/');
       birthdate.reverse();
       birthdate = birthdate.join('-');
@@ -211,9 +210,6 @@ export default {
           this.$store.dispatch('GET_DONATION', payload)
             .then((res) => {
               const user = {
-                name: data.name,
-                surname: data.surname,
-              };
                 name: this.getUserData.name.split(' ')[0],
                 surname: this.getUserData.name.split(' ')[1],
 			  };
@@ -228,17 +224,7 @@ export default {
                 });
 			  }
 			  this.handleIugu();
-			  console.log(res, 'aqui');
             }).catch((err) => {
-              console.log(err);
-
-              //   if (err.data[0].msg_id == 'need_billing_adddress') {
-              //     this.$store.dispatch('CHANGE_PAYMENT_STEP', {
-              //       step: 'address',
-              //     });
-              //     return;
-              //   }
-              this.toggleLoading();
 			  this.toggleLoading();
  			  this.validateStep(err);
               this.handleErrorMessage(err);
@@ -248,12 +234,6 @@ export default {
           this.errorMessage = 'Ocorreu um erro inesperado, tente novamente!';
         });
     },
-    validateStep(erro) {
-		      error.map((er) => {
-        if (er.msg_id == err.data[0].msg_id) {
-          //   const err = err.data[0].message;
-          console.log('erro', er.msg_id, 'server', err.data[0].msg_id);
-          this.$store.dispatch('CHANGE_PAYMENT_STEP', { step: 'userData', error: { message: err.data[0].message } });
     validateStep(error) {
       const errorUserData = ['cpf_invalid', 'email_invalid', 'name_invalid', 'email_domain_invalid'];
       errorUserData.map((er) => {
@@ -263,7 +243,6 @@ export default {
       });
     },
     getDonationFP() {
-    //   alert();
       return new Promise((resolve, reject) => {
         const d1 = new Date();
         const fp = new VotolegalFP({
