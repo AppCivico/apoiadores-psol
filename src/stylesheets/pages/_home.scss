@@ -120,10 +120,10 @@ $default-articles-padding: 12.5rem;
 }
 
 .donation-nav[class] {
-	color: palette('purple', 'light');
+	color: palette('orange');
 
 	@include link-undercover{
-		color: palette('purple', 'light');
+		color: palette('orange');
 		text-decoration: underline;
 	}
 
@@ -135,6 +135,10 @@ $default-articles-padding: 12.5rem;
 	display: block;
 	margin-top: $leading * 1rem;
 	margin-bottom: $leading * 1rem;
+
+	&:hover {
+		color: palette('purple', 'light');
+	}
 }
 
 .donation-nav--rewind[class] {
@@ -147,9 +151,10 @@ $default-articles-padding: 12.5rem;
 
 .donation-nav--forward[class] {
 	text-decoration: underline;
-	color: palette('purple', 'light');
+	color: palette('orange');
 	float: right;
 	font-size: ms(1);
+
 
 	&::before {
 		content: '> ';

@@ -12,9 +12,9 @@
 	margin-bottom: 0;
 	margin-right: 0.3em;
 	margin-left: 0.3em;
-	border: 1px solid palette('white');
-	width: 55px;
-	height: 55px;
+	border: 2px solid palette('white');
+	width: 65px;
+	height: 65px;
 	opacity: 1;
 }
 
@@ -31,13 +31,13 @@
 
 #wrap-share .twitter {
 	background: url('../assets/images/icons/ic-logo-twitter-green.png');
-	background-size: auto 18px;
+	background-size: auto 19px;
 	background-repeat: no-repeat;
 	background-position: center center;
 
 	&:hover {
 		background: url('../assets/images/icons/ic-logo-twitter.png');
-		background-size: auto 18px;
+		background-size: auto 19px;
 		background-repeat: no-repeat;
 		background-position: center center;
 	}
@@ -45,13 +45,13 @@
 
 #wrap-share .facebook {
 	background: url('../assets/images/icons/ic-logo-facebook-green.png');
-	background-size: auto 20px;
+	background-size: auto 22px;
 	background-repeat: no-repeat;
 	background-position: center center;
 
 	&:hover {
 		background: url('../assets/images/icons/ic-logo-facebook.png');
-		background-size: auto 20px;
+		background-size: auto 22px;
 		background-repeat: no-repeat;
 		background-position: center center;
 	}
