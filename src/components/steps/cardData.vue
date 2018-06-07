@@ -14,43 +14,45 @@
             {{ validation.errors.number }}
           </div>
         </div>
-        <div :class="`input-wrapper
-          ${validation.errors.validity_month ? 'has-error' : ''}`">
-          <label for="validity_month">Mês</label>
-          <input
-            type="text"
-            v-model="validity_month"
-            name="validity_month"
-            placeholder="MM"
-            v-mask="'##'">
-          <div class="error" v-if="validation.errors.validity_month">
-            {{ validation.errors.validity_month }}
-          </div>
-        </div>
-        <div :class="`input-wrapper
-          ${validation.errors.validity_year ? 'has-error' : ''}`">
-          <label for="validity_year">Ano</label>
-          <input
-            type="text"
-            v-model="validity_year"
-            name="validity_year"
-            placeholder="AAAA"
-            v-mask="'####'">
-          <div class="error" v-if="validation.errors.validity_year">
-            {{ validation.errors.validity_year }}
-          </div>
-        </div>
-        <div :class="`input-wrapper
-          ${validation.errors.csc ? 'has-error' : ''}`">
-          <label for="csc">Cód. Segurança</label>
-          <input
-            type="text"
-            v-model="csc"
-            name="csc"
-            maxlength="4">
-          <div class="error" v-if="validation.errors.csc">
-            {{ validation.errors.csc }}
-          </div>
+        <div class="form-wrapper">
+            <div :class="`input-wrapper triple
+            ${validation.errors.validity_month ? 'has-error' : ''}`">
+            <label for="validity_month">Mês</label>
+            <input
+                type="text"
+                v-model="validity_month"
+                name="validity_month"
+                placeholder="MM"
+                v-mask="'##'">
+            <div class="error" v-if="validation.errors.validity_month">
+                {{ validation.errors.validity_month }}
+            </div>
+            </div>
+            <div :class="`input-wrapper triple
+            ${validation.errors.validity_year ? 'has-error' : ''}`">
+            <label for="validity_year">Ano</label>
+            <input
+                type="text"
+                v-model="validity_year"
+                name="validity_year"
+                placeholder="AAAA"
+                v-mask="'####'">
+            <div class="error" v-if="validation.errors.validity_year">
+                {{ validation.errors.validity_year }}
+            </div>
+            </div>
+            <div :class="`input-wrapper triple
+            ${validation.errors.csc ? 'has-error' : ''}`">
+            <label for="csc">Cód. Segurança</label>
+            <input
+                type="text"
+                v-model="csc"
+                name="csc"
+                maxlength="4">
+            <div class="error" v-if="validation.errors.csc">
+                {{ validation.errors.csc }}
+            </div>
+            </div>
         </div>
       <p class="error" v-if="errorMessage != ''">
         {{ errorMessage }}
@@ -139,8 +141,8 @@ export default {
       return result[0].type.replace('-', '');
     },
     saveCard(card) {
-	  const cc_hash = this.getCardHash(card.number);
-	 const dataSession = JSON.parse(sessionStorage.getItem('user-donation-data'));
+      const cc_hash = this.getCardHash(card.number);
+     const dataSession = JSON.parse(sessionStorage.getItem('user-donation-data'));
       const cc = Iugu.CreditCard(
         card.number,
         card.validity_month,
@@ -161,7 +163,7 @@ export default {
           };
           this.$store.dispatch('START_DONATION', payload).then(() => {
             sessionStorage.clear();
-		  }).catch((err) => {
+          }).catch((err) => {
             this.toggleLoading();
             this.handleErrorMessage(err);
           });
@@ -179,7 +181,7 @@ export default {
 
       const hash = fp.x64hash128(number, 31);
       return hash;
-	},
+    },
     scrollToForm() {
         const form = document.getElementById('doar');
         form.scrollIntoView({ block: 'end', behavior: 'smooth' });

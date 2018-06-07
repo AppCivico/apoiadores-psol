@@ -13,32 +13,35 @@
     </ul>
       <fieldset>
         <p class="instructions">Por favor, informe os seguintes dados:</p>
-        <div
-          :class="`input-wrapper half
-          ${validation.errors.name ? 'has-error' : ''}`"
-        >
-          <label for="name">Nome</label>
-          <input
-            type="text"
-            name="name"
-            v-model="name" v-focus>
-          <div class="error" v-if="validation.errors.name">
-            {{ validation.errors.name }}
-          </div>
-        </div>
 
-        <div
-          :class="`input-wrapper half
-          ${validation.errors.surname ? 'has-error' : ''}`"
-        >
-          <label for="surname">Sobrenome (completo)</label>
-          <input
-            type="text"
-            name="surname"
-            v-model="surname">
-          <div class="error" v-if="validation.errors.surname">
-            {{ validation.errors.surname }}
-          </div>
+        <div class="form-wrapper">
+            <div
+            :class="`input-wrapper half
+            ${validation.errors.name ? 'has-error' : ''}`"
+            >
+            <label for="name">Nome</label>
+            <input
+                type="text"
+                name="name"
+                v-model="name" v-focus>
+            <div class="error" v-if="validation.errors.name">
+                {{ validation.errors.name }}
+            </div>
+            </div>
+
+            <div
+            :class="`input-wrapper half
+            ${validation.errors.surname ? 'has-error' : ''}`"
+            >
+            <label for="surname">Sobrenome (completo)</label>
+            <input
+                type="text"
+                name="surname"
+                v-model="surname">
+            <div class="error" v-if="validation.errors.surname">
+                {{ validation.errors.surname }}
+            </div>
+            </div>
         </div>
 
         <div
