@@ -83,7 +83,7 @@
 
 <script>
 import { mask } from 'vue-the-mask';
-import { validate } from '../../utilities';
+import { validate, vercpf } from '../../utilities';
 
 export default {
   name: 'userData',
@@ -93,7 +93,7 @@ export default {
   data() {
     return {
       loading: false,
-      errorMessage: '',
+      errorMessage: [],
       name: '',
       surname: '',
       cpf: '',
@@ -118,6 +118,9 @@ export default {
     candidate() {
       return this.$store.state.candidate;
     },
+    errorSteps() {
+      return this.$store.state.stepError;
+    },
   },
   methods: {
     toggleLoading() {
@@ -128,6 +131,7 @@ export default {
         form.scrollIntoView({ block: 'end', behavior: 'smooth' });
     },
     validateForm() {
+    //   alert();
       this.toggleLoading();
 
       const {
@@ -142,11 +146,13 @@ export default {
         surname,
         cpf,
         email,
-      };
+	  };
 
-      const validation = validate(fields);
+
+	  const validation = validate(fields);
 
       if (validation.valid) {
+        this.toggleLoading();
         this.registerUser(fields);
         const nameJoin = `${this.name} ${this.surname}`
           .toUpperCase()
@@ -165,11 +171,24 @@ export default {
             amount: this.amount,
           }),
         );
+		 this.$store.dispatch('CHANGE_PAYMENT_STEP', { step: 'address' });
+		  const payload = {
+		  nameJoin,
+          cpf,
+          email: this.email,
+          firstName: this.name,
+          surname: this.surname,
+          cpfDirty: this.cpf,
+          amount: this.amount,
+		  };
+
+		 this.$store.dispatch('SAVE_USER_DATA', payload);
       } else {
         this.validation = validation;
         this.toggleLoading();
       }
     },
+
     registerUser(data) {
       this.getDonationFP()
         .then(() => {
@@ -184,27 +203,7 @@ export default {
             donation_fp: this.donationFp,
           };
 
-         this.$store.dispatch('SAVE_USER_DATA', payload);
-          this.$store.dispatch('GET_DONATION', payload)
-            .then((res) => {
-              const user = {
-                name: data.name,
-                surname: data.surname,
-              };
-              this.$store.dispatch('SAVE_USERNAME', user);
-              this.handleIugu();
-              this.$store.dispatch('CHANGE_PAYMENT_STEP', { step: 'address' });
-            //   this.$store.dispatch('CHANGE_PAYMENT_STEP', { step: 'cardData' });
-            }).catch((err) => {
-              if (err.data[0].msg_id == 'need_billing_adddress') {
-                this.$store.dispatch('CHANGE_PAYMENT_STEP', {
-                  step: 'address',
-                });
-                return;
-              }
-              this.toggleLoading();
-              this.handleErrorMessage(err);
-            });
+		 this.$store.dispatch('SAVE_USER_DATA', payload);
         }).catch(() => {
           this.toggleLoading();
           this.errorMessage = 'Ocorreu um erro inesperado, tente novamente!';
@@ -218,8 +217,12 @@ export default {
       if (dataSession != null) {
         const data = {
           amount: dataSession.amount,
-          step: 'userData',
+		  step: 'userData',
+		  error: this.errorSteps,
         };
+        if (this.errorSteps) {
+          this.errorMessage = [{ message: this.errorSteps.message }];
+        }
         this.$store.dispatch('CHANGE_PAYMENT_AMOUNT', data);
         this.name = dataSession.firstName;
         this.surname = dataSession.surname;
