@@ -131,7 +131,6 @@ export default {
       form.scrollIntoView({ block: 'end', behavior: 'smooth' });
     },
     validateForm() {
-    //   alert();
       this.toggleLoading();
 
       const {
@@ -216,7 +215,7 @@ export default {
       const dataSession = JSON.parse(sessionStorage.getItem('user-donation-data'));
       if (dataSession != null) {
         const data = {
-          amount: dataSession.amount,
+          amount: (this.amount != undefined) ? this.amount : dataSession.amount,
 		  step: 'userData',
 		  error: this.errorSteps,
         };
