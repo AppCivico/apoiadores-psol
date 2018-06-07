@@ -15,7 +15,7 @@
         <div class="input-wrapper has-real-value" v-if="amount === 'other'">
           <label for="other">R$</label>
           <input
-            type="text"
+            type="number"
             name="other"
             v-model="other"
             :disabled="amount === 'other' ? false : true"
