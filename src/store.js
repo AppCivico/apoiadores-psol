@@ -30,9 +30,9 @@ export default new Vuex.Store({
   },
 
   mutations: {
-    SET_PAYMENT_STEP(state, { data, error }) {
+    SET_PAYMENT_STEP(state, { data }) {
 	  state.paymentStep = data.step;
-	  state.paymentStepError = data.error;
+	  state.stepError = data.error;
     },
     SET_PAYMENT_AMOUNT(state, { data }) {
       state.amount = data.amount;
