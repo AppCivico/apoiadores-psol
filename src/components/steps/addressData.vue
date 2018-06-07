@@ -150,49 +150,6 @@ export default {
         this.toggleLoading();
       }
     },
-    // saveAddress() {
-    //   let birthdate = this.birthdate.split('/');
-    //   birthdate.reverse();
-    //   birthdate = birthdate.join('-');
-    //   const payload = {
-    //     billing_address_zipcode: this.zip_code,
-    //     billing_address_state: this.state,
-    //     billing_address_city: this.city,
-    //     billing_address_street: this.street,
-    //     billing_address_district: this.district,
-    //     billing_address_house_number: this.number,
-    //     phone: this.phone.replace(/[^\d]+/g, ''),
-    //     birthdate,
-    //     billing_address_complement: this.complement,
-    //     payment_method: this.getUserData.payment_method,
-    //     device_authorization_token_id: this.getUserData.device_authorization_token_id,
-    //     email: this.getUserData.email,
-    //     cpf: this.getUserData.cpf,
-    //     name: this.getUserData.name,
-    //     amount: this.getUserData.amount,
-    //     candidate_id: this.getUserData.candidate_id,
-    //     donation_fp: this.getUserData.donation_fp,
-    //   };
-    //   console.log(payload, 'aqui');
-    // //   this.$store.dispatch('GET_DONATION', payload)
-    // //     .then((res) => {
-    // //       if (this.getUserData.payment_method == 'credit_card') {
-    // //         this.handleIugu();
-    // //         this.validateForm();
-    // //         // this.$store.dispatch('CHANGE_PAYMENT_STEP', {
-    // //         //   step: 'cardData',
-    // //         // });
-    // //       } else {
-    // //         this.$store.dispatch('CHANGE_PAYMENT_STEP', {
-    // //           step: 'certFaceVerify',
-    // //         });
-    // //       }
-    // //     })
-    // //     .catch((err) => {
-    // //       this.toggleLoading();
-    // //       this.handleErrorMessage(err);
-    // //     });
-    // },
     searchAddress(event) {
       this.toggleLoading();
       this.$store.dispatch('getAddress', event.target.value).then((response) => {
