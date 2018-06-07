@@ -215,6 +215,15 @@ export default {
                 surname: data.surname,
               };
               this.$store.dispatch('SAVE_USERNAME', user);
+			  if (this.getUserData.payment_method == 'boleto') {
+                this.$store.dispatch('CHANGE_PAYMENT_STEP', {
+                  step: 'certFaceVerify',
+                });
+			  } else {
+				  		this.$store.dispatch('CHANGE_PAYMENT_STEP', {
+                  step: 'cardData',
+                });
+			  }
 			  this.handleIugu();
 			  console.log(res, 'aqui');
             }).catch((err) => {
@@ -227,6 +236,7 @@ export default {
               //     return;
               //   }
               this.toggleLoading();
+			  this.toggleLoading();
  			  this.validateStep(err);
               this.handleErrorMessage(err);
             });
