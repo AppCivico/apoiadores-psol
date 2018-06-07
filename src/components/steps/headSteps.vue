@@ -3,7 +3,7 @@
 	<div >
 		<ul class="head-steps">
 			<li :class="paymentStep === 'userData' ? 'active' : ''">
-				Preencha com seu dados pessoais
+				Escolha a forma de pagamento
 			</li>
 			<li :class="paymentStep === 'cardData' ? 'active' : ''">
 				Dados de cartão de crédito
@@ -31,6 +31,15 @@ export default {
     amount() {
       return this.$store.state.amount;
     },
+  },
+  methods: {
+    scrollToForm() {
+        const form = document.getElementById('doar');
+        form.scrollIntoView({ block: 'end', behavior: 'smooth' });
+    },
+  },
+  mounted() {
+    this.scrollToForm();
   },
 };
 </script>

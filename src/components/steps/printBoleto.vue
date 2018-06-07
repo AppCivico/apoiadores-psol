@@ -46,7 +46,14 @@ export default {
         sessionStorage.clear();
         window.open(ui.href);
       }
+	},
+    scrollToForm() {
+        const form = document.getElementById('doar');
+        form.scrollIntoView({ block: 'end', behavior: 'smooth' });
     },
+  },
+  mounted() {
+    this.scrollToForm();
   },
 };
 </script>

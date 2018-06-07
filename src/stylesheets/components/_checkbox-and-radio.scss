@@ -133,6 +133,11 @@ fieldset ul {
 	background: transparent;
 	margin: 0;
 	padding: 0;
+
+	&::selection {
+		background: transparent;
+		color: transparent;
+	}
 }
 
 .has-real-value [type='button'] {
@@ -240,5 +245,8 @@ fieldset ul {
 	font-size: inherit;
 	position: static;
 	color: inherit;
+}
 
+#user-data-payment .payment-type label:hover {
+	background-color: palette('orange', 'light');
 }

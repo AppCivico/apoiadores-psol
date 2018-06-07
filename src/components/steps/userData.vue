@@ -1,43 +1,47 @@
 <template>
   <section id="user-data-payment">
     <form @submit.prevent="validateForm" :aria-busy="loading ? 'true' : 'false'">
-	<ul class="payment-choices">
-		<li class="payment-type">
-			<input name="payment_method" id="credit_card" value="credit_card" type="radio" v-model="payment_method">
-			<label for="credit_card">{{ 'creditCard' | translate }}</label>
-		</li>
-		<li class="payment-type">
-			<input name="payment_method" id="boleto" value="boleto" type="radio" v-model="payment_method">
-			<label for="boleto">{{ 'boleto' | translate  }}</label>
-		</li>
-	</ul>
+    <ul class="payment-choices">
+        <li class="payment-type">
+            <input name="payment_method" id="credit_card" value="credit_card" type="radio" v-model="payment_method">
+            <label for="credit_card">{{ 'creditCard' | translate }}</label>
+        </li>
+        <li class="payment-type">
+            <input name="payment_method" id="boleto" value="boleto" type="radio" v-model="payment_method">
+            <label for="boleto">{{ 'boleto' | translate  }}</label>
+        </li>
+    </ul>
       <fieldset>
-        <div
-          :class="`input-wrapper half
-          ${validation.errors.name ? 'has-error' : ''}`"
-        >
-          <label for="name">Nome</label>
-          <input
-            type="text"
-            name="name"
-            v-model="name" v-focus>
-          <div class="error" v-if="validation.errors.name">
-            {{ validation.errors.name }}
-          </div>
-        </div>
+        <p class="instructions">Por favor, informe os seguintes dados:</p>
 
-        <div
-          :class="`input-wrapper half
-          ${validation.errors.surname ? 'has-error' : ''}`"
-        >
-          <label for="surname">Sobrenome (completo)</label>
-          <input
-            type="text"
-            name="surname"
-            v-model="surname">
-          <div class="error" v-if="validation.errors.surname">
-            {{ validation.errors.surname }}
-          </div>
+        <div class="form-wrapper">
+            <div
+            :class="`input-wrapper half
+            ${validation.errors.name ? 'has-error' : ''}`"
+            >
+            <label for="name">Nome</label>
+            <input
+                type="text"
+                name="name"
+                v-model="name" v-focus>
+            <div class="error" v-if="validation.errors.name">
+                {{ validation.errors.name }}
+            </div>
+            </div>
+
+            <div
+            :class="`input-wrapper half
+            ${validation.errors.surname ? 'has-error' : ''}`"
+            >
+            <label for="surname">Sobrenome (completo)</label>
+            <input
+                type="text"
+                name="surname"
+                v-model="surname">
+            <div class="error" v-if="validation.errors.surname">
+                {{ validation.errors.surname }}
+            </div>
+            </div>
         </div>
 
         <div
@@ -68,11 +72,11 @@
             {{ validation.errors.email }}
           </div>
         </div>
-      </fieldset>
-      <p class="error"  v-for="err in errorMessage">
-        {{ err.message }}
+      <p class="error" v-if="errorMessage != ''">
+        {{ errorMessage }}
       </p>
       <button type="submit" :disabled="loading" class="donation-nav donation-nav--forward">Continuar</button>
+      </fieldset>
     </form>
   </section>
 </template>
@@ -94,8 +98,8 @@ export default {
       surname: '',
       cpf: '',
       email: '',
-	  donationFp: '',
-	  payment_method: 'credit_card',
+      donationFp: '',
+      payment_method: 'credit_card',
       validation: {
         errors: {},
       },
@@ -121,6 +125,10 @@ export default {
   methods: {
     toggleLoading() {
       this.loading = !this.loading;
+    },
+    scrollToForm() {
+        const form = document.getElementById('doar');
+        form.scrollIntoView({ block: 'end', behavior: 'smooth' });
     },
     validateForm() {
     //   alert();
@@ -193,7 +201,7 @@ export default {
             amount: this.amount,
             candidate_id: this.candidate.id,
             donation_fp: this.donationFp,
-		  };
+          };
 
 		 this.$store.dispatch('SAVE_USER_DATA', payload);
         }).catch(() => {
@@ -205,7 +213,7 @@ export default {
       this.errorMessage = err.data[0].message;
     },
     controlSession() {
-	  const dataSession = JSON.parse(sessionStorage.getItem('user-donation-data'));
+      const dataSession = JSON.parse(sessionStorage.getItem('user-donation-data'));
       if (dataSession != null) {
         const data = {
           amount: dataSession.amount,
@@ -316,6 +324,7 @@ export default {
   },
   mounted() {
     this.controlSession();
+    this.scrollToForm();
   },
 };
 </script>

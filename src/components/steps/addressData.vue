@@ -1,77 +1,83 @@
 <template>
-		<form @submit.prevent="validateForm" :aria-busy="loading ? 'true' : 'false'">
-			<fieldset>
-				<div :class="`input-wrapper
-					${validation.errors.birthdate ? 'has-error' : ''}`">
-					<label for="birthdate">{{ 'birthdate' | translate }}</label>
-					<input type="text" v-model="birthdate" name="birthdate" v-mask="'##/##/####'" v-focus>
-					<div class="error" v-if="validation.errors.birthdate">
-						{{ validation.errors.birthdate }}
-					</div>
-				</div>
-			</div>
-			<div :class="`input-wrapper
-							${validation.errors.phone ? 'has-error' : ''}`">
-				<label for="phone">{{ 'phone' | translate }}</label>
-				<input type="text" v-model="phone" name="phone" v-mask="'(##)#####-####'">
-				<div class="error" v-if="validation.errors.phone">
-					{{ validation.errors.phone }}
-				</div>
-			</div>
-			<div :class="`input-wrapper
-							${validation.errors.zip_code ? 'has-error' : ''}`">
-				<label for="zip_code">{{ 'cep' | translate }}</label>
-				<input type="text" v-model="zip_code" name="zipcode" v-mask="'#####-###'" @blur="searchAddress($event)">
-				<div class="error" v-if="validation.errors.zip_code">
-					{{ validation.errors.zip_code }}
-				</div>
-			</div>
-			<div :class="`input-wrapper
-							${validation.errors.city ? 'has-error' : ''}`">
-				<label for="city">{{ 'city' | translate }}</label>
-				<input type="text" v-model="city" name="city" :disabled="true">
-				<div class="error" v-if="validation.errors.city">
-					{{ validation.errors.city }}
-				</div>
-			</div>
-			<div :class="`input-wrapper
-							${validation.errors.street ? 'has-error' : ''}`">
-				<label for="street">{{ 'street' | translate }}</label>
-				<input type="text" v-model="street" name="street" :disabled="true">
-				<div class="error" v-if="validation.errors.street">
-					{{ validation.errors.street }}
-				</div>
-			</div>
-			<div :class="`input-wrapper
-							${validation.errors.district ? 'has-error' : ''}`">
-				<label for="district">{{ 'district' | translate }}</label>
-				<input type="text" v-model="district" name="district" :disabled="true">
-				<div class="error" v-if="validation.errors.district">
-					{{ validation.errors.district }}
-				</div>
-			</div>
-			<div :class="`input-wrapper
-							${validation.errors.number ? 'has-error' : ''}`">
-				<label for="number">{{ 'number' | translate }}</label>
-				<input type="text" v-model="number" name="number">
-				<div class="error" v-if="validation.errors.number">
-					{{ validation.errors.number }}
-				</div>
-					<div :class="`input-wrapper
-					${validation.errors.complement ? 'has-error' : ''}`">
-					<label for="complement">{{ 'complement' | translate }}</label>
-					<input type="text" v-model="complement" name="complement" autocomplete="nope">
-					<div class="error" v-if="validation.errors.complement">
-						{{ validation.errors.complement }}
-					</div>
-				</div>
-			</div>
-		</fieldset>
-		<p class="error" v-if="errorMessage != ''">
-			{{ errorMessage }}
-		</p>
-		<button type="submit" :disabled="loading" class="donation-nav donation-nav--forward">Continuar</button>
-	</form>
+        <form @submit.prevent="validateForm" :aria-busy="loading ? 'true' : 'false'">
+            <fieldset>
+                <p class="instructions">Por favor, informe os seguintes dados:</p>
+                <div class="form-wrapper">
+                    <div :class="`input-wrapper half
+                        ${validation.errors.zip_code ? 'has-error' : ''}`">
+                        <label for="zip_code">{{ 'cep' | translate }}</label>
+                        <input type="text" v-model="zip_code" name="zipcode" v-mask="'#####-###'" @blur="searchAddress($event)" >
+                        <div class="error" v-if="validation.errors.zip_code">
+                            {{ validation.errors.zip_code }}
+                        </div>
+                    </div>
+                    <div :class="`input-wrapper half
+                        ${validation.errors.city ? 'has-error' : ''}`">
+                        <label for="city">{{ 'city' | translate }}</label>
+                        <input type="text" v-model="city" name="city" :disabled="true">
+                        <div class="error" v-if="validation.errors.city">
+                            {{ validation.errors.city }}
+                        </div>
+                    </div>
+                </div>
+                <div :class="`input-wrapper
+                    ${validation.errors.street ? 'has-error' : ''}`">
+                    <label for="street">{{ 'street' | translate }}</label>
+                    <input type="text" v-model="street" name="street" :disabled="true">
+                    <div class="error" v-if="validation.errors.street">
+                        {{ validation.errors.street }}
+                    </div>
+                </div>
+                <div class="form-wrapper">
+                    <div :class="`input-wrapper half
+                        ${validation.errors.number ? 'has-error' : ''}`">
+                        <label for="number">{{ 'number' | translate }}</label>
+                        <input type="text" v-model="number" name="number" >
+                        <div class="error" v-if="validation.errors.number" >
+                            {{ validation.errors.number }}
+                        </div>
+                    </div>
+                        <div :class="`input-wrapper half
+                        ${validation.errors.complement ? 'has-error' : ''}`">
+                        <label for="complement">{{ 'complement' | translate }}</label>
+                        <input type="text" v-model="complement" name="complement" autocomplete="nope">
+                        <div class="error" v-if="validation.errors.complement">
+                            {{ validation.errors.complement }}
+                        </div>
+                    </div>
+                </div>
+                <div :class="`input-wrapper
+                    ${validation.errors.district ? 'has-error' : ''}`">
+                    <label for="district">{{ 'district' | translate }}</label>
+                    <input type="text" v-model="district" name="district" :disabled="true">
+                    <div class="error" v-if="validation.errors.district">
+                        {{ validation.errors.district }}
+                    </div>
+                </div>
+                <div class="form-wrapper">
+                    <div :class="`input-wrapper half
+                        ${validation.errors.birthdate ? 'has-error' : ''}`">
+                        <label for="birthdate">{{ 'birthdate' | translate }}</label>
+                        <input type="text" v-model="birthdate" name="birthdate" v-mask="'##/##/####'" v-focus>
+                        <div class="error" v-if="validation.errors.birthdate">
+                            {{ validation.errors.birthdate }}
+                        </div>
+                    </div>
+                    <div :class="`input-wrapper half
+                        ${validation.errors.phone ? 'has-error' : ''}`">
+                        <label for="phone">{{ 'phone' | translate }}</label>
+                        <input type="text" v-model="phone" name="phone" v-mask="'(##)#####-####'">
+                        <div class="error" v-if="validation.errors.phone">
+                            {{ validation.errors.phone }}
+                        </div>
+                    </div>
+                </div>
+                <p class="error" v-if="errorMessage != ''">
+                {{ errorMessage }}
+            </p>
+            <button type="submit" :disabled="loading" class="donation-nav donation-nav--forward">Continuar</button>
+            </fieldset>
+        </form>
 </template>
 
 <script>
@@ -175,6 +181,10 @@ export default {
     },
     handleErrorMessage(err) {
       this.errorMessage = err.data[0].message;
+    },
+    scrollToForm() {
+        const form = document.getElementById('doar');
+        form.scrollIntoView({ block: 'end', behavior: 'smooth' });
     },
 
     registerUser() {
@@ -326,6 +336,9 @@ export default {
         });
       });
     },
+  },
+  mounted() {
+    this.scrollToForm();
   },
 };
 </script>

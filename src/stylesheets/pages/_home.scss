@@ -149,6 +149,8 @@ $default-articles-padding: 12.5rem;
 }
 
 .donation-nav--forward[class] {
+	margin-top: 0;
+	margin-bottom: 0;
 	text-decoration: underline;
 	color: palette('orange');
 	float: right;

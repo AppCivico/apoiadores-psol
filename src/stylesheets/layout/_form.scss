@@ -131,6 +131,9 @@ form br {
 }
 
 :disabled {
+	color: palette('disabled', 'foreground');
+
+	background: palette('disabled', 'background');
 	cursor: not-allowed;
 }
 
@@ -239,23 +242,6 @@ form br {
 	display: inline-block;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /**
  * Consistent background color on Chrome.
  */
@@ -356,7 +342,6 @@ form br {
 
 	appearance: button;
 }
-
 
 /**
  * 1. Correct the inability to style clickable types in iOS and Safari.

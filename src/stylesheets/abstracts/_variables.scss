@@ -131,7 +131,7 @@ $palette: (
 	),
 	'disabled': (
 		'foreground': hsl(0, 0%, 42%),
-		'background': hsl(0, 0%, 94%),
+		'background': rgb(208, 208, 208),
 	),
 	'loading': (
 		'foreground': hsl(0, 0%, 94%),
@@ -167,6 +167,7 @@ $palette: (
 	'orange': (
 		'base': rgb(255, 153, 51),
 		'dark': rgb(255, 153, 0),
+		'light': rgb(255, 177, 99),
 	),
 	'blue': (
 		'base': rgb(43, 37, 75),
