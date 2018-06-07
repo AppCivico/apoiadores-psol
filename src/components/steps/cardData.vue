@@ -148,10 +148,12 @@ export default {
         dataSession.firstName,
         dataSession.surname,
         card.csc,
-      );
+	  );
 
       Iugu.createPaymentToken(cc, (response) => {
+		          console.log(response);
         if (response.errors) {
+          console.log(response);
           this.toggleLoading();
           this.errorMessage = 'Erro nos dados do cartão';
         } else {

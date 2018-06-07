@@ -69,8 +69,9 @@
           </div>
         </div>
       </fieldset>
-      <p class="error" v-if="errorMessage != ''">
-        {{ errorMessage }}
+ {{errorMessage}}
+      <p class="error"  v-for="err in errorMessage">
+        {{ err.message }}
       </p>
       <button type="submit" :disabled="loading" class="donation-nav donation-nav--forward">Continuar</button>
     </form>
@@ -79,7 +80,7 @@
 
 <script>
 import { mask } from 'vue-the-mask';
-import { validate } from '../../utilities';
+import { validate, vercpf } from '../../utilities';
 
 export default {
   name: 'userData',
@@ -89,7 +90,7 @@ export default {
   data() {
     return {
       loading: false,
-      errorMessage: '',
+      errorMessage: [],
       name: '',
       surname: '',
       cpf: '',
@@ -114,12 +115,16 @@ export default {
     candidate() {
       return this.$store.state.candidate;
     },
+    errorSteps() {
+      return this.$store.state.paymentStepError;
+    },
   },
   methods: {
     toggleLoading() {
       this.loading = !this.loading;
     },
     validateForm() {
+    //   alert();
       this.toggleLoading();
 
       const {
@@ -134,11 +139,13 @@ export default {
         surname,
         cpf,
         email,
-      };
+	  };
 
-      const validation = validate(fields);
+
+	  const validation = validate(fields);
 
       if (validation.valid) {
+        this.toggleLoading();
         this.registerUser(fields);
         const nameJoin = `${this.name} ${this.surname}`
           .toUpperCase()
@@ -157,11 +164,24 @@ export default {
             amount: this.amount,
           }),
         );
+		 this.$store.dispatch('CHANGE_PAYMENT_STEP', { step: 'address' });
+		  const payload = {
+		  nameJoin,
+          cpf,
+          email: this.email,
+          firstName: this.name,
+          surname: this.surname,
+          cpfDirty: this.cpf,
+          amount: this.amount,
+		  };
+
+		 this.$store.dispatch('SAVE_USER_DATA', payload);
       } else {
         this.validation = validation;
         this.toggleLoading();
       }
     },
+
     registerUser(data) {
       this.getDonationFP()
         .then(() => {
@@ -177,26 +197,26 @@ export default {
 		  };
 
 		 this.$store.dispatch('SAVE_USER_DATA', payload);
-          this.$store.dispatch('GET_DONATION', payload)
-            .then((res) => {
-              const user = {
-                name: data.name,
-                surname: data.surname,
-              };
-              this.$store.dispatch('SAVE_USERNAME', user);
-              this.handleIugu();
-              this.$store.dispatch('CHANGE_PAYMENT_STEP', { step: 'address' });
-            //   this.$store.dispatch('CHANGE_PAYMENT_STEP', { step: 'cardData' });
-            }).catch((err) => {
-              if (err.data[0].msg_id == 'need_billing_adddress') {
-                this.$store.dispatch('CHANGE_PAYMENT_STEP', {
-                  step: 'address',
-                });
-                return;
-              }
-              this.toggleLoading();
-              this.handleErrorMessage(err);
-            });
+        //   this.$store.dispatch('GET_DONATION', payload)
+        //     .then((res) => {
+        //       const user = {
+        //         name: data.name,
+        //         surname: data.surname,
+        //       };
+        //       this.$store.dispatch('SAVE_USERNAME', user);
+        //       this.handleIugu();
+        //       this.$store.dispatch('CHANGE_PAYMENT_STEP', { step: 'address' });
+        //     //   this.$store.dispatch('CHANGE_PAYMENT_STEP', { step: 'cardData' });
+        //     }).catch((err) => {
+        //       if (err.data[0].msg_id == 'need_billing_adddress') {
+        //         this.$store.dispatch('CHANGE_PAYMENT_STEP', {
+        //           step: 'address',
+        //         });
+        //         return;
+        //       }
+        //       this.toggleLoading();
+        //       this.handleErrorMessage(err);
+        //     });
         }).catch(() => {
           this.toggleLoading();
           this.errorMessage = 'Ocorreu um erro inesperado, tente novamente!';

@@ -17,6 +17,7 @@ export default new Vuex.Store({
   },
   state: {
     paymentStep: 'selectValue',
+    paymentStepError: '',
     amount: 0,
     token: '',
     donation: {},
@@ -29,8 +30,9 @@ export default new Vuex.Store({
   },
 
   mutations: {
-    SET_PAYMENT_STEP(state, { data }) {
-      state.paymentStep = data.step;
+    SET_PAYMENT_STEP(state, { data, error }) {
+	  state.paymentStep = data.step;
+	  state.paymentStepError = data.error;
     },
     SET_PAYMENT_AMOUNT(state, { data }) {
       state.amount = data.amount;
@@ -120,19 +122,15 @@ export default new Vuex.Store({
           headers: { 'Content-Type': 'application/json' },
           url: `${api}/api2/donations`,
           data,
-        }).then(
-          (response) => {
-            const { donation, ui } = response.data;
-            commit('SET_DONATION', { donation });
-            commit('SET_IUGU', { iugu: ui.messages[1] });
-            commit('SET_MESSAGES', { messages: response.data.ui.messages });
-            resolve();
-          },
-          (err) => {
-            console.error(err.response, 'error');
-            reject(err.response);
-          },
-        );
+        }).then((response) => {
+          const { donation, ui } = response.data;
+          commit('SET_DONATION', { donation });
+          commit('SET_IUGU', { iugu: ui.messages[1] });
+          commit('SET_MESSAGES', { messages: response.data.ui.messages });
+          resolve(response);
+        }).catch((err) => {
+			   reject(err.response);
+        });
       });
     },
     START_DONATION({ commit, state }, payload) {
