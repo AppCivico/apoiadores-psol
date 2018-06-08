@@ -76,22 +76,17 @@ export default {
     getCertiFaceQueryString() {
       if (this.$route.query.donation_id) {
         this.toggleLoading();
-
         this.$store.dispatch('CHANGE_PAYMENT_STEP', { step: 'printBoleto' });
         const payload = {
           donationId: this.$route.query.donation_id,
         };
         this.$store.dispatch('START_DONATION_BOLETO', payload).then((response) => {
-          if (response) {
-            this.toggleLoading();
-          }
+          this.toggleLoading();
 		  this.scroolFormDonation();
         }, (error) => {
 		  this.toggleLoading();
-		  if (error && error.data[0].message) {
-            this.scroolFormDonation();
-          	this.errorMessage = error.data[0].message;
-		  }
+          this.scroolFormDonation();
+          this.errorMessage = error.data[0].message;
           console.error(error);
         });
       }
