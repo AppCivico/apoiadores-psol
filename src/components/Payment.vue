@@ -14,15 +14,15 @@
     </div>
     <a class="donation-nav donation-nav--rewind" href="#" @click.prevent="goBack()">voltar</a>
      <headSteps></headSteps>
-
     <userData v-if="paymentStep === 'userData'"/>
     <cardData v-if="paymentStep === 'cardData'"/>
     <addressData v-if="paymentStep === 'address'"/>
     <certFaceVerify v-if="paymentStep === 'certFaceVerify'"/>
-    <printBoleto v-if="paymentStep === 'printBoleto'" :aria-busy="loading"/>
-        <p class="error" v-if="errorMessage != ''" :aria-busy="loading"/>
-                {{ errorMessage }}
-            </p>
+	<section :aria-busy="loading " v-if="loading"> verificando</section>
+   	<printBoleto v-if="paymentStep === 'printBoleto'" class="loading" />
+        <p class="error" v-if="errorMessage != ''"/>
+            {{ errorMessage }}
+       </p>
     </template>
 </div>
 </template>
