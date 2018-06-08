@@ -170,9 +170,8 @@ export default {
             amount: this.amount,
           }),
         );
-        alert('antes');
+
 		 this.$store.dispatch('CHANGE_PAYMENT_STEP', { step: 'address' });
-		 alert('depois');
 		  const payload = {
 		  nameJoin,
           cpf,
