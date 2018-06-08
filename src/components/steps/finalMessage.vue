@@ -23,15 +23,15 @@ export default {
   },
   methods: {
     goBack() {
-        this.$store.dispatch('CHANGE_PAYMENT_STEP', { step: 'selectValue' });
+      this.$store.dispatch('CHANGE_PAYMENT_STEP', { step: 'selectValue' });
     },
     scrollToForm() {
-        const form = document.getElementById('doar');
-        form.scrollIntoView({ block: 'start', behavior: 'smooth' });
+      const formScroll = document.getElementById('doar');
+      formScroll.scrollIntoView({ block: 'start', behavior: 'smooth' });
     },
   },
   mounted() {
     this.scrollToForm();
   },
-}
+};
 </script>

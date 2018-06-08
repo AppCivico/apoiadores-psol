@@ -34,8 +34,8 @@ export default {
   },
   methods: {
     scrollToForm() {
-        const form = document.getElementById('doar');
-        form.scrollIntoView({ block: 'start', behavior: 'smooth' });
+      const formScroll = document.getElementById('doar');
+      formScroll.scrollIntoView({ block: 'start', behavior: 'smooth' });
     },
   },
   mounted() {

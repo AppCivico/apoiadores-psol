@@ -142,7 +142,7 @@ export default {
     },
     saveCard(card) {
       const cc_hash = this.getCardHash(card.number);
-     const dataSession = JSON.parse(sessionStorage.getItem('user-donation-data'));
+      const dataSession = JSON.parse(sessionStorage.getItem('user-donation-data'));
       const cc = Iugu.CreditCard(
         card.number,
         card.validity_month,
@@ -183,8 +183,8 @@ export default {
       return hash;
     },
     scrollToForm() {
-        const form = document.getElementById('doar');
-        form.scrollIntoView({ block: 'start', behavior: 'smooth' });
+      const formScroll = document.getElementById('doar');
+      formScroll.scrollIntoView({ block: 'start', behavior: 'smooth' });
     },
   },
   mounted() {
