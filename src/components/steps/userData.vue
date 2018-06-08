@@ -153,15 +153,9 @@ export default {
       if (validation.valid) {
         this.toggleLoading();
         this.registerUser(fields);
-        const nameJoin = `${this.name} ${this.surname}`
-          .toUpperCase()
-          .trim()
-          .replace(/\s/g, '');
-        const cpf = this.cpf.replace(/[^\d]+/g, '');
         sessionStorage.setItem(
           'user-donation-data',
           JSON.stringify({
-            nameJoin,
             cpf,
             email: this.email,
             firstName: this.name,
@@ -193,7 +187,7 @@ export default {
       this.getDonationFP()
         .then(() => {
           const payload = {
-            payment_method: this.payment_method,
+            payment_method: 'credit_card',
             device_authorization_token_id: this.token,
             email: data.email,
             cpf: data.cpf,

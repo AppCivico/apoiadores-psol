@@ -142,6 +142,7 @@ $default-articles-padding: 12.5rem;
 }
 
 .donation-nav--rewind[class] {
+	float: left;
 
 	&::before {
 		content: '< ';
@@ -174,16 +175,13 @@ $default-articles-padding: 12.5rem;
 	}
 
 }
-.head_steps{
-	margin-bottom: 0px;
-}
 
 .home__donate li {
 	display: inline;
 	position: relative;
 	margin-right: 2em;
 
-	display: none;
+	opacity: 0.4;
 
 	&::before {
 		content: none;
@@ -195,7 +193,7 @@ $default-articles-padding: 12.5rem;
 	font-size: ms(0);
 
 	&::before {
-		// content: '\2022';
+		content: '\2022';
 		position: absolute;
 		width: 1em;
 		left: 50%;

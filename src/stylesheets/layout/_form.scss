@@ -450,18 +450,14 @@ form .error {
 }
 
 form .input-wrapper .error {
-	margin-top: -15px;
-	text-transform: lowercase;
-	font-size: ms(-1);
-	font-weight: bold;
+	margin-top: -10px;
 	border: 0;
 	padding: 0;
-	margin-bottom: $leading * 0.5em;
-	color: palette('purple', 'light');
+	margin-bottom: 20px;
 }
 
 form .has-error input {
-	border: 1px solid palette('purple');
+	border: 1px solid palette('orange');
 }
 
 .form__disclaimer {

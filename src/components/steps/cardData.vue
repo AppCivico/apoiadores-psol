@@ -120,6 +120,7 @@ export default {
       if (validation.valid) {
         fields.brand = this.getBrand(number);
 
+
         this.saveCard({
           name: removeAccented(name),
           csc,

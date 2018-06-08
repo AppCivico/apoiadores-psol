@@ -7,17 +7,14 @@ const state = {
 
 };
 const actions = {
-  getAddress: ({ commit, rootState }, cep) => new Promise((resolve, reject)=>{
-				axios.get(`https://api-apoiadores.appcivico.com/cep?cep=${cep}`).then((response)=>{
-				resolve(response.data)
-				commit('getAddressMutation', response.data)
-
-				}).catch((erro)=>{
-
-					reject(erro)
-
-				})
-			}),
+  getAddress: ({ commit, rootState }, cep) => new Promise((resolve, reject) => {
+    axios.get(`https://api-apoiadores.appcivico.com/cep?cep=${cep}`).then((response) => {
+      resolve(response.data);
+      commit('getAddressMutation', response.data);
+    }).catch((erro) => {
+      reject(erro);
+    });
+  }),
 };
 const mutations = {
   getAddressMutation: (state, payload) => {

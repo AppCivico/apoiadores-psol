@@ -3,7 +3,6 @@ import VueScrollTo from 'vue-scrollto';
 import App from './App.vue';
 import router from './router';
 import store from './store';
-import translations from './translations';
 
 import { formatBRL, formatBRLDec, formatDate, formatCNPJ, formatDateBasic } from './utilities';
 
@@ -36,7 +35,6 @@ Vue.filter('titleCase', str =>
 new Vue({
   router,
   store,
-  translations,
   render: h => h(App),
 }).$mount('#app');
 

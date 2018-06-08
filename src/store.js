@@ -2,7 +2,7 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
 import axios from 'axios';
-import address from './store/address';
+import address from './store/address/';
 
 Vue.use(Vuex);
 
@@ -26,7 +26,6 @@ export default new Vuex.Store({
     username: {},
     candidate: {},
     donations: [],
-    userData: {},
   },
 
   mutations: {
@@ -36,9 +35,6 @@ export default new Vuex.Store({
     },
     SET_PAYMENT_AMOUNT(state, { data }) {
       state.amount = data.amount;
-    },
-    SET_USER_DATA(state, { userData }) {
-      state.userData = userData;
     },
     SET_TOKEN(state, { token }) {
       state.token = token;
@@ -107,6 +103,7 @@ export default new Vuex.Store({
             resolve(response);
           })
           .catch((err) => {
+            console.log('eroooooo', error.response.data);
             console.error(err.response);
             reject(err.response);
           });
@@ -157,39 +154,6 @@ export default new Vuex.Store({
         );
       });
     },
-	  START_DONATION_BOLETO({
-		  commit,
-		  state,
-	  }, payload) {
-		  const tokenName = window.location.host === 'ap-psol.appcivico.com'
-			  ? 'prod_apm_token'
-			  : 'dev_apm_token';
-		  const token = localStorage.getItem(tokenName);
-		  return new Promise((resolve, reject) => {
-			  axios({
-				  method: 'GET',
-				  headers: {
-					  'Content-Type': 'application/json',
-				  },
-				  url: `${api}/api2/donations/${payload.donationId}?device_authorization_token_id=${token}`,
-			  }).then((response) => {
-				  const data = {
-					  step: 'printBoleto',
-				  };
-				  const { donation, ui } = response.data;
-				  commit('SET_DONATION', { donation });
-				  commit('SET_MESSAGES', { messages: response.data.ui.messages });
-				  commit('SET_PAYMENT_STEP', {
-					  data,
-				  });
-
-				  resolve(response);
-			  }, (error) => {
-				  console.error(error.response);
-				  reject(error.response);
-			  });
-		  });
-	  },
     GET_CANDIDATE_INFO({ commit }, id) {
       return new Promise((resolve, reject) => {
         axios.get(`${api}/public-api/candidate-summary/${id}`).then(
