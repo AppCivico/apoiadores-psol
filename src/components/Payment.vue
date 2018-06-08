@@ -34,6 +34,9 @@ import userData from '@/components/steps/userData.vue';
 import cardData from '@/components/steps/cardData.vue';
 import finalMessage from '@/components/steps/finalMessage.vue';
 import addressData from '@/components/steps/addressData.vue';
+import headSteps from '@/components/steps/headSteps.vue';
+import certFaceVerify from '@/components/steps/certFaceVerify.vue';
+import printBoleto from '@/components/steps/printBoleto.vue';
 
 export default {
   name: 'Payment',
@@ -42,7 +45,10 @@ export default {
     userData,
     cardData,
     finalMessage,
-    addressData,
+	addressData,
+	headSteps,
+	 certFaceVerify,
+ 	printBoleto,
   },
   data() {
       return {
@@ -65,17 +71,16 @@ export default {
     },
     getCertiFaceQueryString() {
       if (this.$route.query.donation_id) {
+		this.scroolFormDonation();
         this.toggleLoading();
-        this.$store.dispatch('CHANGE_PAYMENT_STEP', { step: 'printBoleto' });
+        this.$store.dispatch('CHANGE_PAYMENT_STEP', { step: 'printBoleto'});
         const payload = {
           donationId: this.$route.query.donation_id,
         };
         this.$store.dispatch('START_DONATION_BOLETO', payload).then((response) => {
           this.toggleLoading();
-		  this.scroolFormDonation();
         }, (error) => {
 		  this.toggleLoading();
-          this.scroolFormDonation();
           this.errorMessage = error.data[0].message;
           console.error(error);
         });
@@ -83,10 +88,13 @@ export default {
     },
     scroolFormDonation() {
 	   setTimeout(() => {
-        const form = document.getElementById('donation-form');
-		 form.scrollIntoView();
+	 	const  formScroll = document.getElementById('doar');
+      	formScroll.scrollIntoView({ block: 'start', behavior: 'smooth' });
       }, 1000);
     },
   },
+  mounted(){
+	  this.scroolFormDonation()
+  }
 };
 </script>
