@@ -82,23 +82,25 @@ export default {
           donationId: this.$route.query.donation_id,
         };
         this.$store.dispatch('START_DONATION_BOLETO', payload).then((response) => {
-          this.toggleLoading();
-            setTimeout(() => {
-            this.scroolFormDonation();
-          }, 1000);
+          if (response) {
+            this.toggleLoading();
+          }
+		  this.scroolFormDonation();
         }, (error) => {
-             this.toggleLoading();
-             this.errorMessage = error.data[0].message;
-            setTimeout(() => {
+		  this.toggleLoading();
+		  if (error && error.data[0].message) {
             this.scroolFormDonation();
-          }, 1000);
+          	this.errorMessage = error.data[0].message;
+		  }
           console.error(error);
         });
       }
     },
     scroolFormDonation() {
-      const form = document.getElementById('donation-form');
-      form.scrollIntoView();
+	   setTimeout(() => {
+        const form = document.getElementById('donation-form');
+		 form.scrollIntoView();
+      }, 1000);
     },
   },
   mounted() {
