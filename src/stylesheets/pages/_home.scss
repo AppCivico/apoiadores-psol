@@ -176,30 +176,15 @@ $default-articles-padding: 12.5rem;
 }
 
 .home__donate li {
-	display: inline;
+	display: none;
 	position: relative;
 	margin-right: 2em;
 
-	opacity: 0.4;
-
-	&::before {
-		content: none;
-	}
 }
 
 .home__donate li.active {
 	display: block;
 	font-size: ms(0);
-
-	&::before {
-		content: '\2022';
-		position: absolute;
-		width: 1em;
-		left: 50%;
-		margin-left: -0.5em;
-		text-align: center;
-		top: -1em;
-	}
 
 }
 
