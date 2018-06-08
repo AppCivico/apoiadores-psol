@@ -8,7 +8,7 @@
 			<li :class="paymentStep === 'cardData' ? 'active' : ''">
 				Dados de cartão de crédito
 			</li>
-			<li :class="paymentStep === 'boleto' ? 'active' : ''">
+			<li :class="paymentStep === 'address' ? 'active' : ''">
 				Endereço
 			</li>
 			<li :class="paymentStep === 'certFaceVerify' ? 'active' : ''">
