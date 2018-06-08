@@ -4,11 +4,11 @@
     <ul class="payment-choices">
         <li class="payment-type">
             <input name="payment_method" id="credit_card" value="credit_card" type="radio" v-model="payment_method">
-            <label for="credit_card">{{ 'creditCard' | translate }}</label>
+            <label for="credit_card">{{ 'Cartao de Credito' }}</label>
         </li>
         <li class="payment-type">
             <input name="payment_method" id="boleto" value="boleto" type="radio" v-model="payment_method">
-            <label for="boleto">{{ 'boleto' | translate  }}</label>
+            <label for="boleto">{{ 'boleto'  }}</label>
         </li>
     </ul>
       <fieldset>
@@ -167,7 +167,7 @@ export default {
 
 		 this.$store.dispatch('CHANGE_PAYMENT_STEP', { step: 'address' });
 		  const payload = {
-		  nameJoin,
+		  name:`${this.name} ${this.surname}`,
           cpf,
           email: this.email,
           firstName: this.name,
@@ -187,7 +187,7 @@ export default {
       this.getDonationFP()
         .then(() => {
           const payload = {
-            payment_method: 'credit_card',
+            payment_method: this.payment_method,
             device_authorization_token_id: this.token,
             email: data.email,
             cpf: data.cpf,
