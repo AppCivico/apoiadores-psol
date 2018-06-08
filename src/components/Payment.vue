@@ -19,7 +19,7 @@
     <cardData v-if="paymentStep === 'cardData'"/>
     <addressData v-if="paymentStep === 'address'"/>
     <certFaceVerify v-if="paymentStep === 'certFaceVerify'"/>
-    <printBoleto v-if="paymentStep === 'printBoleto'" :aria-busy="loading ? 'true' : 'false'"/>
+    <printBoleto v-if="paymentStep === 'printBoleto'" :aria-busy="loading"/>
         <p class="error" v-if="errorMessage != ''" :aria-busy="loading"/>
                 {{ errorMessage }}
             </p>
