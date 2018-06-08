@@ -161,7 +161,7 @@ export default new Vuex.Store({
 		  commit,
 		  state,
 	  }, payload) {
-		  const tokenName = window.location.host === 'ap-psol.appcivico.com'
+		  const tokenName = window.location.host === 'ap-psol.appcivico.com' || window.location.host === 'financie.psol50.org.br'
 			  ? 'prod_apm_token'
 			  : 'dev_apm_token';
 		  const token = localStorage.getItem(tokenName);
