@@ -72,11 +72,11 @@
             {{ validation.errors.email }}
           </div>
         </div>
+      </fieldset>
       <p class="error" v-if="errorMessage != ''">
         {{ errorMessage }}
       </p>
       <button type="submit" :disabled="loading" class="donation-nav donation-nav--forward">Continuar</button>
-      </fieldset>
     </form>
   </section>
 </template>
