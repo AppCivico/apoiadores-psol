@@ -157,6 +157,7 @@ export default {
         this.street = (response.street == '') ? this.disableField('street') : response.street;
         this.district = (response.district == '') ? this.disableField('district') : response.district;
         this.toggleLoading();
+        this.errorMessage = '';
       }).catch((erro) => {
         this.toggleLoading();
         this.errorMessage = 'Cep não encontrado';
