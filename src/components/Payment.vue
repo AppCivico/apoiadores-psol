@@ -1,28 +1,28 @@
 <template>
 <div class="donation-form" id="donation-form">
     <template v-if="paymentStep === 'selectValue'">
-        <h2>Escolha um valor para doar</h2>
-        <selectValue />
+      <h2>Escolha um valor para doar</h2>
+      <selectValue />
     </template>
     <template v-else-if="paymentStep === 'finalMessage'">
-        <finalMessage />
+      <finalMessage />
     </template>
     <template v-else>
     <div class="donation-form-title" v-if="paymentStep !== 'printBoleto'">
-        <h2>Você escolheu doar:</h2>
-        <h2 v-if="amount">R$ {{ amount | formatBRL }}</h2>
+      <h2>Você escolheu doar:</h2>
+      <h2 v-if="amount">R$ {{ amount | formatBRL }}</h2>
     </div>
     <a class="donation-nav donation-nav--rewind" href="#" @click.prevent="goBack()">voltar</a>
-     <headSteps></headSteps>
+    <headSteps></headSteps>
     <userData v-if="paymentStep === 'userData'"/>
     <cardData v-if="paymentStep === 'cardData'"/>
     <addressData v-if="paymentStep === 'address'"/>
     <certFaceVerify v-if="paymentStep === 'certFaceVerify'"/>
-	<section :aria-busy="loading " v-if="loading"> verificando</section>
-   	<printBoleto v-if="paymentStep === 'printBoleto'" class="loading" />
-        <p class="error" v-if="errorMessage != ''"/>
-            {{ errorMessage }}
-       </p>
+    <section :aria-busy="loading " v-if="loading"> verificando</section>
+    <printBoleto v-if="paymentStep === 'printBoleto'" class="loading">
+    <p class="error" v-if="errorMessage != ''">
+      {{ errorMessage }}
+    </p>
     </template>
 </div>
 </template>
@@ -82,9 +82,9 @@ export default {
         };
         this.$store.dispatch('START_DONATION_BOLETO', payload).then((response) => {
           this.toggleLoading();
-		  this.scroolFormDonation();
+      this.scroolFormDonation();
         }, (error) => {
-		  this.toggleLoading();
+      this.toggleLoading();
           this.scroolFormDonation();
           this.errorMessage = error.data[0].message;
           console.error(error);
@@ -92,9 +92,9 @@ export default {
       }
     },
     scroolFormDonation() {
-	   setTimeout(() => {
+     setTimeout(() => {
         const form = document.getElementById('donation-form');
-		 form.scrollIntoView();
+     form.scrollIntoView();
       }, 1000);
     },
   },
