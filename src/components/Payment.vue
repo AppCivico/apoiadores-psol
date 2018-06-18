@@ -8,21 +8,21 @@
       <finalMessage />
     </template>
     <template v-else>
-    <div class="donation-form-title" v-if="paymentStep !== 'printBoleto'">
-      <h2>Você escolheu doar:</h2>
-      <h2 v-if="amount">R$ {{ amount | formatBRL }}</h2>
-    </div>
-    <a class="donation-nav donation-nav--rewind" href="#" @click.prevent="goBack()">voltar</a>
-    <headSteps></headSteps>
-    <userData v-if="paymentStep === 'userData'"/>
-    <cardData v-if="paymentStep === 'cardData'"/>
-    <addressData v-if="paymentStep === 'address'"/>
-    <certFaceVerify v-if="paymentStep === 'certFaceVerify'"/>
-    <section :aria-busy="loading " v-if="loading"> verificando</section>
-    <printBoleto v-if="paymentStep === 'printBoleto'" class="loading">
-    <p class="error" v-if="errorMessage != ''">
-      {{ errorMessage }}
-    </p>
+        <div class="donation-form-title" v-if="paymentStep !== 'printBoleto'">
+          <h2>Você escolheu doar:</h2>
+          <h2 v-if="amount">R$ {{ amount | formatBRL }}</h2>
+        </div>
+        <a class="donation-nav donation-nav--rewind" href="#" @click.prevent="goBack()">voltar</a>
+        <headSteps/>
+        <userData v-if="paymentStep === 'userData'"/>
+        <cardData v-if="paymentStep === 'cardData'"/>
+        <addressData v-if="paymentStep === 'address'"/>
+        <certFaceVerify v-if="paymentStep === 'certFaceVerify'"/>
+        <section :aria-busy="loading " v-if="loading"> verificando</section>
+        <printBoleto v-if="paymentStep === 'printBoleto'" class="loading"/>
+        <p class="error" v-if="errorMessage != ''">
+        {{ errorMessage }}
+        </p>
     </template>
 </div>
 </template>
