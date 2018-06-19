@@ -120,7 +120,7 @@ fieldset ul {
 	}
 }
 
-.has-real-value [type='number'] {
+.has-real-value [type='text'] {
 	color: inherit;
 	position: absolute;
 	top: 0;
@@ -139,15 +139,6 @@ fieldset ul {
 		color: transparent;
 	}
 }
-
-.has-real-value [type='number']::-webkit-inner-spin-button,
-.has-real-value [type='number']::-webkit-outer-spin-button {
-	-webkit-appearance: none;
-	-moz-appearance: none;
-	appearance: none;
-	margin: 0;
-}
-
 
 .has-real-value [type='button'] {
 	border: 0;
