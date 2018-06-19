@@ -1,6 +1,4 @@
 .site-footer {
-	padding-top: $leading * 2rem;
-	padding-bottom: $leading * 1rem;
 
 	color: palette('white');
 
@@ -12,6 +10,8 @@
 }
 
 .container-footer {
+	padding-top: $leading * 1rem;
+	padding-bottom: $leading * 1.5rem;
 	max-width: $max-width;
 
 	padding-right: $gutter;
@@ -21,7 +21,7 @@
 
 	@media screen and (min-width: breakpoint('desktop')) {
 		padding-top: 4rem;
-		padding-bottom: 4rem;
+		padding-bottom: 2rem;
 	}
 }
 
@@ -117,10 +117,12 @@ footer p {
 	font-size: 0.8em;
 	color: palette('white');
 	line-height: 1.3;
-	margin-top: 7em;
+	margin-top: 2em;
 	text-align: center;
+	margin-bottom: 0;
 
-	@media screen and (min-width: breakpoint('tablet')) {
+	@media screen and (min-width: breakpoint('desktop')) {
+		margin-top: 15em;
 		text-align: right;
 	}
 }
