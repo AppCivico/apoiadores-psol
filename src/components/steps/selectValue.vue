@@ -15,12 +15,14 @@
         <div class="input-wrapper has-real-value" v-if="amount === 'other'">
           <label for="other">R$</label>
           <input
-            type="number"
+            type="text"
             name="other"
             v-model="other"
+            pattern="[0-9]*"
             :disabled="amount === 'other' ? false : true"
             autocomplete="nope"
-            @keyup="formatOther">
+            @keyup="formatOther"
+            v-mask="'########'">
           <span class="real-value">{{ formatedOther }}</span>
           <button type="button" href="#" @click.prevent="validateForm">OK</button>
         </div>
@@ -36,9 +38,15 @@
 
 <script>
 import { validate, formatBRLDec, formatBRL } from '../../utilities';
+import {
+    mask
+} from 'vue-the-mask';
 
 export default {
-  name: 'selectValue',
+    name: 'selectValue',
+    directives: {
+        mask,
+    },
   data() {
     return {
       errorMessage: '',
