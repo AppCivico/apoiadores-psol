@@ -40,9 +40,6 @@
             {{ porcentage }}% da meta de R$ {{ expected | formatBRL }}
           </p> -->
 
-          <p>
-            <a href="#home__donors" class="campaign-progress__link" v-scroll-to="'#home__donors'">Veja quem doou</a>
-          </p>
 
         </section>
       </div>

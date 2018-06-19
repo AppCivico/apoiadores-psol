@@ -22,11 +22,6 @@
 							Saiba Mais
 						</a>
 					</li>
-					<li class="menu-item">
-						<a href="#home__donors" v-scroll-to="'#home__donors'">
-							Doadores
-						</a>
-					</li>
 					<li class="menu-item donate-nav">
 						<a href="#doar" v-scroll-to="'#doar'">
 							Doar
