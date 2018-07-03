@@ -3,7 +3,7 @@
 	top: 0;
 	left: 0;
 	right: 0;
-	bottom: 0;
+	bottom: auto;
 	background-color: palette('blue');
 	margin: 0;
 	width: 100%;
@@ -32,7 +32,6 @@
 .main-menu.animate {
 	padding-top: 0;
 	height: $menu-height-animate;
-	background-color: palette('blue');
 }
 
 .brand-wrap {
