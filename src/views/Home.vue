@@ -64,16 +64,13 @@
         <p><strong>Manutenção de plataforma online para participação e mobilização, especialmente os grupos de ação.</strong>
           Nossa plataforma online será totalmente focada na participação: será possível cadastrar um grupo pequeno, em sua cidade ou bairro, para debater e construir nossa pré-campanha, realizar eventos e se articular com outros grupos e pessoas. Além disso, você poderá fazer propostas e debater as que outras pessoas estarão propondo.
         </p>
-        <figure>
-          <picture>
-            <source media="(max-width: 400px)" srcset="../assets/images/photos/psol-image-320w.jpg">
-            <source media="(max-width: 480px)" srcset="../assets/images/photos/psol-image-480w.jpg">
-            <source media="(max-width: 600px)" srcset="../assets/images/photos/psol-image-600w.jpg">
-            <source media="(max-width: 800px)" srcset="../assets/images/photos/psol-image-800w.jpg">
-            <img src="../assets/images/photos/psol-image-800w.jpg" alt="PSOL">
-          </picture>
-        </figure>
-
+        <picture>
+          <source media="(max-width: 400px)" srcset="../assets/images/photos/psol-image-320w.jpg">
+          <source media="(max-width: 480px)" srcset="../assets/images/photos/psol-image-480w.jpg">
+          <source media="(max-width: 600px)" srcset="../assets/images/photos/psol-image-600w.jpg">
+          <source media="(max-width: 800px)" srcset="../assets/images/photos/psol-image-800w.jpg">
+          <img src="../assets/images/photos/psol-image-800w.jpg" alt="PSOL">
+        </picture>
         <p> <strong>Campanha de comunicação.</strong>
           A construção de uma campanha online que fure o bloqueio da grande mídia é essencial para fazer com que essas propostas cheguem ao máximo possível de pessoas. Para isso, vamos contratar equipe qualificada em redes sociais e comprar os equipamentos necessários para transmissões ao vivo dos eventos, cobertura fotográfica e produção de conteúdos de divulgação.
         </p>
