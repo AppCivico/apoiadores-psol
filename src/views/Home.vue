@@ -29,7 +29,7 @@
           </p>
 		  <p class="campaign-progress-amount">{{ candidate.people_donated }} doações realizadas</p>
 
-          <!-- <progress :value="candidate.total_donated" :max="expected">
+          <progress :value="candidate.total_donated" :max="expected">
             <div class="progress-bar">
               <span :style="{width: `${porcentage}%`}">
                 {{ porcentage }}
@@ -39,7 +39,7 @@
 
           <p class="campaign-progress-porcentage">
             {{ porcentage }}% da meta de R$ {{ expected | formatBRL }}
-          </p> -->
+          </p>
 
 
         </section>
