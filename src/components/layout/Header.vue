@@ -19,7 +19,7 @@
 				<ul class="menu-wrap">
 					<li class="menu-item">
 						<a href="#home__knowMore" v-scroll-to="'#home__knowMore'">
-							Saiba Mais
+							Uso dos recursos
 						</a>
 					</li>
 					<li class="menu-item donate-nav">
