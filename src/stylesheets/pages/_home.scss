@@ -218,9 +218,15 @@ $default-articles-padding: 12.5rem;
 
 }
 
-#home__knowMore img {
+#home__knowMore img,
+#home__knowMore picture {
 	width: 100%;
-
+	max-width: 50rem;
+	margin-right: 0;
+	margin-left: auto;
+	display: block;
+	margin-top: 1.5em;
+	margin-bottom: 1.5em;
 }
 
 #home__knowMore figcaption {
