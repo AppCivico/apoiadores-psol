@@ -78,17 +78,16 @@
 }
 
 #home__greetings {
-	margin-top: 10em;
+	position: absolute;
+	top: 25%;
+	width: 100%;
+	text-align: center;
 
 	@media screen and (min-width: breakpoint('phablet')) {
-		margin-top: 10em;
+		top: 27%;
 	}
-
 	@media screen and (min-width: breakpoint('tablet')) {
-		margin-top: 10em;
-	}
-	@media screen and (min-width: breakpoint('wide')) {
-		margin-top: 12em;
+		top: 18%;
 	}
 }
 
