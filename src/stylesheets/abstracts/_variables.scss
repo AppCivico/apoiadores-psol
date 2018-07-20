@@ -188,6 +188,10 @@ $palette: (
 		'light': rgb(229, 231, 234),
 		'base': rgb(51, 51, 51),
 	),
+	'header': (
+		'white': rgb(255, 255, 255),
+		'yellow': rgb(255, 204, 0),
+	),
 );
 
 
@@ -199,9 +203,9 @@ $rounded-corner: 5px !default;
 /// border default width
 /// @todo Customize it to match your design.
 /// @type number
-$stroke: 0 !default;
+$stroke: 3px !default;
 
-/// gutter default width
+/// gutter default width768
 /// @todo Customize it to match your design.
 /// @type number
 $gutter: $leading * $body-font-size / 1em * 1rem;
