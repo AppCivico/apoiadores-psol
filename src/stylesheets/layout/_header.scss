@@ -1,42 +1,46 @@
 .site-header {
 	position: relative;
 	color: palette('white');
-	min-height: 560px;
+	min-height: 640px;
 	height: 70vh;
 	background-color: palette('gray', 'dark');
 	background-image:
-	url('../assets/images/backgrounds/capa-boulos_sonia-small.png'),
-	url('../assets/images/backgrounds/capa-fundo-small.jpg');
+	url('../assets/images/backgrounds/capa-fundo-very-small.jpg');
 	background-size:
-		450px auto,
-		cover;
+	cover;
 	background-position:
-		-5% bottom,
-		0 0;
+	center bottom;
+
 
 	@media screen and (min-width: breakpoint('phablet')) {
-	background-size:
-		500px auto,
+		background-image:
+		url('../assets/images/backgrounds/capa-boulos_sonia-small.png'),
+		url('../assets/images/backgrounds/capa-fundo-small.jpg');
+		height: 90vh;
+		background-size:
+		550px auto,
 		cover;
-	background-position:
-		55% bottom,
+		background-position:
+		1em bottom,
 		0 0;
-		min-height: 680px;
+		min-height: 620px;
 	}
 
 	@media screen and (min-width: breakpoint('tablet')) {
-		min-height: 800px;
+		background-image:
+		url('../assets/images/backgrounds/capa-boulos_sonia-medium.png'),
+		url('../assets/images/backgrounds/capa-fundo-medium.jpg');
 		height: 90vh;
 		background-size:
-		600px auto,
+		680px auto,
 		cover;
 		background-position:
-		55% bottom,
+		1em bottom,
 		0 0;
+		min-height: 720px;
 	}
 
 	@media screen and (min-width: breakpoint('desktop')) {
-		min-height: 810px;
 		background-image:
 		url('../assets/images/backgrounds/capa-boulos_sonia.png'),
 		url('../assets/images/backgrounds/capa-fundo.jpg');
@@ -46,14 +50,18 @@
 		background-position:
 		center bottom,
 		0 0;
+		min-height: 780px;
 	}
 
 	@media screen and (min-width: breakpoint('wide')) {
 		height: 100vh;
-		min-height: 910px;
+		min-height: 870px;
+		background-image:
+		url('../assets/images/backgrounds/capa-boulos_sonia.png'),
+		url('../assets/images/backgrounds/capa-fundo.jpg');
 		background-size:
-			870px auto,
-			cover;
+		750px auto,
+		cover;
 		background-position:
 			center bottom,
 			0 0;
@@ -70,17 +78,16 @@
 }
 
 #home__greetings {
-	padding-top: 5em;
+	position: absolute;
+	top: 25%;
+	width: 100%;
+	text-align: center;
 
 	@media screen and (min-width: breakpoint('phablet')) {
-		padding-top: 4.5em;
+		top: 27%;
 	}
-
 	@media screen and (min-width: breakpoint('tablet')) {
-		padding-top: 2.5em;
-	}
-	@media screen and (min-width: breakpoint('desktop')) {
-		padding-top: 3.8em;
+		top: 18%;
 	}
 }
 
@@ -92,8 +99,8 @@
 	text-align: center;
 
 	@media screen and (min-width: breakpoint('desktop')) {
+		max-width: 760px;
 		text-align: right;
-		max-width: 947px;
 	}
 	@media screen and (min-width: breakpoint('wide')) {
 		max-width: 1000px;
@@ -101,65 +108,84 @@
 }
 
 .site-label h1 {
-	position: relative;
-	@include image-replacement;
-	min-width: 280px;
-	min-height: 159px;
-	margin-bottom: -0.1em;
-	display: block;
+	padding: 0;
+	font-family: 'Montserrat', sans-serif;
+	text-align: center;
+	line-height: 1em;
+	font-weight: bold;
+	color: palette('header','white');
+	margin: 0;
 
-	background-image: url('../assets/images/backgrounds/text-image-phone.png');
-	background-position: center center;
-	background-size: 280px 159px;
+	&:first-child span {
+		color: transparent;
+		-webkit-text-stroke-width: $stroke / 3;
+		-webkit-text-stroke-color: palette('header','white');
 
-	@media screen and (min-width: breakpoint('phablet')) {
-		min-width: 430px;
-		min-height: 244px;
-		background-image: url('../assets/images/backgrounds/text-image-phablet.png');
-		background-position: center center;
-		background-size: 430px 244px;
-		margin-bottom: 2px;
+		@media screen and (min-width: breakpoint('tablet')) {
+			-webkit-text-stroke-width: $stroke / 2;
+		}
+		@media screen and (min-width: breakpoint('wide')) {
+			-webkit-text-stroke-width: $stroke;
+		}
+
 	}
-	@media screen and (min-width: breakpoint('tablet')) {
-		min-width: 580px;
-		min-height: 329px;
-		background-image: url('../assets/images/backgrounds/text-image-tablet.png');
-		background-position: center center;
-		background-size: 580px 329px;
+	&:nth-child(2) span {
+		font-weight: 900;
+		 color: palette('header','yellow');
+		 font-size: 1.2em;
+
 	}
-	@media screen and (min-width: breakpoint('desktop')) {
-		min-width: 947px;
-		min-height: 209px;
-		background-image: url('../assets/images/backgrounds/text-image-desktop.png');
-		background-position: center center;
-		background-size: 947px 209px;
+
+
+}
+
+.site-label h1 {
+	color: palette('white');
+	text-transform: uppercase;
+	font-size: ms(3);
+	font-weight: 800;
+	letter-spacing: -3px;
+
+	@media screen and(min-width: breakpoint('phablet')) {
+		font-size: 2.7em;
 	}
-	@media screen and (min-width: breakpoint('wide')) {
-		min-width: 1000px;
-		min-height: 222px;
-		background-image: url('../assets/images/backgrounds/text-image-wide.png');
-		background-position: center center;
-		background-size: 1000px 222px;
+
+	@media screen and(min-width: breakpoint('tablet')) {
+		font-size: ms(6);
+	}
+
+	@media screen and(min-width: breakpoint('desktop')) {
+		font-size: ms(7);
+	}
+
+	@media screen and(min-width: breakpoint('wide')) {
+		font-size: ms(8);
 	}
 
 }
 
+
 .site-label .call-to-action {
+	font-family: 'Montserrat', sans-serif;
 	position: relative;
 	z-index: 2;
 	font-size: ms(2);
 	text-decoration: none;
-	font-weight: 800;
-	font-style: italic;
+	font-weight: bold;
 	text-transform: uppercase;
-	color: palette('white');
-	font-weight: 800;
+	color: #FFF;
+	text-align: right;
 
 	@media screen and (min-width: breakpoint('desktop')) {
 		font-size: ms(3);
 	}
+
 	@media screen and (min-width: breakpoint('wide')) {
 		font-size: ms(3);
 	}
-}
 
+	& span {
+		color: palette('header','yellow');
+		font-weight: 900;
+	}
+}

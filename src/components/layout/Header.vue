@@ -32,9 +32,10 @@
 		</nav>
 		<div id="home__greetings">
 			<div class="site-label">
-				<h1>Partido Necessário. Quem financia o PSOL é você!</h1>
+				<h1><span>Vamos</span> juntos</h1>
+				<h1>Mudar o <span>Brasil</span>!</h1>
 				<a class="call-to-action" href="#doar" v-scroll-to="'#doar'">
-					> quero doar
+					<span>#</span>FINANCIE<span class="heavy">PSOL</span>
 				</a>
 			</div>
 		</div>
