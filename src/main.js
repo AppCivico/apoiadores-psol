@@ -41,8 +41,10 @@ new Vue({
 }).$mount('#app');
 
 Vue.directive('focus', {
-  inserted: (el) => {
-    el.focus();
+  inserted: (el, binding) => {
+    if (binding.value || typeof binding.value === 'undefined') {
+      el.focus();
+    }
   },
 });
 
