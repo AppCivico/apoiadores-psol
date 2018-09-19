@@ -32,7 +32,7 @@
     </nav>
     <div id="home__greetings">
       <div class="site-label">
-        <h1>Quem financia o <span>PSOL</span> é você</h1>
+        <h1>Quem financia o PSOL é você</h1>
           <a class="call-to-action" href="#doar" v-scroll-to="'#doar'">
           Quero doar >
           </a>

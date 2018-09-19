@@ -45,7 +45,7 @@
 	}
 
 	@media screen and (min-width: breakpoint('wide')) {
-		height: 100vh;
+		height: 80vh;
 		min-height: 870px;
 		background-image:
 		url('../assets/images/backgrounds/capa-fundo.jpg');
@@ -53,7 +53,6 @@
 		cover;
 		background-position:
 			0 0;
-
 	}
 }
 
@@ -75,93 +74,87 @@
 		top: 27%;
 	}
 	@media screen and (min-width: breakpoint('tablet')) {
-		top: 30%;
+		top: 20%;
 	}
 }
 
+
 .site-label {
-	max-width: 20em;
 	padding: 0;
 	margin: 0;
 	margin-left: auto;
 	margin-right: auto;
 	text-align: center;
 
+	@media screen and (min-width: breakpoint('desktop')) {
+		text-align: right;
+		max-width: 947px;
+	}
+	@media screen and (min-width: breakpoint('wide')) {
+		max-width: 1000px;
+	}
+}
+
+.site-label h1 {
+	position: relative;
+	@include image-replacement;
+	min-width: 280px;
+	min-height: 159px;
+	margin-bottom: -0.1em;
+	display: block;
+
+	background-image: url('../assets/images/backgrounds/text-image-phone.png');
+	background-position: center center;
+	background-size: 280px 159px;
+
 	@media screen and (min-width: breakpoint('phablet')) {
-		max-width: 25em;
+		min-width: 430px;
+		min-height: 244px;
+		background-image: url('../assets/images/backgrounds/text-image-phablet.png');
+		background-position: center center;
+		background-size: 430px 244px;
+		margin-bottom: 2px;
 	}
 	@media screen and (min-width: breakpoint('tablet')) {
-		max-width: 35em;
+		min-width: 580px;
+		min-height: 329px;
+		background-image: url('../assets/images/backgrounds/text-image-tablet.png');
+		background-position: center center;
+		background-size: 580px 329px;
 	}
 	@media screen and (min-width: breakpoint('desktop')) {
-		max-width: 35em;
-		text-align: right;
+		min-width: 947px;
+		min-height: 209px;
+		background-image: url('../assets/images/backgrounds/text-image-desktop.png');
+		background-position: center center;
+		background-size: 947px 209px;
 	}
 	@media screen and (min-width: breakpoint('wide')) {
-		max-width: 40em;
-	}
-}
-
-.site-label h1 {
-	padding: 0;
-	font-family: 'Montserrat', sans-serif;
-	text-align: center;
-	line-height: 1em;
-	font-weight: bold;
-	color: palette('header','white');
-	margin: 0;
-
-	span {
-		font-weight: 900;
-		 color: palette('header','yellow');
-	}
-
-
-}
-
-.site-label h1 {
-	color: palette('white');
-	text-transform: uppercase;
-	font-size: ms(3);
-	font-weight: 800;
-	letter-spacing: -3px;
-
-	@media screen and(min-width: breakpoint('phablet')) {
-		font-size: ms(5);
-	}
-
-	@media screen and(min-width: breakpoint('tablet')) {
-		font-size: ms(6);
-	}
-
-	@media screen and(min-width: breakpoint('wide')) {
-		font-size: ms(7);
+		min-width: 1000px;
+		min-height: 222px;
+		background-image: url('../assets/images/backgrounds/text-image-wide.png');
+		background-position: center center;
+		background-size: 1000px 222px;
 	}
 
 }
-
 
 .site-label .call-to-action {
-	font-family: 'Montserrat', sans-serif;
 	position: relative;
 	z-index: 2;
-	font-size: 1.2em;
+	font-size: ms(2);
 	text-decoration: none;
-	font-weight: 900;
+	font-weight: 800;
+	font-style: italic;
 	text-transform: uppercase;
-	color: #FFF;
-	text-align: right;
-	color: palette('header','yellow');
-
-	@media screen and (min-width: breakpoint('phablet')) {
-		font-size: ms(2);
-	}
+	color: palette('white');
+	font-weight: 800;
 
 	@media screen and (min-width: breakpoint('desktop')) {
 		font-size: ms(3);
 	}
-
 	@media screen and (min-width: breakpoint('wide')) {
 		font-size: ms(3);
 	}
 }
+
