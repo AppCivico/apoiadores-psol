@@ -14,58 +14,45 @@
 
 	@media screen and (min-width: breakpoint('phablet')) {
 		background-image:
-		url('../assets/images/backgrounds/capa-boulos_sonia-small.png'),
 		url('../assets/images/backgrounds/capa-fundo-small.jpg');
 		height: 90vh;
 		background-size:
-		550px auto,
 		cover;
 		background-position:
-		1em bottom,
 		0 0;
 		min-height: 620px;
 	}
 
 	@media screen and (min-width: breakpoint('tablet')) {
 		background-image:
-		url('../assets/images/backgrounds/capa-boulos_sonia-medium.png'),
 		url('../assets/images/backgrounds/capa-fundo-medium.jpg');
 		height: 90vh;
 		background-size:
-		680px auto,
 		cover;
 		background-position:
-		1em bottom,
 		0 0;
 		min-height: 720px;
 	}
 
 	@media screen and (min-width: breakpoint('desktop')) {
 		background-image:
-		url('../assets/images/backgrounds/capa-boulos_sonia.png'),
 		url('../assets/images/backgrounds/capa-fundo.jpg');
 		background-size:
-		750px auto,
 		cover;
 		background-position:
-		center bottom,
 		0 0;
 		min-height: 780px;
 	}
 
 	@media screen and (min-width: breakpoint('wide')) {
-		height: 100vh;
+		height: 80vh;
 		min-height: 870px;
 		background-image:
-		url('../assets/images/backgrounds/capa-boulos_sonia.png'),
 		url('../assets/images/backgrounds/capa-fundo.jpg');
 		background-size:
-		750px auto,
 		cover;
 		background-position:
-			center bottom,
 			0 0;
-
 	}
 }
 
@@ -79,7 +66,7 @@
 
 #home__greetings {
 	position: absolute;
-	top: 25%;
+	top: 30%;
 	width: 100%;
 	text-align: center;
 
@@ -87,9 +74,10 @@
 		top: 27%;
 	}
 	@media screen and (min-width: breakpoint('tablet')) {
-		top: 18%;
+		top: 20%;
 	}
 }
+
 
 .site-label {
 	padding: 0;
@@ -99,8 +87,8 @@
 	text-align: center;
 
 	@media screen and (min-width: breakpoint('desktop')) {
-		max-width: 760px;
 		text-align: right;
+		max-width: 947px;
 	}
 	@media screen and (min-width: breakpoint('wide')) {
 		max-width: 1000px;
@@ -108,84 +96,65 @@
 }
 
 .site-label h1 {
-	padding: 0;
-	font-family: 'Montserrat', sans-serif;
-	text-align: center;
-	line-height: 1em;
-	font-weight: bold;
-	color: palette('header','white');
-	margin: 0;
+	position: relative;
+	@include image-replacement;
+	min-width: 280px;
+	min-height: 159px;
+	margin-bottom: -0.1em;
+	display: block;
 
-	&:first-child span {
-		color: transparent;
-		-webkit-text-stroke-width: $stroke / 3;
-		-webkit-text-stroke-color: palette('header','white');
+	background-image: url('../assets/images/backgrounds/text-image-phone.png');
+	background-position: center center;
+	background-size: 280px 159px;
 
-		@media screen and (min-width: breakpoint('tablet')) {
-			-webkit-text-stroke-width: $stroke / 2;
-		}
-		@media screen and (min-width: breakpoint('wide')) {
-			-webkit-text-stroke-width: $stroke;
-		}
-
+	@media screen and (min-width: breakpoint('phablet')) {
+		min-width: 430px;
+		min-height: 244px;
+		background-image: url('../assets/images/backgrounds/text-image-phablet.png');
+		background-position: center center;
+		background-size: 430px 244px;
+		margin-bottom: 2px;
 	}
-	&:nth-child(2) span {
-		font-weight: 900;
-		 color: palette('header','yellow');
-		 font-size: 1.2em;
-
+	@media screen and (min-width: breakpoint('tablet')) {
+		min-width: 580px;
+		min-height: 329px;
+		background-image: url('../assets/images/backgrounds/text-image-tablet.png');
+		background-position: center center;
+		background-size: 580px 329px;
 	}
-
-
-}
-
-.site-label h1 {
-	color: palette('white');
-	text-transform: uppercase;
-	font-size: ms(3);
-	font-weight: 800;
-	letter-spacing: -3px;
-
-	@media screen and(min-width: breakpoint('phablet')) {
-		font-size: 2.7em;
+	@media screen and (min-width: breakpoint('desktop')) {
+		min-width: 947px;
+		min-height: 209px;
+		background-image: url('../assets/images/backgrounds/text-image-desktop.png');
+		background-position: center center;
+		background-size: 947px 209px;
 	}
-
-	@media screen and(min-width: breakpoint('tablet')) {
-		font-size: ms(6);
-	}
-
-	@media screen and(min-width: breakpoint('desktop')) {
-		font-size: ms(7);
-	}
-
-	@media screen and(min-width: breakpoint('wide')) {
-		font-size: ms(8);
+	@media screen and (min-width: breakpoint('wide')) {
+		min-width: 1000px;
+		min-height: 222px;
+		background-image: url('../assets/images/backgrounds/text-image-wide.png');
+		background-position: center center;
+		background-size: 1000px 222px;
 	}
 
 }
-
 
 .site-label .call-to-action {
-	font-family: 'Montserrat', sans-serif;
 	position: relative;
 	z-index: 2;
 	font-size: ms(2);
 	text-decoration: none;
-	font-weight: bold;
+	font-weight: 800;
+	font-style: italic;
 	text-transform: uppercase;
-	color: #FFF;
-	text-align: right;
+	color: palette('white');
+	font-weight: 800;
 
 	@media screen and (min-width: breakpoint('desktop')) {
 		font-size: ms(3);
 	}
-
 	@media screen and (min-width: breakpoint('wide')) {
 		font-size: ms(3);
 	}
-
-	& span {
-		color: palette('header','yellow');
-		font-weight: 900;
-	}
 }
+
