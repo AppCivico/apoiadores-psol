@@ -6,7 +6,7 @@
           Ajude a mudar o brasil!
         </h2>
         <p>
-          <span class="bigger-text">Por que financiar o PSOL?</span>Em tempos de tantos escândalos, somos um dos poucos partidos sem envolvimento em nenhuma denúncia de corrupção. Nunca recebemos dinheiro das grandes empresas e lutamos pelo fim do financiamento privado de campanhas.
+          <span class="bigger-text">Por que financiar o PSOL?</span> Em tempos de tantos escândalos, somos um dos poucos partidos sem envolvimento em nenhuma denúncia de corrupção. Nunca recebemos dinheiro das grandes empresas e lutamos pelo fim do financiamento privado de campanhas.
         <p>
           <span class="bigger-text">O que o PSOL quer?</span> Um país de direitos, democracia e sem desigualdades. Nossa bancada no Congresso é reconhecidamente a melhor do país, sempre atuando com independência, ética e coerência.
         <p>
