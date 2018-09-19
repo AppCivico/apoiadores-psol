@@ -6,16 +6,17 @@
           Ajude a mudar o brasil!
         </h2>
         <p>
-          <span class="bigger-text">Por que financiar o PSOL e sua aliança com movimentos sociais?</span> Em tempos de tantos escândalos, somos um dos poucos partidos sem envolvimento em nenhuma denúncia de corrupção. Nossa bancada no Congresso é reconhecidamente a melhor do país, sempre atuando com independência, ética e coerência. Nunca recebemos dinheiro das grandes empresas e lutamos pelo fim do financiamento privado de campanhas.
+          <span class="bigger-text">Por que financiar o PSOL?</span>Em tempos de tantos escândalos, somos um dos poucos partidos sem envolvimento em nenhuma denúncia de corrupção. Nunca recebemos dinheiro das grandes empresas e lutamos pelo fim do financiamento privado de campanhas.
+        <p>
+          <span class="bigger-text">O que o PSOL quer?</span> Um país de direitos, democracia e sem desigualdades. Nossa bancada no Congresso é reconhecidamente a melhor do país, sempre atuando com independência, ética e coerência.
+        <p>
+          <span class="bigger-text">O dinheiro vai ser usado para quê?</span> Nós precisamos da sua contribuição para realizar atividades em todo o país mobilizando filiados/as e apoiadores/as, fazer materiais do partido como panfletos, camisetas e bandeiras e realizar campanhas e lutas temáticas.
         </p>
         <p>
-          <span class="bigger-text">O que queremos?</span> Consolidar, em cada canto do país, uma forte aliança contra as desigualdades e pela democracia. Boulos e Sônia são porta vozes da mudança que o Brasil precisa.
+          <span class="bigger-text">Eu posso participar?</span> A contribuição financeira é apenas uma das formas de participar. Nossa construção é coletiva, de baixo para cima. Você pode participar dos eventos de construção do programa, constituir um grupo de ação, divulgar nossos materiais, sugerir ações. Queremos que sejas protagonista da mudança.
         </p>
         <p>
-          <span class="bigger-text">O dinheiro vai ser usado para quê?</span> Para a construção aberta das propostas que vamos apresentar nessas eleições, com Guilherme Boulos e Sonia Guajajara. Serão realizados debates abertos em todo o país, com participação de especialistas - e tudo consolidado em uma plataforma na internet. E não se constrói um programa que proponha mudanças profundas sem viajar para todos os cantos do país, conversando com trabalhadores urbanos e rurais, desempregados, jovens da periferia e das universidades, mulheres, negros, lgbts, ou seja, ouvindo e discutindo a mudança olho no olho.
-        </p>
-        <p>
-          <span class="bigger-text">Eu posso participar?</span> A contribuição financeira é apenas uma das formas de participar. Nossa construção é coletiva, de baixo para cima. Você pode participar dos eventos de construção do programa, constituir um grupo de ação, divulgar nossos materiais, sugerir ações. Queremos que sejas protagonista da mudança. <span class="bigger-text">Vamos?</span>
+          <span class="bigger-text">As propostas do PSOL são construídas de forma aberta. Isso só é possível com a sua participação. Vamos?</span>
         </p>
         <section id="campaign-progress" class="campaign-progress">
           <p>
@@ -114,8 +115,8 @@ export default {
   },
   mounted() {
     const candidateId = window.location.host === 'ap-psol.appcivico.com' || window.location.host === 'financie.psol50.org.br'
-    ? 78
-    : 136;
+      ? 78
+      : 136;
     this.$store.dispatch('GET_CANDIDATE_INFO', candidateId);
     this.$store.dispatch('GET_DONATIONS', candidateId);
   },
@@ -132,15 +133,14 @@ export default {
           return this.candidate.raising_goal;
         }
       }
-      return 0
+      return 0;
     },
     porcentage() {
       if (this.candidate) {
         const value = (this.candidate.total_donated * 100) / this.expected;
         return Math.ceil(value);
       }
-
-      return 0,
+      return 0;
     },
   },
 };
