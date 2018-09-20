@@ -101,12 +101,6 @@
     </ul>
       </div>
     </article> -->
-  <div class="fb-customerchat"
-    attribution=setup_tool
-    page_id="398845206932703"
-    logged_in_greeting="Faltam poucos dias pro primeiro turno, mas ainda precisamos levar o nosso projeto de combate aos privilégios, machismo, racismo e homofobia para muitas pessoas. Doe e vamos juntos!"
-    logged_out_greeting="Faltam poucos dias pro primeiro turno, mas ainda precisamos levar o nosso projeto de combate aos privilégios, machismo, racismo e homofobia para muitas pessoas. Doe e vamos juntos!">
-  </div>    
   </main>
 </template>
 
