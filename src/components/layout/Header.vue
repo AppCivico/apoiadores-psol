@@ -17,11 +17,6 @@
           <a href="#home__greetings" v-scroll-to="'#home__greetings'" class="logo-psol">PSOL</a>
         </div>
         <ul class="menu-wrap">
-          <li class="menu-item">
-            <a href="#home__knowMore" v-scroll-to="'#home__knowMore'">
-              Uso dos recursos
-            </a>
-          </li>
           <li class="menu-item donate-nav">
             <a href="#doar" v-scroll-to="'#doar'">
               Doar

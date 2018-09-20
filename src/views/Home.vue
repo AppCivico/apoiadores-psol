@@ -34,9 +34,9 @@
               </span>
             </div>
           </progress>
-          <p class="campaign-progress-porcentage">
+          <!-- <p class="campaign-progress-porcentage">
             {{ porcentage }}% da meta de R$ {{ expected | formatBRL }}
-          </p>
+          </p> -->
         </section>
       </div>
     </article>
@@ -47,7 +47,7 @@
       </div>
     </article>
 
-    <article id="home__knowMore" class="home__knowMore">
+    <!-- <article id="home__knowMore" class="home__knowMore">
       <div class="container" id="donation-wrap">
         <h2>
           Em que o dinheiro arrecadado vai ser usado?
@@ -76,7 +76,7 @@
           Durante a realização dos eventos e dos debates em nossa plataforma online, será preciso consolidar todas as propostas realizadas em eixos concretos para apresentar o programa ao país. Assim, é necessário ter pessoas dedicadas à sistematização da ampla gama de propostas e ideias surgidas, bem como viabilizar a apresentação e divulgação delas para todas e todos que participaram do processo.
         </p>
       </div>
-    </article>
+    </article> -->
 
     <!-- <article id="home__faq" class="home__faq">
       <div class="container" id="donation-wrap">
