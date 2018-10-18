@@ -1,1 +1,13 @@
+# Redirect domain aliases to client domain
+https://psol.apoiadores.appcivico.com/* https://financie.psol50.org.br/:splat 301!
+
+# Redirect default Netlify subdomain to primary domain
+https://elegant-swartz-755e20.netlify.com/* https://financie.psol50.org.br/:splat 301!
+
+# Redirect HTTP to HTTPS
+http://elegant-swartz-755e20.netlify.com/* https://elegant-swartz-755e20.netlify.com/:splat 301!
+http://psol.apoiadores.appcivico.com/* https://psol.apoiadores.appcivico.com/:splat 301!
+http://financie.psol50.org.br/* https://financie.psol50.org.br/:splat 301!
+
+# SPA redirects
 /*  /index.html 200
